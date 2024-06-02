@@ -11,12 +11,16 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.7.0",
+    "@astrojs/ts-plugin": "^1.8.0",
     "astro": "^4.9.2",
     "typescript": "^5.4.5"
   },
   "devDependencies": {
-    "eslint": "^9.4.0",
+    "@typescript-eslint/eslint-plugin": "^7.11.0",
+    "@typescript-eslint/parser": "^7.11.0",
+    "eslint": "^8.57.0",
     "eslint-plugin-astro": "^1.2.0",
+    "eslint-plugin-jsx-a11y": "^6.8.0",
     "postcss-html": "^1.7.0",
     "prettier": "^3.3.0",
     "prettier-plugin-astro": "^0.14.0",
