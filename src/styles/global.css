@@ -1,0 +1,24 @@
+:root {
+  --content-width: 840px;
+
+  /* Typography */
+  /*font-family: Inter, sans-serif;*/
+  font-feature-settings: 'liga' 1, 'calt' 1; /* fix for Chrome */
+
+  /* Colors */
+  --constant-black: #1F1E1D;
+  --caption-dark: #8F8D8B;
+  --caption-light: #C2C1BE;
+  --caption-light-secondary: #ADACA8;
+  --background: #F2F1F0;
+  --background-secondary: #EBEAE8;
+  --base: #FFFFFF;
+  --accent: #002EFF;
+  --accent-secondary: #FFD7CF;
+}
+
+html {
+  font-family: Inter, monospace, system-ui, sans-serif;
+  background: var(--base);
+  color: var(--constant-black);
+}
