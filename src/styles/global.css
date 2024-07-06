@@ -1,8 +1,8 @@
 :root {
 
   /* Colors */
-  --primary-color: #000000;
-  --secondary-color: #ffffff;
+  --primary-color: #1F1E1D;
+  --secondary-color: #8F8D8B;
   --accent-color: #007BFF;
   --accent-color-dark: #0069d9;
   --background-color: #f8f9fa;
@@ -12,15 +12,14 @@
   --font-size-base: 20px;
   --font-size-large: 52px;
   --font-size-small: 14px;
-  --font-weight-normal: 400;
+  --font-weight-normal: 360;
   --font-weight-bold: 500;
+  --font-weight-strong: 600;
   --line-height-base: 1.5;
 
   /* Spacing */
-  --content-width: 840px;
-
   --spacing-small: 8px;
-  --spacing-medium: 16px;
+  --spacing-medium: 12px;
   --spacing-large: 24px;
   --spacing-xlarge: 32px;
 
@@ -65,13 +64,25 @@ h1 {
 
 h2 {
   font-size: 32px;
-  font-weight: 640;
+  font-weight: 625;
   line-height: 42px;
+}
+
+h3 {
+  font-size: 20px;
+  line-height: 32px;
+  font-weight: var(--font-weight-strong);
+}
+
+strong {
+  font-weight: var(--font-weight-strong);
 }
 
 p {
   margin-top: 0;
-  margin-bottom: var(--spacing-medium);
+  font-size: 20px;
+  line-height: 32px;
+  font-weight: 345;
 }
 
 a {
@@ -83,40 +94,82 @@ a:hover {
   text-decoration: underline;
 }
 
-ul {
-  padding-left: var(--spacing-large);
+ul, ol {
+  list-style: none;
+  padding-left: 0;
   margin-top: 0;
   margin-bottom: var(--spacing-medium);
+  line-height: 32px;
 }
 
 ul li {
-  margin-bottom: var(--spacing-small);
+  display: block;
+  position: relative;
+  margin-bottom: 12px;
+  font-weight: var(--font-weight-normal);
 }
 
-button {
-  padding: var(--spacing-small) var(--spacing-medium);
-  font-size: var(--font-size-base);
-  font-family: var(--font-family), serif;
-  color: var(--secondary-color);
-  background-color: var(--accent-color);
-  border: none;
-  border-radius: var(--border-radius);
-  cursor: pointer;
+ul li:before {
+  content: "\2022";
+  font-weight: bold;
+  font-size: 12px;
+  position: absolute;
+  top: 0;
+  left: -14px;
 }
 
-button:hover {
-  background-color: var(--accent-color-dark);
+ol {
+  counter-reset: level1;
+}
+
+ol li {
+  display: block;
+  position: relative;
+  margin-bottom: 12px;
+  font-weight: var(--font-weight-normal);
+}
+
+ol li:before {
+  content: counter(level1) " ";
+  counter-increment: level1;
+  position: absolute;
+  font-size: 16px;
+  top: 0;
+  left: -15px;
+}
+
+.logo {
+  position: absolute;
+  top: 6px;
+  left: 0;
 }
 
 /* Specific Styles for the Personal Webpage */
-
-#contact-me {
-  margin-top: var(--spacing-xlarge);
+.content {
+  max-width: 840px;
+  margin: 0 auto;
+  padding: 120px 0 0;
+  position: relative;
+}
+section {
+ margin-top: 64px;
 }
 
-#contact-me a {
-  display: inline-block;
-  margin-right: var(--spacing-medium);
+section h3 {
+  margin-bottom: var(--spacing-medium);
+}
+
+section p {
+  margin-bottom: var(--spacing-medium);
+}
+
+.secondary {
+  color: var(--secondary-color);
+}
+
+.caption {
+  font-size: 16px;
+  line-height: 24px;
 }
 
 #professional-experience,
@@ -126,9 +179,16 @@ button:hover {
   margin-bottom: var(--spacing-xlarge);
 }
 
+#professional-experience ul li {
+  margin-bottom: 4px;
+}
+
 footer {
-  margin-top: var(--spacing-xlarge);
-  font-size: var(--font-size-small);
-  color: var(--primary-color);
-  text-align: center;
+  margin-top: 64px;
+}
+
+footer p {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 360;
 }
