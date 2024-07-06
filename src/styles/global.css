@@ -185,6 +185,7 @@ section p {
 
 footer {
   margin-top: 64px;
+  margin-bottom: var(--spacing-xlarge);
 }
 
 footer p {
