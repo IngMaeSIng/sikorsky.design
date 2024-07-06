@@ -1,24 +1,134 @@
 :root {
-  --content-width: 840px;
-
-  /* Typography */
-  /*font-family: Inter, sans-serif;*/
-  font-feature-settings: 'liga' 1, 'calt' 1; /* fix for Chrome */
 
   /* Colors */
-  --constant-black: #1F1E1D;
-  --caption-dark: #8F8D8B;
-  --caption-light: #C2C1BE;
-  --caption-light-secondary: #ADACA8;
-  --background: #F2F1F0;
-  --background-secondary: #EBEAE8;
-  --base: #FFFFFF;
-  --accent: #002EFF;
-  --accent-secondary: #FFD7CF;
+  --primary-color: #000000;
+  --secondary-color: #ffffff;
+  --accent-color: #007BFF;
+  --accent-color-dark: #0069d9;
+  --background-color: #f8f9fa;
+
+  /* Typography */
+  --font-family: InterVariable, monospace, system-ui, sans-serif;
+  --font-size-base: 20px;
+  --font-size-large: 52px;
+  --font-size-small: 14px;
+  --font-weight-normal: 400;
+  --font-weight-bold: 500;
+  --line-height-base: 1.5;
+
+  /* Spacing */
+  --content-width: 840px;
+
+  --spacing-small: 8px;
+  --spacing-medium: 16px;
+  --spacing-large: 24px;
+  --spacing-xlarge: 32px;
+
+  /* Shapes */
+  --border-radius: 4px;
+}
+
+/* CSS Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 html {
-  font-family: Inter, monospace, system-ui, sans-serif;
-  background: var(--base);
-  color: var(--constant-black);
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-family), serif;
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  background-color: var(--background-color);
+  color: var(--primary-color);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+  margin-bottom: var(--spacing-large);
+}
+
+h1 {
+  font-size: var(--font-size-large);
+  font-weight: var(--font-weight-bold);
+  line-height: 56px;
+}
+
+h2 {
+  font-size: 32px;
+  font-weight: 640;
+  line-height: 42px;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: var(--spacing-medium);
+}
+
+a {
+  color: var(--accent-color);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+ul {
+  padding-left: var(--spacing-large);
+  margin-top: 0;
+  margin-bottom: var(--spacing-medium);
+}
+
+ul li {
+  margin-bottom: var(--spacing-small);
+}
+
+button {
+  padding: var(--spacing-small) var(--spacing-medium);
+  font-size: var(--font-size-base);
+  font-family: var(--font-family), serif;
+  color: var(--secondary-color);
+  background-color: var(--accent-color);
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: var(--accent-color-dark);
+}
+
+/* Specific Styles for the Personal Webpage */
+
+#contact-me {
+  margin-top: var(--spacing-xlarge);
+}
+
+#contact-me a {
+  display: inline-block;
+  margin-right: var(--spacing-medium);
+}
+
+#professional-experience,
+#product-design-cases,
+#my-projects,
+#notes {
+  margin-bottom: var(--spacing-xlarge);
+}
+
+footer {
+  margin-top: var(--spacing-xlarge);
+  font-size: var(--font-size-small);
+  color: var(--primary-color);
+  text-align: center;
 }
