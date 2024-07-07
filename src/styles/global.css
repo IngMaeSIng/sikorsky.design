@@ -142,10 +142,23 @@ ol li:before {
   text-align: center;
 }
 
+nav {
+  position: fixed;
+  top: 0;
+  height: 36px;
+  width: 100%;
+  background-color: var(--background-color);
+  z-index: 10;
+}
+
+.nav-content {
+  max-width: 840px;
+  margin: 0 auto;
+}
+
 .logo {
-  position: absolute;
+  position: relative;
   top: 6px;
-  left: 0;
 }
 
 /* Specific Styles for the Personal Webpage */
