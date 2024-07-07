@@ -13,8 +13,8 @@
   --font-size-large: 52px;
   --font-size-small: 14px;
   --font-weight-normal: 360;
-  --font-weight-bold: 500;
-  --font-weight-strong: 600;
+  --font-weight-bold: 640;
+  --font-weight-strong: 640;
   --line-height-base: 1.5;
 
   /* Spacing */
@@ -60,11 +60,12 @@ h1 {
   font-size: var(--font-size-large);
   font-weight: var(--font-weight-bold);
   line-height: 56px;
+  letter-spacing: -0.8px;
 }
 
 h2 {
   font-size: 32px;
-  font-weight: 625;
+  font-weight: 640;
   line-height: 42px;
 }
 
@@ -134,8 +135,11 @@ ol li:before {
   counter-increment: level1;
   position: absolute;
   font-size: 16px;
-  top: 0;
-  left: -15px;
+  top: 0.7px;
+  left: -15.3px;
+  display: block;
+  width: 8px;
+  text-align: center;
 }
 
 .logo {
@@ -185,7 +189,7 @@ section p {
 
 footer {
   margin-top: 64px;
-  margin-bottom: var(--spacing-xlarge);
+  margin-bottom: 160px;
 }
 
 footer p {
