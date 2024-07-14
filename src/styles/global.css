@@ -90,12 +90,56 @@ p {
 }
 
 a {
-  color: var(--accent-color);
+  color: var(--primary-color);
   text-decoration: none;
+  position: relative;
+  display: inline-block;
+  transition: color 0.3s ease-out;
+}
+
+a > span.external-link-arrow {
+  position: absolute;
+  top: -1px;
+  right: -16px;
+  opacity: 0;
+  transition: opacity 0.3s ease-out;
+}
+
+a:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  bottom: 0px;
+  left: 0;
+  height: 1px;
+  background: linear-gradient(90deg, #F2F1F0 0%, #C2C1BE 100%);
+}
+
+a::after {
+  content: attr(data-hover);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: transparent;
+  background: linear-gradient(90deg, #C2C1BE 0%, #ADACA8 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  transition: opacity 0.3s ease-out;
+  opacity: 0;
 }
 
 a:hover {
-  text-decoration: underline;
+  color: transparent;
+}
+
+a:hover > span.external-link-arrow {
+  opacity: 1;
+}
+
+a:hover::after {
+  opacity: 1;
 }
 
 ul, ol {
@@ -162,6 +206,10 @@ nav {
 .logo {
   position: relative;
   top: 6px;
+}
+
+.logo:before {
+  display: none;
 }
 
 /* Specific Styles for the Personal Webpage */
