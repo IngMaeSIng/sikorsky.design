@@ -19,7 +19,7 @@ import '../styles/global.css';
    <body>
       <nav>
          <div class="nav-content">
-            <a href="#" class="logo">
+            <a href="#" class="logo" id="logo">
                <img src="/logo.svg" alt="Paul Sikorsky logo" />
             </a>
          </div>
@@ -85,5 +85,19 @@ import '../styles/global.css';
             <p class="secondary">© 2012&thinsp;–&thinsp;2024&nbsp;&nbsp;Paul Sikorsky</p>
          </footer>
       </div>
+      <script>
+         document.addEventListener('DOMContentLoaded', function() {
+            const logo = document.getElementById('logo');
+
+            logo?.addEventListener('click', function(e) {
+               e.preventDefault();
+
+               window.scrollTo({
+                  top: 0,
+                  behavior: 'smooth'
+               });
+            });
+         });
+      </script>
    </body>
 </html>
