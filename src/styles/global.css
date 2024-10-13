@@ -140,16 +140,21 @@ a {
   display: inline-block;
   position: relative;
   transition: color 0.3s ease-out;
-  background-image: linear-gradient(90deg, #F2F1F0 0%, #C2C1BE 100%);
-  background-position: 0 102%;
-  background-repeat: no-repeat;
-  background-size: 100% 1px;
-  padding-bottom: 2px;
+}
+
+a:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  bottom: 2px;
+  left: 0;
+  height: 1px;
+  background: linear-gradient(90deg, #F2F1F0 0%, #C2C1BE 100%);
 }
 
 @media (max-width: 425px) {
-  a {
-    display: initial;
+  section a:before {
+    bottom: 5px;
   }
 }
 
