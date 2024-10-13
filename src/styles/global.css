@@ -14,7 +14,9 @@
   /* Typography */
   --font-family: InterVariable, monospace, system-ui, sans-serif;
   --font-size-base: 20px;
+  --font-size-base-mobile: 16px;
   --font-size-large: 52px;
+  --font-size-large-mobile: 48px;
   --font-size-small: 14px;
   --font-weight-normal: 360;
   --font-weight-bold: 640;
@@ -26,6 +28,9 @@
   --spacing-medium: 12px;
   --spacing-large: 24px;
   --spacing-xlarge: 32px;
+
+  --container-width: 788px;
+  --container-padding: 26px;
 
   /* Shapes */
   --border-radius: 4px;
@@ -59,6 +64,12 @@ body {
   color: var(--constant_black);
 }
 
+@media (max-width: 425px) {
+  body {
+    font-size: var(--font-size-base-mobile);
+  }
+}
+
 h1, h2, h3, h4, h5, h6 {
   margin-top: 0;
   margin-bottom: var(--spacing-large);
@@ -71,16 +82,39 @@ h1 {
   letter-spacing: -0.8px;
 }
 
+@media (max-width: 425px) {
+  h1 {
+    font-size: var(--font-size-large-mobile);
+    line-height: 52px;
+  }
+}
+
 h2 {
   font-size: 32px;
   font-weight: 640;
   line-height: 42px;
+  letter-spacing: -0.05px;
+}
+
+@media (max-width: 425px) {
+  h2 {
+    font-size: 28px;
+    line-height: 36px;
+  }
 }
 
 h3 {
   font-size: 20px;
   line-height: 32px;
   font-weight: var(--font-weight-strong);
+  letter-spacing: -0.05px;
+}
+
+@media (max-width: 425px) {
+  h3 {
+    font-size: 16px;
+    line-height: 28px;
+  }
 }
 
 strong {
@@ -89,9 +123,15 @@ strong {
 
 p {
   margin-top: 0;
-  font-size: 20px;
+  font-size: var(--font-size-base);
   line-height: 32px;
   font-weight: 345;
+}
+
+@media (max-width: 425px) {
+  p {
+    font-size: var(--font-size-base-mobile);
+  }
 }
 
 a {
@@ -110,6 +150,12 @@ a:before {
   left: 0;
   height: 1px;
   background: linear-gradient(90deg, #F2F1F0 0%, #C2C1BE 100%);
+}
+
+@media (max-width: 425px) {
+  section a:before {
+    bottom: 5px;
+  }
 }
 
 a::after {
@@ -150,6 +196,12 @@ ul li {
   font-weight: var(--font-weight-normal);
 }
 
+@media (max-width: 425px) {
+  ul li {
+    margin-bottom: 4px;
+  }
+}
+
 ul li:before {
   content: "\2022";
   font-weight: bold;
@@ -157,6 +209,14 @@ ul li:before {
   position: absolute;
   top: 0;
   left: -14px;
+}
+
+@media (max-width: 425px) {
+  ul li:before {
+    font-size: 10px;
+    top: -1px;
+    left: -9.5px;
+  }
 }
 
 ol {
@@ -182,6 +242,14 @@ ol li:before {
   text-align: center;
 }
 
+@media (max-width: 425px) {
+  ol li:before {
+    font-size: 12px;
+    top: 0.5px;
+    left: -11px;
+  }
+}
+
 nav {
   position: fixed;
   top: 0;
@@ -196,6 +264,13 @@ nav {
   margin: 0 auto;
 }
 
+@media (max-width: 425px) {
+  .nav-content {
+    max-width: var(--container-width);
+    padding: 0 var(--container-padding);
+  }
+}
+
 .logo {
   position: relative;
   top: 6px;
@@ -206,11 +281,19 @@ nav {
 }
 
 /* Specific Styles for the Personal Webpage */
+
 .content {
   max-width: 840px;
   margin: 0 auto;
   padding: 120px 0 0;
   position: relative;
+}
+
+@media (max-width: 425px) {
+  .content {
+    max-width: var(--container-width);
+    padding: 120px var(--container-padding);
+  }
 }
 section {
  margin-top: 64px;
@@ -218,6 +301,12 @@ section {
 
 section h3 {
   margin-bottom: var(--spacing-medium);
+}
+
+@media (max-width: 425px) {
+  section h3 {
+    margin-bottom: 6px;
+  }
 }
 
 section p {
@@ -233,6 +322,13 @@ section p {
   line-height: 24px;
 }
 
+@media (max-width: 425px) {
+  .caption {
+    font-size: 12px;
+    line-height: 16px;
+  }
+}
+
 #professional-experience,
 #product-design-cases,
 #my-projects,
@@ -242,6 +338,12 @@ section p {
 
 #professional-experience ul li {
   margin-bottom: 4px;
+}
+
+@media (max-width: 425px) {
+  #professional-experience ul li {
+    margin-bottom: 0;
+  }
 }
 
 footer {
