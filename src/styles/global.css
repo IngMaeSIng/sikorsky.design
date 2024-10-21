@@ -136,23 +136,22 @@ p {
 
 a.link {
   font-size: inherit;
+  border-radius: 2px;
   color: var(--constant_black);
   text-decoration: underline;
-  text-decoration-skip-ink: none;
   text-decoration-color: var(--caption_light);
   text-decoration-thickness: 2px;
   text-underline-offset: 0.15em;
+  background-color: transparent;
+  transition: background-color 240ms ease-out;
 }
 
 a.link:hover {
   color: var(--base);
   text-decoration-color: var(--base);
-  background-image: linear-gradient(
-      var(--constant_black),
-      var(--constant_black)
-  );
+  background-color: var(--constant_black);
+  background-size: 100% 100%;
   padding-bottom: 2px;
-  border-radius: 2px;
 }
 
 ul, ol {
