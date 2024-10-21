@@ -134,7 +134,7 @@ p {
   }
 }
 
-a {
+a.link {
   font-size: inherit;
   color: var(--constant_black);
   text-decoration: underline;
@@ -144,7 +144,7 @@ a {
   text-underline-offset: 0.15em;
 }
 
-a:hover {
+a.link:hover {
   color: var(--base);
   text-decoration-color: var(--base);
   background-image: linear-gradient(
