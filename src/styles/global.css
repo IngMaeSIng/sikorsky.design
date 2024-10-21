@@ -135,20 +135,24 @@ p {
 }
 
 a {
+  font-size: inherit;
   color: var(--constant_black);
-  text-decoration: none;
-  box-shadow:
-      inset 0 0 white,
-      inset 0 -2px var(--caption_light);
-  position: relative;
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
+  text-decoration-color: var(--caption_light);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.15em;
 }
 
 a:hover {
   color: var(--base);
+  text-decoration-color: var(--base);
   background-image: linear-gradient(
       var(--constant_black),
       var(--constant_black)
   );
+  padding-bottom: 2px;
+  border-radius: 2px;
 }
 
 ul, ol {
@@ -218,6 +222,10 @@ ol li:before {
     top: 0.5px;
     left: -11px;
   }
+}
+
+ol li div:first-child {
+  margin-bottom: 2px;
 }
 
 nav {
