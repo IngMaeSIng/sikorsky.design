@@ -30,7 +30,6 @@
   --spacing-xlarge: 32px;
 
   --container-width: 788px;
-  --container-padding: 27px;
 
   /* Shapes */
   --border-radius: 4px;
@@ -263,14 +262,16 @@ nav {
 }
 
 .nav-content {
-  max-width: 840px;
+  max-width: 893px;
+  min-width: 393px;
   margin: 0 auto;
+  padding: 0 26px 0 27px;
 }
 
 @media (max-width: 425px) {
   .nav-content {
     max-width: var(--container-width);
-    padding: 0 var(--container-padding);
+    padding: 0 26px 0 27px;
   }
 }
 
@@ -290,18 +291,19 @@ nav {
 /*--- Specific Styles for the Personal Webpage ---*/
 
 .content {
-  max-width: 840px;
+  max-width: 893px;
+  min-width: 393px;
   margin: 0 auto;
-  padding: 120px 0 0;
+  padding: 120px 26px 0 27px;
   position: relative;
 }
 
 @media (max-width: 425px) {
   .content {
     max-width: var(--container-width);
-    padding: 120px var(--container-padding);
   }
 }
+
 section {
  margin-top: 64.5px;
 }
