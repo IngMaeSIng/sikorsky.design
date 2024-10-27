@@ -1,0 +1,27 @@
+---
+// src/components/Nav.astro
+---
+<nav>
+  <div class="nav-content">
+    <a href="/" class="logo" id="logo">
+      <img src="/logo.svg" alt="Paul Sikorsky logo" />
+    </a>
+  </div>
+</nav>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const logo = document.getElementById('logo');
+
+        logo?.addEventListener('click', function(e) {
+            if (window.location.pathname === '/') {
+                e.preventDefault();
+
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+</script>

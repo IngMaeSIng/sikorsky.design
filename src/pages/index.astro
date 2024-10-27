@@ -1,108 +1,148 @@
 ---
-import '../styles/global.css';
+import Layout from "../layouts/Layout.astro";
 ---
 
-<!DOCTYPE html>
-<html lang="en">
-   <head>
-      <meta charset="UTF-8">
-      <meta name="description" content="Astro description" />
-      <meta name="viewport" content="width=device-width" />
-      <link rel="icon" href="/favicon.ico" sizes="32x32">
-      <!--<link rel="icon" href="/icon.svg" type="image/svg+xml">-->
-      <link rel="apple-touch-icon" href="/apple-touch-icon.png"><!-- 180×180 -->
-      <link rel="manifest" href="/manifest.webmanifest">
-      <link rel="preload" href="/fonts/Inter/InterVariable.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-      <link rel="stylesheet" href="/fonts/Inter/inter.css">
-      <title>Paul Sikorsky</title>
-   </head>
-   <body>
-      <nav>
-         <div class="nav-content">
-            <a href="#" class="logo" id="logo">
-               <img src="/logo.svg" alt="Paul Sikorsky logo" />
-            </a>
-         </div>
-      </nav>
-      <div class="content">
-         <header>
-            <h1>Paul Sikorsky</h1>
-            <h2>
-               Experienced product designer and design manager with<br />a passion for structured æsthetics and holistic approach.
-               <br/>
-               On a mission to build a universal self-design system.
-            </h2>
-            <h2>Here's <a href="#" class="link">a bit more about me</a>, and <a href="#" class="link">what am I doing now</a>.</h2>
-         </header>
-         <section id="professional-experience">
-            <h3>Professional Experience</h3>
-            <ul>
-               <li><div><strong>Product Design Lead, <span class="secondary">Avito, 2017&thinsp;–&thinsp;2024</span></strong></div></li>
-               <li><div><strong>Product Designer, <span class="secondary">Storia, 2016</span></strong></div></li>
-               <li><div><strong>UI/UX Designer, <span class="secondary">Advertise, 2014&thinsp;–&thinsp;2016</span></strong></div></li>
-               <li><div><strong>Digital Designer, <span class="secondary">MaximumSoft, 2013&thinsp;–&thinsp;2014</span></strong></div></li>
-            </ul>
-         </section>
-         <section id="product-design-cases">
-            <h3>Product Design Cases</h3>
-            <ol>
-               <li>
-                  <div class="link-block"><a href="#" class="link">UGC uploader redesign for the world’s first classified service</a></div>
-                  <div class="caption">How we created a comprehensive vision for a complex tech product to support exponential growth, and increased Customer Effort Score (CES) by 20%</div>
-               </li>
-               <li class="inactive">
-                  <div class="link-block"><a href="#" class="link disabled-link">Avitologists certification program launch</a></div>
-                  <div class="caption">How strategic partnerships with third party marketing experts helped us grow our professional customers and earn $2M</div>
-               </li>
-               <li class="inactive">
-                  <div class="link-block"><a href="#" class="link disabled-link">User generated content quality research study</a></div>
-                  <div class="caption">How we refined the posting flow through experiments and established principles for high-quality content</div>
-               </li>
-            </ol>
-         </section>
-         <section id="my-projects">
-            <h3>My Projects</h3>
-            <ul>
-               <li>
-                  <div class="link-block"><a href="https://t.me/initsrightplace" class="link">In It’s Right Place</a></div>
-                  <div class="caption">My Telegram channel about self-design (Russian inside)</div>
-               </li>
-               <li class="inactive">
-                  <div class="link-block"><a href="#" class="link">Baseline</a></div>
-                  <div class="caption">A pet project focused on integrating all the self-design practices I use into an AI-powered diary</div>
-               </li>
-            </ul>
-         </section>
-         <section id="notes">
-            <h3>Notes</h3>
-            <ul>
-               <li>
-                  <div class="link-block"><a href="#" class="link">What I learned about change as a product designer at avito</a></div>
-               </li>
-            </ul>
-         </section>
-         <section id="contacts">
-            <h3>Contacts</h3>
-            <p>If you're interested in doing something together, please introduce yourself.</p>
-            <p><a href="#" class="link">LinkedIn</a>, <a href="https://read.cv/ingmaesing" class="link">Read.cv</a>, <a href="mailto:pavel@sikorsky.design" class="link">pavel@sikorsky.design</a>.</p>
-         </section>
-         <footer>
-            <p class="secondary">© 2012&thinsp;–&thinsp;2024&nbsp;Paul Sikorsky</p>
-         </footer>
-      </div>
-      <script>
-         document.addEventListener('DOMContentLoaded', function() {
-            const logo = document.getElementById('logo');
-
-            logo?.addEventListener('click', function(e) {
-               e.preventDefault();
-
-               window.scrollTo({
-                  top: 0,
-                  behavior: 'smooth'
-               });
-            });
-         });
-      </script>
-   </body>
-</html>
+<Layout title="Paul Sikorsky">
+  <header>
+    <h1>Paul Sikorsky</h1>
+    <h2>
+      Experienced product designer and design manager with a passion
+      for structured æsthetics and holistic approach. On a mission to build
+      a universal self-design system.
+    </h2>
+    <h2>
+      Find out more <a href="#" class="link">about me</a>, and <a
+        href="#"
+        class="link">what I'm up to now</a
+      >.
+    </h2>
+  </header>
+  <section id="professional-experience">
+    <h3>Professional Experience</h3>
+    <ul>
+      <li>
+        <div>
+          <strong
+            >Product Design Lead, <span class="secondary"
+              >Avito, 2017&thinsp;–&thinsp;2024</span
+            ></strong
+          >
+        </div>
+      </li>
+      <li>
+        <div>
+          <strong
+            >Product Designer, <span class="secondary">Storia, 2016</span
+            ></strong
+          >
+        </div>
+      </li>
+      <li>
+        <div>
+          <strong
+            >UI/UX Designer, <span class="secondary"
+              >Advertise, 2014&thinsp;–&thinsp;2016</span
+            ></strong
+          >
+        </div>
+      </li>
+      <li>
+        <div>
+          <strong
+            >Digital Designer, <span class="secondary"
+              >MaximumSoft, 2013&thinsp;–&thinsp;2014</span
+            ></strong
+          >
+        </div>
+      </li>
+    </ul>
+  </section>
+  <section id="product-design-cases">
+    <h3>Product Design Cases</h3>
+    <ol>
+      <li>
+        <div class="link-block">
+          <a href="#" class="link"
+            >UGC uploader redesign for the world’s first classified service</a
+          >
+        </div>
+        <div class="caption">
+          How we created a comprehensive vision for a complex tech product to
+          support exponential growth, and increased Customer Effort Score (CES)
+          by 20%
+        </div>
+      </li>
+      <li class="inactive">
+        <div class="link-block">
+          <a href="#" class="link disabled-link"
+            >Avitologists certification program launch</a
+          >
+        </div>
+        <div class="caption">
+          How strategic partnerships with third party marketing experts helped
+          us grow our professional customers and earn $2M
+        </div>
+      </li>
+      <li class="inactive">
+        <div class="link-block">
+          <a href="#" class="link disabled-link"
+            >User generated content quality research study</a
+          >
+        </div>
+        <div class="caption">
+          How we refined the posting flow through experiments and established
+          principles for high-quality content
+        </div>
+      </li>
+    </ol>
+  </section>
+  <section id="my-projects">
+    <h3>My Projects</h3>
+    <ul>
+      <li>
+        <div class="link-block">
+          <a href="https://t.me/initsrightplace" class="link">
+            In It’s Right Place
+          </a>
+        </div>
+        <div class="caption">
+          My Telegram channel about self-design (Russian inside)
+        </div>
+      </li>
+      <li class="inactive">
+        <div class="link-block"><a href="#" class="link">Baseline</a></div>
+        <div class="caption">
+          A pet project focused on integrating all the self-design practices I
+          use into an AI-powered diary
+        </div>
+      </li>
+    </ul>
+  </section>
+  <section id="notes">
+    <h3>Notes</h3>
+    <ul>
+      <li>
+        <div class="link-block">
+          <a href="/change" class="link">
+            What I learned about change as a product designer at avito
+          </a>
+        </div>
+      </li>
+    </ul>
+  </section>
+  <section id="contacts">
+    <h3>Contacts</h3>
+    <p>
+      If you're interested in doing something together, please introduce
+      yourself.
+    </p>
+    <p>
+      <a href="https://www.linkedin.com/in/pavelsikorsky/" class="link"
+        >LinkedIn</a
+      >, <a href="https://read.cv/ingmaesing" class="link">Read.cv</a>, <a
+        href="mailto:pavel@sikorsky.design"
+        class="link">pavel@sikorsky.design</a
+      >.
+    </p>
+  </section>
+</Layout>
