@@ -146,6 +146,12 @@ a.link {
   transition: all 240ms ease-out;
 }
 
+@media (max-width: 425px) {
+  a.link {
+    line-height: 22px;
+  }
+}
+
 a.link:hover {
   color: var(--base);
   text-decoration-color: var(--base);
@@ -306,6 +312,12 @@ nav {
 
 section {
  margin-top: 64.5px;
+}
+
+@media (max-width: 425px) {
+  section {
+    margin-top: 48px;
+  }
 }
 
 section h3 {
