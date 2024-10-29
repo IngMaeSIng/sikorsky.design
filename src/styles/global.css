@@ -262,6 +262,7 @@ nav.header {
   position: fixed;
   top: 0;
   width: 100%;
+  min-height: 36px;
   background-color: var(--base);
   z-index: 10;
 }
@@ -299,6 +300,7 @@ nav.header {
   padding: 0;
   margin: 0;
   display: flex;
+  flex-wrap: wrap;
 }
 
 .breadcrumbs ul li {
@@ -312,6 +314,12 @@ nav.header {
   content: "/";
   display: inline-block;
   margin: 0 6px;
+}
+
+@media (max-width: 425px) {
+  .breadcrumbs ul > li:not(:first-child)::before {
+    font-size: 16px;
+  }
 }
 
 @media (max-width: 425px) {
