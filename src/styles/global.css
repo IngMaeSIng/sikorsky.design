@@ -195,7 +195,7 @@ ul li {
   }
 }
 
-ul li:before {
+.content ul li:before {
   content: "";
   display: block;
   background-color: var(--constant_black);
@@ -205,7 +205,7 @@ ul li:before {
   font-weight: bold;
   font-size: 12px;
   position: absolute;
-  top: 13.5px;
+  top: 14.5px;
   left: -12.5px;
 }
 
@@ -258,10 +258,9 @@ ol li div:first-child {
   margin-bottom: 2px;
 }
 
-nav {
+nav.header {
   position: fixed;
   top: 0;
-  height: 36px;
   width: 100%;
   background-color: var(--base);
   z-index: 10;
@@ -272,21 +271,53 @@ nav {
   min-width: 393px;
   margin: 0 auto;
   padding: 0 26px 0 27px;
+  display: flex;
+  align-items: baseline;
+  justify-content: flex-start;
+}
+
+.logo {
+  text-decoration: none;
+  position: relative;
+  top: 6px;
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+}
+
+.logo:before {
+  display: none;
+}
+
+.breadcrumbs {
+  display: inline-block;
+  margin-left: 8px;
+}
+
+.breadcrumbs ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+.breadcrumbs ul li {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 360;
+  display: flex;
+}
+
+.breadcrumbs ul > li:not(:first-child)::before {
+  content: "/";
+  display: inline-block;
+  margin: 0 6px;
 }
 
 @media (max-width: 425px) {
   .nav-content {
     max-width: var(--container-width);
   }
-}
-
-.logo {
-  position: relative;
-  top: 6px;
-}
-
-.logo:before {
-  display: none;
 }
 
 .inactive {

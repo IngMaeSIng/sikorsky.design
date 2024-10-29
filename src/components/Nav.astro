@@ -1,11 +1,17 @@
 ---
-// src/components/Nav.astro
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { generateBreadcrumbs } from '../utils/generateBreadcrumbs';
+
+const currentPath = Astro.url.pathname;
+const pageTitle = Astro.props.title || 'Current Page';
+const breadcrumbItems = generateBreadcrumbs(currentPath, pageTitle);
 ---
-<nav>
+<nav class="header">
   <div class="nav-content">
     <a href="/" class="logo" id="logo">
       <img src="/logo.svg" alt="Paul Sikorsky logo" />
     </a>
+    <Breadcrumbs items={breadcrumbItems} />
   </div>
 </nav>
 

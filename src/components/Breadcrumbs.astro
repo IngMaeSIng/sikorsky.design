@@ -1,0 +1,72 @@
+---
+interface BreadcrumbItem {
+  label: string;
+  href: string;
+}
+
+interface Props {
+  items: BreadcrumbItem[];
+}
+
+const { items } = Astro.props;
+---
+
+<nav class="breadcrumbs" aria-label="Breadcrumb">
+  <ul>
+    {
+      items.map((item, index) => (
+        <li class={index === items.length - 1 ? "last-item hidden" : ""}>
+          {index < items.length - 1 ? (
+            <a href={item.href} class="link">{item.label}</a>
+          ) : (
+              <a href="#title" class="link current-page">{item.label}</a>
+          )}
+        </li>
+      ))
+    }
+  </ul>
+</nav>
+
+<script>
+  const lastBreadcrumb = document.querySelector('.breadcrumbs .last-item');
+  const titleElement = document.getElementById('title');
+
+  function handleScroll() {
+    if (titleElement) {
+      const rect = titleElement.getBoundingClientRect();
+      if (rect.top < 0) {
+        lastBreadcrumb?.classList.remove('hidden');
+      } else {
+        lastBreadcrumb?.classList.add('hidden');
+      }
+    }
+  }
+
+  window.addEventListener('scroll', handleScroll);
+
+  const currentPageLink = document.querySelector('.breadcrumbs .current-page');
+  currentPageLink?.addEventListener('click', (e) => {
+    e.preventDefault();
+
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+
+    lastBreadcrumb?.classList.add('hidden');
+  });
+</script>
+
+<style>
+  .last-item {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    overflow: hidden;
+  }
+
+  .last-item.hidden {
+    opacity: 0;
+    visibility: hidden;
+  }
+</style>
