@@ -385,6 +385,33 @@ section p {
   color: var(--caption);
 }
 
+.link-caption-wrapper {
+  cursor: pointer;
+}
+
+.link-caption-wrapper:hover .link,
+.link-caption-wrapper:focus-within .link {
+  color: var(--base);
+  text-decoration-color: var(--base);
+  background-color: var(--constant_black);
+  background-size: 100% 100%;
+}
+
+.disabled-link,
+.disabled-link:hover,
+.link-caption-wrapper:hover .disabled-link,
+.link-caption-wrapper:focus-within .disabled-link {
+  /* Add your disabled link styles here */
+  color: var(--caption);
+  text-decoration-color: var(--caption_light);
+  background-color: transparent;
+  cursor: not-allowed;
+}
+
+.link-caption-wrapper .caption {
+  cursor: pointer;
+}
+
 .caption {
   font-size: 16px;
   line-height: 24px;
