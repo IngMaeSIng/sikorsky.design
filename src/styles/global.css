@@ -54,6 +54,10 @@ html {
   box-sizing: inherit;
 }
 
+::selection {
+  background: var(--background_dark);
+}
+
 body {
   margin: 0;
   font-family: var(--font-family), serif;
