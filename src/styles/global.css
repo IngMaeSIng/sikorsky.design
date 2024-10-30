@@ -308,6 +308,7 @@ nav.header {
   line-height: 24px;
   font-weight: 360;
   display: flex;
+  margin-bottom: 0;
 }
 
 .breadcrumbs ul > li:not(:first-child)::before {
