@@ -305,26 +305,14 @@ nav.header {
   margin-left: 8px;
 }
 
-.breadcrumbs ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-wrap: wrap;
+.separator {
+  margin-left: 6px;
 }
 
-.breadcrumbs ul li {
-  font-size: 16px;
-  line-height: 24px;
-  font-weight: 360;
-  display: flex;
-  margin-bottom: 0;
-}
-
-.breadcrumbs ul > li:not(:first-child)::before {
-  content: "/";
-  display: inline-block;
-  margin: 0 6px;
+@media (max-width: 425px) {
+  .breadcrumbs a.link {
+    text-decoration-thickness: 1px;
+  }
 }
 
 @media (max-width: 425px) {
