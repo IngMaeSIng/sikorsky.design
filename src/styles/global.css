@@ -337,6 +337,17 @@ nav.header {
   color: var(--caption);
 }
 
+.metadata {
+  color: var(--caption);
+  margin-bottom: 24px;
+  font-size: 16px;
+  font-weight: 360;
+}
+
+.metadata a {
+  color: var(--caption);
+}
+
 /*--- Specific Styles for the Personal Webpage ---*/
 
 .content {
