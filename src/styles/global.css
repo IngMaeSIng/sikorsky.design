@@ -134,6 +134,7 @@ p {
 @media (max-width: 425px) {
   p {
     font-size: var(--font-size-base-mobile);
+    line-height: 22px;
   }
 }
 
@@ -194,8 +195,13 @@ ul li {
 }
 
 @media (max-width: 425px) {
-  ul li {
+  .index-page ul li {
     margin-bottom: 4px;
+  }
+
+  ul li {
+    margin-bottom: 8px;
+    line-height: 22px;
   }
 }
 
@@ -214,7 +220,7 @@ ul li {
 }
 
 @media (max-width: 425px) {
-  ul li:before {
+  .content ul li:before {
     font-size: 10px;
     top: 11px;
     left: -9px;
@@ -273,7 +279,7 @@ nav.header {
 
 .nav-content {
   max-width: 893px;
-  min-width: 393px;
+  min-width: 413px;
   margin: 0 auto;
   padding: 0 26px 0 27px;
   display: flex;
@@ -342,6 +348,7 @@ nav.header {
   margin-bottom: 24px;
   font-size: 16px;
   font-weight: 360;
+  line-height: 22px;
 }
 
 .metadata a {
@@ -352,7 +359,7 @@ nav.header {
 
 .content {
   max-width: 893px;
-  min-width: 393px;
+  min-width: 413px;
   margin: 0 auto;
   padding: 120px 26px 0 27px;
   position: relative;
@@ -386,6 +393,12 @@ section h2, section h3 {
 
 section p {
   margin-bottom: 20px;
+}
+
+@media (max-width: 425px) {
+  section p {
+    margin-bottom: 19px;
+  }
 }
 
 #contacts p {
@@ -459,7 +472,7 @@ section p {
 
 footer {
   max-width: 893px;
-  min-width: 393px;
+  min-width: 413px;
   margin: 64px auto 160px;
   padding: 0 26px 0 27px;
 }
