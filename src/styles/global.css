@@ -306,19 +306,17 @@ nav.header {
 }
 
 .separator {
-  margin-left: 6px;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 360;
+  margin: 0 1px 0 6px;
 }
 
-@media (max-width: 425px) {
-  .breadcrumbs a.link {
-    text-decoration-thickness: 1px;
-  }
-}
-
-@media (max-width: 425px) {
-  .breadcrumbs ul > li:not(:first-child)::before {
-    font-size: 16px;
-  }
+.breadcrumbs a.link {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 360;
+  text-decoration-thickness: 1px;
 }
 
 @media (max-width: 425px) {
@@ -341,6 +339,7 @@ nav.header {
 
 .metadata a {
   color: var(--caption);
+  text-decoration-thickness: 1px;
 }
 
 /*--- Specific Styles for the Personal Webpage ---*/
