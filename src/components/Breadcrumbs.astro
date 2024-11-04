@@ -47,13 +47,14 @@ const { items } = Astro.props;
   const header = document.querySelector("nav.header");
 
   function getHeaderHeight() {
-      return header ? header.offsetHeight : 0;
+    // @ts-ignore
+    return header ? header.offsetHeight : 0;
   }
 
   function handleScroll() {
     if (titleElement) {
       const rect = titleElement.getBoundingClientRect();
-        const headerHeight = getHeaderHeight();
+      const headerHeight = getHeaderHeight();
 
       // Show separator when title's top is out of view
       if (rect.top < headerHeight) {
