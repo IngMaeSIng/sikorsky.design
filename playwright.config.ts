@@ -29,8 +29,9 @@ export default defineConfig({
     baseURL: "http://localhost:4321",
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    trace: "on-first-retry"
+    trace: "on-first-retry",
   },
+  snapshotPathTemplate: '{testDir}/{testFileDir}/{testFileName}-snapshots/{arg}{ext}',
 
   /* Configure projects for major browsers */
   projects: [
