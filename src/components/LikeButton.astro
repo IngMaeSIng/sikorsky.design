@@ -1,0 +1,100 @@
+---
+interface Props {
+    pageId: string;
+}
+
+const { pageId } = Astro.props;
+---
+
+<div class="like-container">
+  <button id="likeButton" class="like-button" data-page-id={pageId}>
+    <span class="like-icon">🤍</span>
+    <span id="likeCount">0</span>
+  </button>
+</div>
+
+<script>
+    import { database } from '../lib/firebase';
+    import { ref, onValue, increment, set } from 'firebase/database';
+
+    class LikeButton {
+        constructor(button: HTMLButtonElement) {
+            this.button = button;
+            this.pageId = button.dataset.pageId!;
+            this.likeCount = button.querySelector('#likeCount')!;
+            this.likeIcon = button.querySelector('.like-icon')!;
+            this.hasLiked = this.checkIfLiked();
+
+            this.initializeLikes();
+            this.attachEventListener();
+            this.updateButtonState();
+        }
+
+        private checkIfLiked(): boolean {
+            const likedPages = JSON.parse(localStorage.getItem('likedPages') || '[]');
+            return likedPages.includes(this.pageId);
+        }
+
+        private initializeLikes(): void {
+            const likesRef = ref(database, `likes/${this.pageId}`);
+            onValue(likesRef, (snapshot) => {
+                const count = snapshot.val() || 0;
+                this.likeCount.textContent = count.toString();
+            });
+        }
+
+        private updateButtonState(): void {
+            if (this.hasLiked) {
+                this.button.disabled = true;
+                this.likeIcon.textContent = '❤️';
+            }
+        }
+
+        private attachEventListener(): void {
+            this.button.addEventListener('click', async () => {
+                if (this.hasLiked) return;
+
+                const likesRef = ref(database, `likes/${this.pageId}`);
+                await set(likesRef, increment(1));
+
+                const likedPages = JSON.parse(localStorage.getItem('likedPages') || '[]');
+                localStorage.setItem('likedPages', JSON.stringify([...likedPages, this.pageId]));
+
+                this.hasLiked = true;
+                this.updateButtonState();
+            });
+        }
+    }
+
+    // Initialize all like buttons on the page
+    document.querySelectorAll<HTMLButtonElement>('.like-button').forEach(button => {
+        new LikeButton(button);
+    });
+</script>
+
+<style>
+  .like-container {
+    display: inline-block;
+  }
+
+  .like-button {
+    border: 1px solid #ddd;
+    padding: 4px 12px;
+    border-radius: 20px;
+    background: white;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .like-button:hover:not(:disabled) {
+    background: #f5f5f5;
+  }
+
+  .like-button:disabled {
+    opacity: 0.7;
+    cursor: default;
+  }
+</style>
