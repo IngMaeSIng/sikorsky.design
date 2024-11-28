@@ -163,6 +163,7 @@ const { pageId } = Astro.props;
     transform-origin: center;
     opacity: 0;
     transition: transform var(--animation-timing);
+    transition-delay: 0.12s;
   }
 
   .phase-1 .rounded-square,
@@ -219,6 +220,11 @@ const { pageId } = Astro.props;
     opacity: 1;
   }
 
+  .phase-2 .dot,
+  .phase-2 .big-dot {
+    opacity: 0;
+  }
+
   .phase-3 .rounded-square {
     transform: scale(1);
     fill: var(--constant_black);
@@ -226,6 +232,7 @@ const { pageId } = Astro.props;
 
   .phase-3 .dot,
   .phase-3 .big-dot {
+    opacity: 1;
     transform: scale(1) translateX(0) translateY(0) !important;
     fill: var(--base);
   }
@@ -312,12 +319,12 @@ const { pageId } = Astro.props;
           if (!this.hasLiked) {
             await this.updateLike();
           }
-        }, 1320);
+        }, 1200);
 
         // Third phase
         this.thirdTimer = setTimeout(() => {
           this.button.classList.add("phase-3");
-        }, 2640);
+        }, 2400);
       });
 
       this.button.addEventListener("mouseleave", () => {
