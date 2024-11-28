@@ -33,6 +33,9 @@
 
   /* Shapes */
   --border-radius: 4px;
+
+  /* breakpoints */
+  --breakpoint-mobile: 600px;
 }
 
 /* CSS Reset */
@@ -67,7 +70,7 @@ body {
   color: var(--constant_black);
 }
 
-@media (max-width: 425px) {
+@media (max-width: 600px) {
   body {
     font-size: var(--font-size-base-mobile);
   }
@@ -85,7 +88,7 @@ h1 {
   letter-spacing: -0.8px;
 }
 
-@media (max-width: 425px) {
+@media (max-width: 600px) {
   h1 {
     font-size: var(--font-size-large-mobile);
     line-height: 52px;
@@ -99,7 +102,7 @@ h2 {
   letter-spacing: -0.05px;
 }
 
-@media (max-width: 425px) {
+@media (max-width: 600px) {
   h2 {
     font-size: 28px;
     line-height: 36px;
@@ -113,7 +116,7 @@ h3 {
   letter-spacing: -0.05px;
 }
 
-@media (max-width: 425px) {
+@media (max-width: 600px) {
   h3 {
     font-size: 16px;
     line-height: 28px;
@@ -131,7 +134,7 @@ p {
   font-weight: 345;
 }
 
-@media (max-width: 425px) {
+@media (max-width: 600px) {
   p {
     font-size: var(--font-size-base-mobile);
     line-height: 22px;
@@ -146,12 +149,12 @@ a.link {
   text-decoration: underline;
   text-decoration-color: var(--caption_light);
   text-decoration-thickness: 2px;
-  text-underline-offset: 0.15em;
+  text-underline-offset: 0.25em;
   background-color: transparent;
   transition: all 240ms ease-out;
 }
 
-@media (max-width: 425px) {
+@media (max-width: 600px) {
   a.link {
     line-height: 22px;
   }
@@ -190,11 +193,11 @@ ul, ol {
 ul li {
   display: block;
   position: relative;
-  margin-bottom: 12px;
+  margin-bottom: 16px;
   font-weight: var(--font-weight-normal);
 }
 
-@media (max-width: 425px) {
+@media (max-width: 600px) {
   .index-page ul li {
     margin-bottom: 4px;
   }
@@ -219,10 +222,10 @@ ul li {
   left: -12.5px;
 }
 
-@media (max-width: 425px) {
+@media (max-width: 600px) {
   .content ul li:before {
     font-size: 10px;
-    top: 11px;
+    top: 10px;
     left: -9px;
   }
 }
@@ -234,11 +237,11 @@ ol {
 ol li {
   display: block;
   position: relative;
-  margin-bottom: 12px;
+  margin-bottom: 16px;
   font-weight: var(--font-weight-normal);
 }
 
-@media (max-width: 425px) {
+@media (max-width: 600px) {
   ol li {
     margin-bottom: 7px;
   }
@@ -249,6 +252,7 @@ ol li:before {
   counter-increment: level1;
   position: absolute;
   font-size: 16px;
+  font-weight: 600;
   top: 3px;
   left: -15.3px;
   display: block;
@@ -256,7 +260,7 @@ ol li:before {
   text-align: center;
 }
 
-@media (max-width: 425px) {
+@media (max-width: 600px) {
   ol li:before {
     font-size: 12px;
     top: 1px;
@@ -319,9 +323,15 @@ nav.header {
   text-decoration-thickness: 1px;
 }
 
-@media (max-width: 425px) {
+@media (max-width: 600px) {
   .nav-content {
     max-width: var(--container-width);
+  }
+}
+
+@media (max-width: 893px) {
+  .nav-content {
+    padding: 0 16px 0 16px;
   }
 }
 
@@ -352,7 +362,13 @@ nav.header {
   position: relative;
 }
 
-@media (max-width: 425px) {
+@media (max-width: 893px) {
+  .content {
+    padding: 120px 16px 0 16px;
+  }
+}
+
+@media (max-width: 600px) {
   .content {
     max-width: var(--container-width);
   }
@@ -362,7 +378,7 @@ section {
  margin-top: 64.5px;
 }
 
-@media (max-width: 425px) {
+@media (max-width: 600px) {
   section {
     margin-top: 48px;
   }
@@ -372,7 +388,7 @@ section h2, section h3 {
   margin-bottom: 12px;
 }
 
-@media (max-width: 425px) {
+@media (max-width: 600px) {
   section h3 {
     margin-bottom: 6px;
   }
@@ -382,7 +398,7 @@ section p {
   margin-bottom: 20px;
 }
 
-@media (max-width: 425px) {
+@media (max-width: 600px) {
   section p {
     margin-bottom: 19px;
   }
@@ -428,7 +444,7 @@ section p {
   line-height: 24px;
 }
 
-@media (max-width: 425px) {
+@media (max-width: 600px) {
   .caption {
     font-size: 12px;
     line-height: 16px;
@@ -439,7 +455,7 @@ section p {
   margin-bottom: 4px;
 }
 
-@media (max-width: 425px) {
+@media (max-width: 600px) {
   #product-design-cases h3, #my-projects h3, #notes h3 {
     margin-bottom: 6px;
   }
@@ -450,7 +466,7 @@ section p {
   padding-bottom: 6px;
 }
 
-@media (max-width: 425px) {
+@media (max-width: 600px) {
   #product-design-cases .link-block, #my-projects .link-block, #notes .link-block {
     padding-top: 0;
     padding-bottom: 0;
@@ -464,7 +480,7 @@ footer {
   padding: 0 26px 0 27px;
 }
 
-@media (max-width: 425px) {
+@media (max-width: 600px) {
   footer {
     max-width: var(--container-width);
   }
