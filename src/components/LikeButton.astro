@@ -266,9 +266,7 @@ const { pageId } = Astro.props;
 
     private checkIfLiked(): boolean {
       const likedPages = JSON.parse(localStorage.getItem('likedPages') || '[]');
-      // return likedPages.includes(this.pageId);
-
-      return false;
+      return likedPages.includes(this.pageId);
     }
 
     private initializeLikes(): void {
