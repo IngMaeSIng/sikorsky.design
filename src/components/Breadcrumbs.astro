@@ -38,6 +38,28 @@ const { items } = Astro.props;
   }
 </nav>
 
+<style>
+  .separator,
+  .current-page {
+    opacity: 1;
+    visibility: visible;
+    transition:
+        opacity 0.3s ease,
+        visibility 0.3s ease;
+    overflow: hidden;
+    display: inline;
+    height: auto;
+  }
+
+  .separator.hidden,
+  .current-page.hidden {
+    opacity: 0;
+    visibility: hidden;
+    display: block;
+    height: 0;
+  }
+</style>
+
 <script>
   const lastBreadcrumb = document.querySelector(".breadcrumbs .current-page");
   const lastSeparator = document.querySelector(
@@ -85,24 +107,3 @@ const { items } = Astro.props;
   });
 </script>
 
-<style>
-  .separator,
-  .current-page {
-    opacity: 1;
-    visibility: visible;
-    transition:
-      opacity 0.3s ease,
-      visibility 0.3s ease;
-    overflow: hidden;
-    display: inline;
-    height: auto;
-  }
-
-  .separator.hidden,
-  .current-page.hidden {
-    opacity: 0;
-    visibility: hidden;
-    display: block;
-    height: 0;
-  }
-</style>
