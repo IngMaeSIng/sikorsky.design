@@ -241,6 +241,10 @@ ul li {
   }
 }
 
+.content ul li.inactive:before {
+  background-color: var(--caption);
+}
+
 ol {
   counter-reset: level1;
 }
