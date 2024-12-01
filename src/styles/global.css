@@ -320,7 +320,6 @@ nav.header {
   font-size: 16px;
   line-height: 24px;
   font-weight: 360;
-  text-decoration-thickness: 1px;
 }
 
 @media (max-width: 600px) {
@@ -349,7 +348,6 @@ nav.header {
 
 .metadata a {
   color: var(--caption);
-  text-decoration-thickness: 1px;
 }
 
 /*--- Specific Styles for the Personal Webpage ---*/
