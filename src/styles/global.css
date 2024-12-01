@@ -169,6 +169,7 @@ a.link:hover {
 
 a.link:active {
   color: var(--caption);
+  text-decoration-color: var(--caption);
 }
 
 .link-block {
