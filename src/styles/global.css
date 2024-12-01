@@ -167,6 +167,10 @@ a.link:hover {
   background-size: 100% 100%;
 }
 
+a.link:active {
+  color: var(--caption);
+}
+
 .link-block {
   display: block;
   line-height: 20px;
