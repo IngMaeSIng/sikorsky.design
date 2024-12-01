@@ -144,7 +144,7 @@ p {
 a.link {
   font-size: inherit;
   border-radius: 2px;
-  padding-bottom: 2px;
+  padding-bottom: 4px;
   color: var(--constant_black);
   text-decoration: underline;
   text-decoration-color: var(--caption_light);
