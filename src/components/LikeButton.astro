@@ -149,21 +149,21 @@ const { pageId } = Astro.props;
     fill: var(--base);
     transform-origin: center;
     vector-effect: non-scaling-stroke;
-    transition: transform var(--animation-timing);
+    transition: transform 1.6s cubic-bezier(0.25, 0, 0, 1);
   }
 
   .dot,
   .big-dot {
     transform-origin: center;
-    transition: transform var(--animation-timing);
+    transition: transform 1.6s cubic-bezier(0.25, 0, 0, 1);
   }
 
   .liked-event-filler {
     transform: scale(0.05);
     transform-origin: center;
     opacity: 0;
-    transition: transform var(--animation-timing);
-    transition-delay: 0.12s;
+    transition: transform 0.8s cubic-bezier(0.25, 0, 0, 1);
+    transition-delay: 80ms;
   }
 
   .phase-1 .rounded-square,
@@ -225,6 +225,15 @@ const { pageId } = Astro.props;
     opacity: 0;
   }
 
+  .phase-3 .rounded-square,
+  .phase-3 .big-dot,
+  .phase-3 .dot,
+  .phase-3 .liked-event-filler {
+    transition: opacity 1.2s cubic-bezier(0.25, 0, 0, 1),
+    transform 1.2s cubic-bezier(0.25, 0, 0, 1),
+    fill 1.2s cubic-bezier(0.25, 0, 0, 1);
+  }
+
   .phase-3 .rounded-square {
     transform: scale(1);
     fill: var(--constant_black);
@@ -266,6 +275,7 @@ const { pageId } = Astro.props;
 
     private checkIfLiked(): boolean {
       const likedPages = JSON.parse(localStorage.getItem('likedPages') || '[]');
+
       return likedPages.includes(this.pageId);
     }
 
@@ -286,9 +296,11 @@ const { pageId } = Astro.props;
 
     private async updateLike(): Promise<void> {
       const likesRef = ref(database, `likes/${this.pageId}`);
+
       await set(likesRef, increment(1));
 
       const likedPages = JSON.parse(localStorage.getItem('likedPages') || '[]');
+
       localStorage.setItem('likedPages', JSON.stringify([...likedPages, this.pageId]));
 
       this.hasLiked = true;
@@ -317,17 +329,18 @@ const { pageId } = Astro.props;
           if (!this.hasLiked) {
             await this.updateLike();
           }
-        }, 1200);
+        }, 1600);
 
         // Third phase
         this.thirdTimer = setTimeout(() => {
           this.button.classList.add("phase-3");
-        }, 2400);
+        }, 2480);
       });
 
       this.button.addEventListener("mouseleave", () => {
         if (!this.button.classList.contains("phase-2") && !this.button.classList.contains("phase-3")) {
           this.button.classList.remove("phase-1", "phase-2", "phase-3");
+
           clearTimeout(this.secondTimer);
           clearTimeout(this.thirdTimer);
         }
