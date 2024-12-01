@@ -188,6 +188,12 @@ a.disabled-link:hover {
   text-decoration-color: var(--caption_light);
 }
 
+a.disabled-link:active {
+  color: currentColor;
+  background-color: transparent;
+  text-decoration-color: var(--caption_light);
+}
+
 ul, ol {
   list-style: none;
   padding-left: 0;
@@ -427,11 +433,16 @@ section p {
   background-size: 100% 100%;
 }
 
+.link-caption-wrapper:active .link {
+  color: var(--caption);
+  text-decoration-color: var(--caption);
+}
+
 .disabled-link,
 .disabled-link:hover,
 .link-caption-wrapper:hover .disabled-link,
+.link-caption-wrapper:active .disabled-link,
 .link-caption-wrapper:focus-within .disabled-link {
-  /* Add your disabled link styles here */
   color: var(--caption);
   text-decoration-color: var(--caption_light);
   background-color: transparent;
