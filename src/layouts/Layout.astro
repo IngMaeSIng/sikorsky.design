@@ -1,12 +1,14 @@
 ---
 import '../styles/global.css';
 import Nav from '../components/Nav.astro';
+import LikeButton from "../components/LikeButton.astro";
 
 interface Props {
 	title: string;
+	pageId?: string;
 }
 
-const { title } = Astro.props;
+const { title, pageId } = Astro.props;
 ---
 
 <!doctype html>
@@ -32,6 +34,7 @@ const { title } = Astro.props;
 			</div>
 		</main>
 		<footer>
+			{pageId && <LikeButton pageId={pageId} />}
 			<p class="secondary">© 2012&thinsp;–&thinsp;2024&nbsp;Paul Sikorsky</p>
 		</footer>
 	</body>
