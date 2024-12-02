@@ -42,10 +42,10 @@ const currentPath = Astro.url.pathname;
           pageId && (
             <div class="social">
               <LikeButton pageId={pageId} />
-              <strong>·</strong>
-              <strong>
+              <strong class="separator">·</strong>
+              <strong class="share">
                 <a href={Astro.url} class="link" id="copy-link">
-                  Copy & Share:</a>
+                  Copy&nbsp;&&nbsp;Share:</a>
                 {` sikorsky.design${currentPath.replace(/\/$/, '')}`}
               </strong>
             </div>
@@ -63,6 +63,7 @@ const currentPath = Astro.url.pathname;
   .social {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
 
     margin-top: 56px;
 
@@ -70,6 +71,28 @@ const currentPath = Astro.url.pathname;
 
     position: relative;
     left: -8px;
+
+    font-size: 20px;
+  }
+
+  .separator {
+    display: inline;
+    visibility: visible;
+
+  }
+
+  @media (max-width: 600px) {
+    .separator {
+      display: none;
+      visibility: hidden;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .share {
+      padding-left: 8px;
+      margin-top: 40px;
+    }
   }
 </style>
 

@@ -513,6 +513,7 @@ footer {
 @media (max-width: 600px) {
   footer {
     max-width: var(--container-width);
+    padding: 0 16px 0 16px;
   }
 }
 
