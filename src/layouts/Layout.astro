@@ -42,8 +42,8 @@ const currentPath = Astro.url.pathname;
           pageId && (
             <div class="social">
               <LikeButton pageId={pageId} />
+              <strong>·</strong>
               <strong>
-                ·{" "}
                 <a href={Astro.url} class="link" id="copy-link">
                   Copy & Share:</a>
                 {` sikorsky.design${currentPath.replace(/\/$/, '')}`}
@@ -65,6 +65,11 @@ const currentPath = Astro.url.pathname;
     align-items: center;
 
     margin-top: 56px;
+
+    gap: 8px;
+
+    position: relative;
+    left: -8px;
   }
 </style>
 
