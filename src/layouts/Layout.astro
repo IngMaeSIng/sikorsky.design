@@ -46,7 +46,7 @@ const currentPath = Astro.url.pathname;
                 ·{" "}
                 <a href={Astro.url} class="link" id="copy-link">
                   Copy & Share:</a>
-                {` sikorsky.design${currentPath}`}
+                {` sikorsky.design${currentPath.replace(/\/$/, '')}`}
               </strong>
             </div>
           )
