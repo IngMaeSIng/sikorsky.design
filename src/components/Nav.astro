@@ -1,11 +1,12 @@
 ---
-import Breadcrumbs from '../components/Breadcrumbs.astro';
-import { generateBreadcrumbs } from '../utils/generateBreadcrumbs';
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+import { generateBreadcrumbs } from "../utils/generateBreadcrumbs";
 
 const currentPath = Astro.url.pathname;
-const pageTitle = Astro.props.title || 'Current Page';
+const pageTitle = Astro.props.title || "Current Page";
 const breadcrumbItems = generateBreadcrumbs(currentPath, pageTitle);
 ---
+
 <nav class="header">
   <div class="nav-content">
     <a href="/" class="logo" id="logo">
@@ -16,18 +17,18 @@ const breadcrumbItems = generateBreadcrumbs(currentPath, pageTitle);
 </nav>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const logo = document.getElementById('logo');
+  document.addEventListener("DOMContentLoaded", function () {
+    const logo = document.getElementById("logo");
 
-        logo?.addEventListener('click', function(e) {
-            if (window.location.pathname === '/') {
-                e.preventDefault();
+    logo?.addEventListener("click", function (e) {
+      if (window.location.pathname === "/") {
+        e.preventDefault();
 
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
-            }
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth"
         });
+      }
     });
+  });
 </script>

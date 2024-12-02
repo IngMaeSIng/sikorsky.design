@@ -44,7 +44,7 @@ const currentPath = Astro.url.pathname;
               <LikeButton pageId={pageId} />
               <strong>
                 ·{" "}
-                <a href={Astro.url} class="link">
+                <a href={Astro.url} class="link" id="copy-link">
                   Copy & Share:</a>
                 {` sikorsky.design${currentPath}`}
               </strong>
@@ -69,7 +69,7 @@ const currentPath = Astro.url.pathname;
 </style>
 
 <script is:inline>
-  document.body.addEventListener("click", (e) => {
+  document.getElementById('copy-link').addEventListener("click", (e) => {
     if (e.target.closest(".link")) {
       e.preventDefault();
       navigator.clipboard.writeText(
