@@ -241,6 +241,12 @@ ul li {
   }
 }
 
+@media (max-width: 893px) {
+  .content ul li:before {
+    left: -9px;
+  }
+}
+
 .content ul li.inactive:before {
   background-color: var(--caption);
 }
@@ -280,6 +286,12 @@ ol li:before {
     font-size: 12px;
     top: 1px;
     left: -11px;
+  }
+}
+
+@media (max-width: 893px) {
+  ol li:before {
+    left: -12px;
   }
 }
 
