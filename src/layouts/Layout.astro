@@ -42,7 +42,7 @@ const currentPath = Astro.url.pathname;
           pageId && (
             <div class="social">
               <LikeButton pageId={pageId} />
-              <strong class="separator">·</strong>
+              <strong class="dot-separator">·</strong>
               <strong class="share">
                 <a href={Astro.url} class="link" id="copy-link">
                   Copy&nbsp;&&nbsp;Share:</a>
@@ -75,14 +75,14 @@ const currentPath = Astro.url.pathname;
     font-size: 20px;
   }
 
-  .separator {
+  .dot-separator {
     display: inline;
     visibility: visible;
 
   }
 
   @media (max-width: 600px) {
-    .separator {
+    .dot-separator {
       display: none;
       visibility: hidden;
     }
