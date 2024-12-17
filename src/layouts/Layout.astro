@@ -5,10 +5,11 @@ import LikeButton from "../components/LikeButton.astro";
 
 interface Props {
   title: string;
+  description?: string;
   pageId?: string;
 }
 
-const { title, pageId } = Astro.props;
+const { title, description, pageId } = Astro.props;
 const currentPath = Astro.url.pathname;
 ---
 
@@ -16,7 +17,7 @@ const currentPath = Astro.url.pathname;
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="Experienced product designer and design manager with a passion for structured æsthetics and holistic approach. On a mission to build a universal self-design system." />
+    <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" href="/favicon.ico" sizes="32x32" />
     <!--<link rel="icon" href="/icon.svg" type="image/svg+xml">-->
@@ -45,8 +46,9 @@ const currentPath = Astro.url.pathname;
               <strong class="dot-separator">·</strong>
               <strong class="share">
                 <a href={Astro.url} class="link" id="copy-link">
-                  Copy&nbsp;&&nbsp;Share:</a>
-                {` sikorsky.design${currentPath.replace(/\/$/, '')}`}
+                  Copy&nbsp;&&nbsp;Share:
+                </a>
+                {` sikorsky.design${currentPath.replace(/\/$/, "")}`}
               </strong>
             </div>
           )
@@ -84,7 +86,6 @@ const currentPath = Astro.url.pathname;
   .dot-separator {
     display: inline;
     visibility: visible;
-
   }
 
   @media (max-width: 600px) {
@@ -103,7 +104,7 @@ const currentPath = Astro.url.pathname;
 </style>
 
 <script is:inline>
-  document.getElementById('copy-link').addEventListener("click", (e) => {
+  document.getElementById("copy-link").addEventListener("click", (e) => {
     if (e.target.closest(".link")) {
       e.preventDefault();
       navigator.clipboard.writeText(
