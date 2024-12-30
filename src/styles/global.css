@@ -167,6 +167,13 @@ a.link:hover {
   background-size: 100% 100%;
 }
 
+a.link:hover::selection {
+  background-color: inherit; /* Ensure hover background remains */
+  color: inherit; /* Ensure hover text color is preserved */
+  border-radius: 2px;
+  overflow: hidden;
+}
+
 a.link:active {
   color: var(--caption);
   text-decoration-color: var(--caption);
