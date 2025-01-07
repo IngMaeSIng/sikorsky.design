@@ -384,6 +384,19 @@ nav.header {
   color: var(--caption);
 }
 
+.image {
+  width: calc(100% + 16px);
+  margin: 0 -8px;
+  height: auto;
+}
+
+@media (max-width: 893px) {
+  .image {
+    width: calc(100% + 32px);
+    margin: 0 -16px;
+  }
+}
+
 /*--- Specific Styles for the Personal Webpage ---*/
 
 .content {
