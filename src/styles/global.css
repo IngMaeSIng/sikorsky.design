@@ -390,11 +390,42 @@ nav.header {
   height: auto;
 }
 
+.image.full {
+  width: calc(100vw - 32px); /* Full viewport width */
+  margin: 0 auto;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  transform: translateX(-50%);
+  max-width: none;
+}
+
 @media (max-width: 893px) {
   .image {
     width: calc(100% + 32px);
     margin: 0 -16px;
   }
+}
+
+.quote {
+  font-weight: var(--font-weight-strong);
+  font-size: 32px;
+  line-height: 42px;
+  letter-spacing: -0.05px;
+  position: relative;
+}
+
+.quote:before {
+  content: "\"";
+  font-size: 32px;
+  line-height: 42px;
+  position: absolute;
+  top: 0;
+  left: -20px;
+}
+
+section .quote {
+  margin-bottom: 32px;
 }
 
 /*--- Specific Styles for the Personal Webpage ---*/
