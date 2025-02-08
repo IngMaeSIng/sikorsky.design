@@ -6,7 +6,7 @@ test.describe("Visual regression tests", () => {
 
     await page.waitForLoadState("networkidle");
 
-    await expect(page).toHaveScreenshot("homepage.png", {
+    await expect(page).toHaveScreenshot("about.png", {
       fullPage: true,
       maxDiffPixelRatio: 0.1
     });

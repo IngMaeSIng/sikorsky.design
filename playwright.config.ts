@@ -36,7 +36,9 @@ export default defineConfig({
   projects: [
     {
       name: "chromium",
-      use: { ...devices["Desktop Chrome"] }
+      use: { ...devices["Desktop Chrome"] },
+      // @ts-ignore https://github.com/microsoft/playwright/issues/33566
+      channel: 'chromium',
     },
 
     {
