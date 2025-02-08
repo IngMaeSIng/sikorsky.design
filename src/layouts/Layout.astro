@@ -45,8 +45,9 @@ const currentPath = Astro.url.pathname;
               <LikeButton pageId={pageId} />
               <strong class="dot-separator">·</strong>
               <strong class="share">
+                { /* prettier-ignore */}
                 <a class="link" id="copy-link">Copy&nbsp;&&nbsp;Share:</a>
-                {` sikorsky.design${currentPath.replace(/\/$/, "")}`}
+                <span class="link-address">{` sikorsky.design${currentPath.replace(/\/$/, "")}`}</span>
               </strong>
             </div>
           )
@@ -54,7 +55,9 @@ const currentPath = Astro.url.pathname;
       </div>
     </main>
     <footer>
-      <p class="secondary">© 2012&thinsp;–&thinsp;{new Date().getFullYear()}&nbsp;Paul Sikorsky</p>
+      <p class="secondary">
+        © 2012&thinsp;–&thinsp;{new Date().getFullYear()}&nbsp;Paul Sikorsky
+      </p>
     </footer>
   </body>
 </html>
@@ -78,6 +81,8 @@ const currentPath = Astro.url.pathname;
   @media (max-width: 600px) {
     .social {
       left: -12px;
+
+      margin-top: 34px;
     }
   }
 
@@ -96,7 +101,17 @@ const currentPath = Astro.url.pathname;
   @media (max-width: 600px) {
     .share {
       padding-left: 12px;
-      margin-top: 40px;
+      margin-top: 34px;
+    }
+  }
+
+  #copy-link {
+    cursor: pointer;
+  }
+
+  @media (max-width: 600px) {
+    .link-address {
+      display: block;
     }
   }
 </style>
