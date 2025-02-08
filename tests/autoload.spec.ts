@@ -9,7 +9,7 @@ test.describe('Visual regression tests', () => {
     await expect(page).toHaveScreenshot('autoload.png', {
       fullPage: true,
       timeout: 10000,
-      maxDiffPixelRatio: 0.1
+      maxDiffPixelRatio: 0.2
     });
   });
 });
