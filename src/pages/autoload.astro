@@ -1,7 +1,11 @@
 ---
 import { Image } from "astro:assets";
-import Layout from "../layouts/Layout.astro";
 import autoload1 from "../images/autoload/autoload-1.png";
+import autoload10 from "../images/autoload/autoload-10.png";
+import autoload11 from "../images/autoload/autoload-11.png";
+import autoload12 from "../images/autoload/autoload-12.png";
+import autoload13 from "../images/autoload/autoload-13.png";
+import autoload14 from "../images/autoload/autoload-14.png";
 import autoload2 from "../images/autoload/autoload-2.png";
 import autoload3 from "../images/autoload/autoload-3.png";
 import autoload4 from "../images/autoload/autoload-4.png";
@@ -10,11 +14,8 @@ import autoload6 from "../images/autoload/autoload-6.png";
 import autoload7 from "../images/autoload/autoload-7.png";
 import autoload8 from "../images/autoload/autoload-8.png";
 import autoload9 from "../images/autoload/autoload-9.png";
-import autoload10 from "../images/autoload/autoload-10.png";
-import autoload11 from "../images/autoload/autoload-11.png";
-import autoload12 from "../images/autoload/autoload-12.png";
-import autoload13 from "../images/autoload/autoload-13.png";
-import autoload14 from "../images/autoload/autoload-14.png";
+import logoAvito from "../images/autoload/logo-avito.png";
+import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout
@@ -23,7 +24,7 @@ import autoload14 from "../images/autoload/autoload-14.png";
   pageId="autoload"
 >
   <div class="metadata">
-    <!--TODO: add avito logo-->
+    <img src={logoAvito.src} alt="Avito" width={32} height={32} />
     <a href="https://avito.ru" target="_blank" class="link">Avito.ru</a>
     ·
     <time datetime="2023-12-01">Dec 2023 – Mar 2024</time>
@@ -39,8 +40,7 @@ import autoload14 from "../images/autoload/autoload-14.png";
     </h2>
   </header>
   <section>
-    <!--TODO: update list styles -->
-    <ul>
+    <ul class="list-with-secondary-items">
       <li>
         <span class="secondary">My role:</span> Lead Product Designer, Art Director
       </li>
@@ -114,7 +114,7 @@ import autoload14 from "../images/autoload/autoload-14.png";
       This project involved strategic planning with the product owner and dev
       team. I established a collaborative design process by hiring an intern to
       work closely with the product manager, researcher, UX writer, and a few
-      engineers. The
+      engineers.
     </p>
     <p>
       <Image src={autoload2} alt="Roadmap" class="image full" />
@@ -405,7 +405,7 @@ import autoload14 from "../images/autoload/autoload-14.png";
       importantly had fun as a team.
     </p>
     <div class="paragraph-with-list-block">
-      <ul>
+      <ul class="list-with-secondary-items">
         <li>
           <span class="secondary">Lead Product Designer:</span> Paul Sikorsky
         </li>
@@ -467,5 +467,10 @@ import autoload14 from "../images/autoload/autoload-14.png";
 <style>
   strong {
     font-variant-numeric: slashed-zero;
+  }
+
+  .metadata img {
+    vertical-align: middle;
+    margin-right: 0.2em;
   }
 </style>

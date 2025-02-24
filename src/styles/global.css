@@ -69,11 +69,18 @@ body {
   line-height: var(--line-height-base);
   background-color: var(--base);
   color: var(--constant_black);
+  overflow-x: hidden;
 }
 
 @media (max-width: 600px) {
   body {
     font-size: var(--font-size-base-mobile);
+  }
+}
+
+@media (max-width: 413px) {
+  body {
+    overflow-x: visible;
   }
 }
 
@@ -145,6 +152,10 @@ p {
     font-size: var(--font-size-base-mobile);
     line-height: 22px;
   }
+}
+
+p + p > img {
+  margin-top: 12px !important;
 }
 
 a.link {
@@ -295,6 +306,17 @@ ol li:before {
   text-align: center;
 }
 
+ul.list-with-secondary-items > li:before,
+ol.list-with-secondary-items > li:before {
+  background-color: var(--caption);
+  color: var(--caption);
+}
+
+ul.list-with-secondary-items > li,
+ol.list-with-secondary-items > li {
+  margin-bottom: 4px;
+}
+
 @media (max-width: 600px) {
   ol li:before {
     font-size: 12px;
@@ -408,9 +430,16 @@ nav.header {
 }
 
 @media (max-width: 893px) {
-  .image {
+  .image,
+  .image.full {
     width: calc(100% + 32px);
     margin: 0 -16px;
+  }
+
+  .image.full {
+    left: auto;
+    right: auto;
+    transform: none;
   }
 }
 
@@ -433,6 +462,20 @@ nav.header {
 
 section .quote {
   margin-bottom: var(--spacing-xlarge);
+}
+
+@media (max-width: 600px) {
+  .quote {
+    font-size: 16px;
+    line-height: 22px;
+  }
+
+  .quote:before {
+    font-size: 16px;
+    line-height: 22px;
+    top: 1px;
+    left: -12px;
+  }
 }
 
 .paragraph-with-list-block {
