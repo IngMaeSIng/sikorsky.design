@@ -6,6 +6,8 @@ import ugc2 from "../images/ugc/ugc-2.png";
 import ugc3 from "../images/ugc/ugc-3.png";
 import ugc4 from "../images/ugc/ugc-4.png";
 import ugc5 from "../images/ugc/ugc-5.png";
+import ugc7 from "../images/ugc/ugc-7.png";
+import ugc8 from "../images/ugc/ugc-8.png";
 import Layout from "../layouts/Layout.astro";
 ---
 
@@ -251,29 +253,438 @@ import Layout from "../layouts/Layout.astro";
     <h2>Solution 1. Category suggest</h2>
     <p>
       <video
-        class="image"
+        class="image autoplay-video"
         src="https://firebasestorage.googleapis.com/v0/b/sikorsky-design.firebasestorage.app/o/videos%2Fugc%2Fugc-vid-6.mp4?alt=media&token=4c04cb27-8747-4028-b24a-45055f1d031d"
         muted
         playsinline
         loop
-        preload="auto"
-        id="ugcVideo"></video>
+        preload="auto"></video>
       <span class="caption secondary">App category suggest</span>
+    </p>
+    <p>
+      The easiest implementation was assistance with category selection. The
+      user selects a top-level category. Then, depending on the chosen category,
+      we suggest uploading photos (for goods) or filling in a title (for
+      services and jobs). The AI model recognizes the sub-category with 90%
+      accuracy for all popular listings. For unique items, users still have
+      to select category manually.
+    </p>
+    <p>
+      We rolled out this solution across all platforms and achieved a <strong
+        >+1.2% increase in successful posting conversion rate</strong
+      > and a <strong>-4% decrease in abandoned drafts</strong>.
+    </p>
+  </section>
+
+  <section>
+    <h2>Solution 2. Item posting flow redesign</h2>
+    <p>
+      <Image
+        src={ugc7}
+        alt="Posting flow sample and developer guide"
+        class="image full"
+      />
+      <span class="caption secondary"
+        >Posting flow sample and developer guide
+      </span>
+    </p>
+    <p>
+      Over the course of three years, I conducted several redesigns of the
+      posting flow, each with varying degrees of success. The most effective
+      outcomes occurred when we found synergy with developers in optimizing
+      product support while simultaneously implementing a visual facelift.
+    </p>
+    <p>Key accomplishments:</p>
+    <ul>
+      <li>
+        Moved authorization out of the flow and eliminated unnecessary steps.
+      </li>
+      <li>
+        Standardized step-by-step flow across mobile apps and desktop,
+        addressing UX issues with navigation.
+      </li>
+      <li>
+        Standardized and added about 10 specific posting flow components to the
+        design system.
+      </li>
+      <li>Performed a visual uplift of all posting flow components.</li>
+      <li>
+        Created guidelines for adding standard parameters through the
+        constructor for business vertical designers and product managers.
+      </li>
+    </ul>
+    <p>
+      Overall, after dozens of iterations of testing, we achieved a <strong
+        >+2% increase in conversion rates</strong
+      > and a <strong>6% reduction in posting flow restarts</strong>.
+    </p>
+  </section>
+  <section>
+    <h2>Solution 3. Category specific tips and guides</h2>
+    <p>
+      <Image
+        src={ugc8}
+        alt="Category specific tips and guides"
+        class="image full"
+      />
+      <span class="caption secondary">Category specific tips and guides</span>
+    </p>
+    <p>
+      To help users understand the type of content we expect from them, we
+      displayed category-specific hints. We know from UX research and interviews
+      that users dislike reading large blocks of text in the interface.
+      Therefore, we aimed to break it down into small interactive hints to
+      capture their attention.
+    </p>
+    <p>
+      Over time, we gathered more data on user behavior and developed
+      personalized hints to increase liquidity. We verified several display
+      types in SBS tests and finally arrived at this set of in-product
+      communications:
+    </p>
+    <ul>
+      <li>
+        <strong>Price recommendation</strong> based on market analytics in the category.
+      </li>
+      <li>
+        <strong>Hints on how to take the right photos</strong> in the category, using
+        placeholders and a full guide on a landing page.
+      </li>
+      <li>
+        <strong>Sellers coach hints</strong> to increase listing liquidity.
+      </li>
+      <li><strong>Built-in guides</strong> on how to sell properly.</li>
+    </ul>
+    <p>
+      After A/B testing and launching these hints, users in targeted categories <strong
+        >began to upload an average of 2 additional photos</strong
+      >.
+    </p>
+  </section>
+  <section>
+    <h2>Solution 4. Smart camera</h2>
+    <p>
+      <video
+        class="image autoplay-video"
+        src="https://firebasestorage.googleapis.com/v0/b/sikorsky-design.firebasestorage.app/o/videos%2Fugc%2Fugc-vid-9.mp4?alt=media&token=2a41b882-ccd9-4b3f-9bf0-8eab2f84dff4"
+        muted
+        playsinline
+        loop
+        preload="auto"></video>
+      <span class="caption secondary">App category suggest</span>
+    </p>
+    <p>
+      To help users take better photos, I got inspired by new camera recognition
+      technologies in Android smartphones and packaged these ideas into a
+      concept:
+    </p>
+    <ul>
+      <li>
+        <strong>A large widget</strong> in the posting flow to draw attention to
+        the camera.
+      </li>
+      <li>
+        <strong>A guide with basic tips</strong> on how to prepare for shooting.
+      </li>
+      <li><strong>Object recognition</strong> and subcategory refinement.</li>
+      <li>
+        <strong>Autofocus, centering assistance</strong>, and different formats
+        for key categories.
+      </li>
+      <li>
+        <strong>A step-by-step, category-specific guide</strong> to photographing
+        the item from correct angles.
+      </li>
+      <li>
+        <strong>Automatic color correction</strong>s based on lighting
+        conditions.
+      </li>
+    </ul>
+    <p>
+      <video
+        class="image autoplay-video"
+        src="https://firebasestorage.googleapis.com/v0/b/sikorsky-design.firebasestorage.app/o/videos%2Fugc%2Fugc-vid-10.mp4?alt=media&token=8bb517d3-de90-42d1-8a80-89c713165324"
+        muted
+        playsinline
+        loop
+        preload="auto"></video>
+      <span class="caption secondary">Smart models in the gallery concept</span>
+    </p>
+    <p>
+      90% of the users come with ready-made photos, so I thought about
+      integrating smart models into the gallery:
+    </p>
+    <ul>
+      <li>
+        <strong>Animated counter</strong> for added photos to motivate users upload
+        more.
+      </li>
+      <li>
+        <strong>Automatic photos arrangement</strong> in the most appealing order
+        for buyers.
+      </li>
+      <li><strong>Automatic color correction</strong> and basic filters.</li>
+      <li><strong>Highlighting duplicate</strong> and very similar photos.</li>
+      <li>
+        <strong>Highlighting poorly cropped</strong>, overexposed, and
+        low-resolution photos.
+      </li>
+      <li><strong>Placeholder hints</strong> for missing product angles.</li>
+    </ul>
+    <p>
+      <video
+        class="image full autoplay-video"
+        src="https://firebasestorage.googleapis.com/v0/b/sikorsky-design.firebasestorage.app/o/videos%2Fugc%2Fugc-vid-11.mp4?alt=media&token=d9a4b7d3-6f4c-4ad2-a842-79042980a528"
+        muted
+        playsinline
+        loop
+        preload="auto"></video>
+      <span class="caption secondary">Camera redesign specification</span>
+    </p>
+    <p>
+      I brainstormed the concept with our ML engineers, and it turned out that
+      the company lacked the expertise to develop neural networks on devices.
+      Together with an initiative team, we tried to integrate open models to
+      improve photo quality during a hackathon, but we didn't achieve
+      production-ready quality.
+    </p>
+    <p>
+      I redesigned the camera layout to prepare it for the future appearance of
+      smart hints. We launched it with gray metrics. The next step was to
+      increase the visibility of the camera in the product to boost content
+      quality and quantity metrics.
+    </p>
+  </section>
+
+  <section>
+    <h2>Solution 5. AI-generated listing description</h2>
+    <p>
+      <video
+        class="image autoplay-video"
+        src="https://firebasestorage.googleapis.com/v0/b/sikorsky-design.firebasestorage.app/o/videos%2Fugc%2Fugc-vid-12.mp4?alt=media&token=57ee9354-844f-4db4-915a-e32fc349934d"
+        muted
+        playsinline
+        loop
+        preload="auto"></video>
+      <span class="caption secondary">AI-generated listing description</span>
+    </p>
+    <p>
+      A good product description is concise, informative, and address common
+      customer queries without duplicating existing product information. To
+      simplify the process of writing product descriptions, I developed a
+      concept using LLMs:
+    </p>
+    <ol>
+      <li>
+        <strong>Training LLMs.</strong> We analyzed high-quality descriptions and
+        FAQs in each category to train LLM models, ensuring they understand what
+        makes a description effective.
+      </li>
+      <li>
+        <strong>Guiding sellers.</strong> Sellers were prompted with frequently asked
+        questions from buyers in their category. This helps ensure that descriptions
+        address common customer queries.
+      </li>
+      <li>
+        <strong>Speech to text.</strong> Sellers responded by dictating their answers
+        in free form, and we converted their speech to text in real-time.
+      </li>
+      <li>
+        <strong>AI-Generated description.</strong> Sellers' responses, combined with
+        product and category knowledge, were used to generate descriptions via LLMs.
+        This process transforms data into a readable format that tells a compelling
+        story about the product.
+      </li>
+      <li>
+        <strong>Post-publication enhancement.</strong> After listing was published,
+        sellers had an option to enhance the description by answering new questions
+        from real buyers, ensuring the description remains relevant and addresses
+        evolving customer needs.
+      </li>
+    </ol>
+    <p>
+      We refined the concept with AI engineers and released an MVP with simple
+      description generation, requiring no upfront input from sellers. This
+      approach resulted in <strong
+        >a 20% increase in the average length of descriptions</strong
+      >, indicating more comprehensive and detailed product information.
+    </p>
+  </section>
+
+  <section>
+    <h2>Solution 6. Listing quality index</h2>
+    <p>
+      <video
+        class="image autoplay-video"
+        src="https://firebasestorage.googleapis.com/v0/b/sikorsky-design.firebasestorage.app/o/videos%2Fugc%2Fugc-vid-13.mp4?alt=media&token=e2ad7cfa-fc73-49ad-b44c-3fb76196a231"
+        muted
+        playsinline
+        loop
+        preload="auto"></video>
+      <span class="caption secondary">Listing editor</span>
+    </p>
+    <p>
+      Over the course of three years, I conducted several experiments to
+      integrate gamification into posting flow. I tested a ten-point scale and
+      qualitative assessments with different wording, ultimately settling on a
+      simple percentage as the most user-friendly option. This percentage
+      increased based on the completion of strict parameters, the number of
+      photos, and the length of the description.
+    </p>
+    <p>
+      To maintain consistency across interfaces, I also implemented this feature
+      in the listing card. I redesigned it, organizing product data into blocks
+      with quick editing, and integrating quality index along with tips for
+      improvement.
+    </p>
+    <p>
+      This was my final project at the company. I validated the concept through
+      usability tests and handed it over to the team for further implementation.
+    </p>
+  </section>
+
+  <section>
+    <h2>Final solution</h2>
+    <p>
+      After numerous iterations and experiments, we successfully developed a
+      consistent content posting flow that integrates smart models and best
+      practices to further improve content quality:
+    </p>
+    <ul>
+      <li>
+        <strong>Standardized posting flow</strong> with a userguide for managers
+        and designers (released on mobile and desktop).
+      </li>
+      <li>
+        <strong>Category suggest</strong> (released on mobile and desktop).
+      </li>
+      <li>
+        <strong>Category specific guides and tips</strong> (partially released).
+      </li>
+      <li>
+        <strong>Smart camera</strong> (concept) and photo flow redesign (released
+        on mobile).
+      </li>
+      <li>
+        <strong>AI-generated</strong> description (MVP released on mobile).
+      </li>
+      <li><strong>Listing quality index</strong> (concept).</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Outcome & impact</h2>
+    <ul>
+      <li>
+        <strong>Content quantity.</strong> The <strong>conversion rate</strong> to
+        successful publication <strong>increased by 3.2%.</strong>
+      </li>
+      <li>
+        <strong>Content quality.</strong> The number of listings with more than four
+        photos <strong>increased by 4%</strong>, and the average description
+        length <strong>grew by 20%.</strong>
+      </li>
+      <li>
+        <strong>Impact.</strong> We developed best practices for managing content
+        quality and shared them with vertical teams, enhancing capabilities in their
+        domains.
+      </li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Reflections & learnings</h2>
+    <blockquote class="quote">
+      Long-term vision. It's beneficial to develop a comprehensive product
+      vision that extends far beyond six months, even if current technical
+      capabilities don't allow immediate implementation. This approach broadens
+      the perspective and motivates the team by working towards something larger
+      and more meaningful.
+    </blockquote>
+    <blockquote class="quote">
+      Resource management. Ideas often outnumber the resources available for
+      their implementation. It's crucial to collaborate with other teams,
+      leverage external resources, break projects into manageable pieces, and
+      delegate specific solutions to achieve synergy.
+    </blockquote>
+  </section>
+
+  <section>
+    <h2>Team credits</h2>
+    <p>
+      During my work on the posting flow, the team changed several times. While
+      it's not possible to mention everyone, I would like to express my
+      gratitude to those who have had the most significant impact:
+    </p>
+    <div class="paragraph-with-list-block">
+      <ul class="list-with-secondary-items">
+        <li>
+          <span class="secondary">Senior Product Designer:</span> Paul Sikorsky
+        </li>
+        <li>
+          <span class="secondary">Art Director:</span> Alexander Stogov
+        </li>
+        <li>
+          <span class="secondary">Product Designer:</span> Elena Gavrikova
+        </li>
+        <li>
+          <span class="secondary">Product Designer:</span> Valeria Smirnova
+        </li>
+        <li>
+          <span class="secondary">Product Designer:</span> Matvey Grab
+        </li>
+        <li>
+          <span class="secondary">Lead Product Manager:</span> Margo Alumyan
+        </li>
+        <li>
+          <span class="secondary">Senior Product Manager:</span> Adeliya Sharafeeva
+        </li>
+        <li>
+          <span class="secondary">Lead UX Researcher:</span> Evgeniya Kritchko
+        </li>
+        <li>
+          <span class="secondary">Senior UX Writer:</span> Ekaterina Eliseeva
+        </li>
+        <li>
+          <span class="secondary">Senior Product Analyst:</span> Alina Dranga
+        </li>
+        <li>
+          <span class="secondary">iOS Engineer:</span> Kirill Davidov
+        </li>
+        <li>
+          <span class="secondary">FE Engineer:</span> David Kagirov
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>I would love to do more AI-related projects</h2>
+    <p>
+      I thoroughly enjoy integrating AI models into products to make users'
+      lives easier. If you're interested in collaborating on similar projects,
+      feel free to reach out!
+    </p>
+    <p>
+      <a href="https://t.me/IngMaeSing" class="link" target="_blank">Telegram</a
+      >,
+      <a
+        href="https://www.linkedin.com/in/pavelsikorsky/"
+        class="link"
+        target="_blank">LinkedIn</a
+      >,
+      <a href="mailto:p@sikorsky.design" class="link">p@sikorsky.design</a>.
     </p>
   </section>
 </Layout>
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {
-    const video = document.getElementById("ugcVideo") as HTMLVideoElement;
+    const videos = document.querySelectorAll(
+      ".autoplay-video"
+    ) as NodeListOf<HTMLVideoElement>;
 
-    if (video) {
-      // Add event listener for video end
-      video.addEventListener("ended", () => {
-        video.currentTime = 0;
-        video.play();
-      });
-
+    videos.forEach((video) => {
       const observer = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
@@ -285,12 +696,12 @@ import Layout from "../layouts/Layout.astro";
           });
         },
         {
-          threshold: 0.5
+          threshold: 0.2
         }
       );
 
       observer.observe(video);
-    }
+    });
   });
 </script>
 
@@ -302,11 +713,5 @@ import Layout from "../layouts/Layout.astro";
   .metadata img {
     vertical-align: middle;
     margin-right: 0.2em;
-  }
-
-  video.image {
-    display: block;
-    object-fit: cover;
-    width: 100%;
   }
 </style>
