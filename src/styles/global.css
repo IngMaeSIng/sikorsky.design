@@ -154,8 +154,14 @@ p {
   }
 }
 
-p + p > img {
+p + p > img,
+p + p > video {
   margin-top: 12px !important;
+}
+
+h2 + p > img,
+h2 + p > video {
+  margin-top: 32px !important;
 }
 
 a.link {
@@ -417,6 +423,7 @@ nav.header {
   width: calc(100% + 16px);
   margin: 0 -8px;
   height: auto;
+  border-radius: 16px;
 }
 
 .image.full {

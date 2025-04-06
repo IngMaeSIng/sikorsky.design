@@ -1,0 +1,312 @@
+---
+import { Image } from "astro:assets";
+import logoAvito from "../images/autoload/logo-avito.png";
+import ugc1 from "../images/ugc/ugc-1.png";
+import ugc2 from "../images/ugc/ugc-2.png";
+import ugc3 from "../images/ugc/ugc-3.png";
+import ugc4 from "../images/ugc/ugc-4.png";
+import ugc5 from "../images/ugc/ugc-5.png";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout
+  title="User Generated Content Quality and Quantity Research Experiments"
+  description="How we refined the posting flow through experiments, improved conversion by 3.2%, and established best practices for high-quality user generated content"
+  pageId="ugc"
+>
+  <div class="metadata">
+    <img src={logoAvito.src} alt="Avito" width={32} height={32} />
+    <a href="https://avito.ru" target="_blank" class="link">Avito.ru</a>
+    ·
+    <time datetime="2020-09-01">Sep 2020 – Dec 2023</time>
+  </div>
+  <header>
+    <h1 id="title">
+      User Generated Content Quality and Quantity Research Experiments
+    </h1>
+    <h2>
+      How we refined the posting flow through experiments, improved conversion
+      by 3.2%, and established best practices for high-quality user generated
+      content
+    </h2>
+  </header>
+
+  <section>
+    <ul class="list-with-secondary-items">
+      <li>
+        <span class="secondary">My role:</span> Senior Product Designer
+      </li>
+      <li>
+        <span class="secondary">Deliverables:</span> In-depth Research, UI/UX/IxD,
+        User Testing
+      </li>
+      <li><span class="secondary">Audience:</span> Private & SME Sellers</li>
+      <li><span class="secondary">Platforms:</span> Web, Mobile</li>
+    </ul>
+  </section>
+
+  <section>
+    <p>
+      <Image src={ugc1} alt="Listing editor" class="image" />
+      <span class="caption secondary">Listing editor</span>
+    </p>
+  </section>
+
+  <section>
+    <h2>Context</h2>
+    <p>
+      Avito is a leading classified platform, offering ads for goods,
+      transportation, real estate, jobs, and services from both individuals and
+      businesses. Since 2021, it <a
+        href="https://www.similarweb.com/ru/website/avito.ru/#overview"
+        target="_blank"
+        class="link">has become the world's most visited classified</a
+      >, surpassing Craigslist in daily active users (DAU), with over <strong
+        >42M registered users</strong
+      > and <strong>150M listings</strong>.
+    </p>
+    <p>
+      However, with increasing popularity, companies like Yandex and Yula
+      launched competing services, focusing on a more refined content approach.
+      This posed a risk of user churn, making it critical to enhance the quality
+      of Avito's content while maintaining the growing volume of listings.
+    </p>
+    <p>
+      To address this challenge, we initiated the "Content Quality" product
+      stream. Over three years, we conducted a comprehensive research, ran a
+      dozen experiments, defined high-quality content and developed strategies
+      to encourage users to create better listings.
+    </p>
+  </section>
+
+  <section>
+    <h2>Challenge</h2>
+    <p>
+      Growing the number of listings is straightforward. You fix the posting
+      flow funnel: refine critical steps to improve conversion rate, and pour
+      more traffic at the top. A clear metric and approach to work.
+    </p>
+    <p>
+      However, what constitutes quality is not as clear. On an empirical level,
+      we know that a listing should have many good photos, a detailed
+      description, and filled-out parameters. The question is how to quantify
+      this into a usable metric.
+    </p>
+    <p>
+      This challenge is compounded by the fact that posting flow varies across
+      categories and platforms, containing different parameters and even
+      features. Additionally, more and more designers are joining business
+      verticals and contributing to the posting flow, further extending the
+      information model and adding new services.
+    </p>
+  </section>
+
+  <section>
+    <h2>Issues with UGC</h2>
+    <p>
+      We organized a workshop to capture a wide range of viewpoints on the
+      issue, bringing together designers, researchers, and product managers from
+      all the business verticals.
+    </p>
+    <p>
+      <Image src={ugc2} alt="Problems with UGC" class="image full" />
+      <span class="caption secondary">Problems with UGC</span>
+    </p>
+    <blockquote class="quote">
+      A significant portion of our content (over 30%) is contributed by private
+      sellers, often resulting in listings that lack visual appeal. This
+      inconsistent quality reinforces a perception of the platform as a flea
+      market.
+    </blockquote>
+  </section>
+
+  <section>
+    <h2>Product vision</h2>
+    <p>
+      Content influences the perception of a platform, but the platform can also
+      influence the type of content displayed on it. Our strategic goal was to
+      move towards content similar to Airbnb's, in order to attract a new,
+      younger audience of buyers, followed by new professional sellers, and to
+      justify investments in developing new services for them.
+    </p>
+    <p>
+      <Image
+        src={ugc3}
+        alt="Target vision for the main recommendations page"
+        class="image full"
+      />
+      <span class="caption secondary"
+        >Target vision for the main recommendations page</span
+      >
+    </p>
+  </section>
+
+  <section>
+    <h2>Product research findings</h2>
+    <h3>Competitive analysis</h3>
+    <p>
+      My team and I researched similar platforms and examined how they work with
+      UGC. We didn't find any groundbreaking technologies. Everyone had some
+      combination of content guides, static prompts in the interface, and simple
+      AI models for improving photos and descriptions.
+    </p>
+    <p>
+      <Image src={ugc4} alt="Competitive analysis" class="image full" />
+      <span class="caption secondary">Competitive analysis</span>
+    </p>
+    <h3>User interviews</h3>
+    <p>
+      We regularly spoke with users across all segments and compiled a list of
+      issues that prevent them from creating quality content:
+    </p>
+    <ol>
+      <li>Beginners have no idea what content is required of them.</li>
+      <li>
+        Experienced users do not want to spend a lot of time filling out
+        listings.
+      </li>
+      <li>
+        They are frustrated by having to manually select the category for their
+        listing.
+      </li>
+      <li>
+        Users dislike that the form does not remember recurring parameters such
+        as phone number and addresses.
+      </li>
+      <li>
+        People are unsure what to write in the description after filling in
+        numerous parameters.
+      </li>
+      <li>
+        They are not sure how to take photos and what is important to show.
+      </li>
+    </ol>
+    <blockquote class="quote">
+      The key idea is that users do not care about the process of filling out a
+      listing. It has no intrinsic value and merely serves as an obstacle to
+      their ultimate goal — selling their goods or services. Therefore, it
+      should be as simple and unobtrusive as possible.
+    </blockquote>
+  </section>
+
+  <section>
+    <h2>Analytical approach</h2>
+    <p>
+      To digitize the content quality metric, we came up with <strong
+        >a hypothesis that listings with good content should have higher
+        liquidity</strong
+      >. To test this, we conducted a buyer experiment, comparing similar
+      products with different content.
+    </p>
+    <p>
+      The results surprised us. It turned out that listings with poor content
+      sold better; they had a 25% higher click-through rate (CTR). We explained
+      this by the fact that users got used to buying used items from private
+      sellers, often ignoring the professional content created by pro sellers.
+    </p>
+    <p>
+      Based on this experiment, we developed a holistic metric for quality
+      content. It varied by category, but generally included the following
+      criteria:
+    </p>
+    <ul>
+      <li>Correctly filled category</li>
+      <li>
+        Properly filled strict parameters, especially category-specific ones
+        like VIN
+      </li>
+      <li>
+        At least 4 well-cropped photos formatted for search snippets with proper
+        color correction
+      </li>
+      <li>Ideally, a product video</li>
+      <li>At least 200 characters in the description</li>
+      <li>Filled out contact methods</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Solution hypotheses</h2>
+    <p>
+      Based on the identified problems, our team brainstormed ideas to solve
+      them. We developed two distinct approaches to working with UGC, which we
+      ultimately combined into one.
+    </p>
+    <p>
+      <Image
+        src={ugc5}
+        alt="Approaches to Working with UGC"
+        class="image full"
+      />
+      <span class="caption secondary">Approaches to Working with UGC</span>
+    </p>
+    <blockquote class="quote">
+      If we simplify the posting flow for private sellers, it will help them
+      create quality content, bringing them closer to professionals and
+      positively impacting the entire platform.
+    </blockquote>
+  </section>
+
+  <section>
+    <h2>Solution 1. Category suggest</h2>
+    <p>
+      <video
+        class="image"
+        src="https://firebasestorage.googleapis.com/v0/b/sikorsky-design.firebasestorage.app/o/videos%2Fugc%2Fugc-vid-6.mp4?alt=media&token=4c04cb27-8747-4028-b24a-45055f1d031d"
+        muted
+        playsinline
+        loop
+        preload="auto"
+        id="ugcVideo"></video>
+      <span class="caption secondary">App category suggest</span>
+    </p>
+  </section>
+</Layout>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const video = document.getElementById("ugcVideo") as HTMLVideoElement;
+
+    if (video) {
+      // Add event listener for video end
+      video.addEventListener("ended", () => {
+        video.currentTime = 0;
+        video.play();
+      });
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              video.play();
+            } else {
+              video.pause();
+            }
+          });
+        },
+        {
+          threshold: 0.5
+        }
+      );
+
+      observer.observe(video);
+    }
+  });
+</script>
+
+<style>
+  strong {
+    font-variant-numeric: slashed-zero;
+  }
+
+  .metadata img {
+    vertical-align: middle;
+    margin-right: 0.2em;
+  }
+
+  video.image {
+    display: block;
+    object-fit: cover;
+    width: 100%;
+  }
+</style>
