@@ -257,7 +257,6 @@ import Layout from "../layouts/Layout.astro";
         src="https://firebasestorage.googleapis.com/v0/b/sikorsky-design.firebasestorage.app/o/videos%2Fugc%2Fugc-vid-6.mp4?alt=media&token=4c04cb27-8747-4028-b24a-45055f1d031d"
         muted
         playsinline
-        loop
         preload="auto"></video>
       <span class="caption secondary">App category suggest</span>
     </p>
@@ -369,7 +368,6 @@ import Layout from "../layouts/Layout.astro";
         src="https://firebasestorage.googleapis.com/v0/b/sikorsky-design.firebasestorage.app/o/videos%2Fugc%2Fugc-vid-9.mp4?alt=media&token=2a41b882-ccd9-4b3f-9bf0-8eab2f84dff4"
         muted
         playsinline
-        loop
         preload="auto"></video>
       <span class="caption secondary">App category suggest</span>
     </p>
@@ -406,7 +404,6 @@ import Layout from "../layouts/Layout.astro";
         src="https://firebasestorage.googleapis.com/v0/b/sikorsky-design.firebasestorage.app/o/videos%2Fugc%2Fugc-vid-10.mp4?alt=media&token=8bb517d3-de90-42d1-8a80-89c713165324"
         muted
         playsinline
-        loop
         preload="auto"></video>
       <span class="caption secondary">Smart models in the gallery concept</span>
     </p>
@@ -437,7 +434,6 @@ import Layout from "../layouts/Layout.astro";
         src="https://firebasestorage.googleapis.com/v0/b/sikorsky-design.firebasestorage.app/o/videos%2Fugc%2Fugc-vid-11.mp4?alt=media&token=d9a4b7d3-6f4c-4ad2-a842-79042980a528"
         muted
         playsinline
-        loop
         preload="auto"></video>
       <span class="caption secondary">Camera redesign specification</span>
     </p>
@@ -464,7 +460,6 @@ import Layout from "../layouts/Layout.astro";
         src="https://firebasestorage.googleapis.com/v0/b/sikorsky-design.firebasestorage.app/o/videos%2Fugc%2Fugc-vid-12.mp4?alt=media&token=57ee9354-844f-4db4-915a-e32fc349934d"
         muted
         playsinline
-        loop
         preload="auto"></video>
       <span class="caption secondary">AI-generated listing description</span>
     </p>
@@ -519,7 +514,6 @@ import Layout from "../layouts/Layout.astro";
         src="https://firebasestorage.googleapis.com/v0/b/sikorsky-design.firebasestorage.app/o/videos%2Fugc%2Fugc-vid-13.mp4?alt=media&token=e2ad7cfa-fc73-49ad-b44c-3fb76196a231"
         muted
         playsinline
-        loop
         preload="auto"></video>
       <span class="caption secondary">Listing editor</span>
     </p>
@@ -689,7 +683,9 @@ import Layout from "../layouts/Layout.astro";
         (entries) => {
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
-              video.play();
+              if (!video.ended) {
+                video.play();
+              }
             } else {
               video.pause();
             }
