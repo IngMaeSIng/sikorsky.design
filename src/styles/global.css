@@ -157,8 +157,8 @@ p {
   }
 }
 
-p + p > img,
-p + p > video {
+* + p > img,
+* + p > video {
   margin-top: 12px !important;
 }
 
