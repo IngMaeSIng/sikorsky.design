@@ -485,10 +485,11 @@ section .quote {
   }
 
   .quote:before {
-    font-size: 16px;
+    font-size: 28px;
+    font-weight: 550;
     line-height: 22px;
-    top: 1px;
-    left: -12px;
+    top: -2px;
+    left: -13px;
   }
 }
 
