@@ -32,6 +32,9 @@
 
   /* Shapes */
   --border-radius: 4px;
+  --border-radius-small: 8px;
+  --border-radius-medium: 16px;
+  --border-radius-large: 24px;
 
   /* breakpoints */
   --breakpoint-mobile: 600px;
@@ -423,7 +426,7 @@ nav.header {
   width: calc(100% + 16px);
   margin: 0 -8px;
   height: auto;
-  border-radius: 16px;
+  border-radius: var(--border-radius-large);
 }
 
 .image.full {
@@ -505,6 +508,53 @@ section .quote {
   .paragraph-with-list-block p {
     margin-bottom: var(--spacing-small);
   }
+}
+
+.social {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+
+  margin-top: 56px;
+
+  gap: 8px;
+
+  position: relative;
+  left: -8px;
+
+  font-size: 20px;
+}
+
+@media (max-width: 600px) {
+  .social {
+    display: block;
+    left: -12px;
+
+    margin-top: 34px;
+  }
+}
+
+.dot-separator {
+  display: inline;
+  visibility: visible;
+}
+
+@media (max-width: 600px) {
+  .dot-separator {
+    display: none;
+    visibility: hidden;
+  }
+
+  .like-container {
+    margin-bottom: 42px;
+  }
+  .share {
+    padding-left: 12px;
+  }
+}
+
+#copy-link {
+  cursor: pointer;
 }
 
 /*--- Specific Styles for the Personal Webpage ---*/
