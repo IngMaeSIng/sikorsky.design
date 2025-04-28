@@ -422,6 +422,11 @@ nav.header {
   color: var(--caption);
 }
 
+.metadata img {
+  vertical-align: middle;
+  margin-right: 0.2em;
+}
+
 .image {
   width: calc(100% + 16px);
   margin: 0 -8px;
