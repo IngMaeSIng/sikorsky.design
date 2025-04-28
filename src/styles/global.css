@@ -426,6 +426,9 @@ nav.header {
   width: calc(100% + 16px);
   margin: 0 -8px;
   height: auto;
+}
+
+video.image {
   border-radius: var(--border-radius-large);
 }
 
@@ -436,7 +439,7 @@ nav.header {
   left: 50%;
   right: 50%;
   transform: translateX(-50%);
-  max-width: none;
+  max-width: 1440px;
 }
 
 @media (max-width: 893px) {
@@ -476,6 +479,13 @@ nav.header {
 
 section .quote {
   margin-bottom: var(--spacing-xlarge);
+}
+
+@media (max-width: 893px) {
+
+    .quote:before {
+        left: -13px;
+    }
 }
 
 @media (max-width: 600px) {
