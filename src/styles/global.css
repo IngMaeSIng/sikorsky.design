@@ -1,9 +1,9 @@
 :root {
   /* Colors */
   --constant_black: #141413;
-  --caption_dark: #202020;
+  --caption_dark: #757475;
   --caption: #a1a099;
-  --caption_light: #d2d0cd;
+  --caption_light: #D7D5D1;
   --background_dark: #e6e5e2;
   --background: #f3f1ee;
   --base: #ffffff;
@@ -14,11 +14,11 @@
   --font-family: InterVariable, monospace, system-ui, sans-serif;
   --font-size-base: 20px;
   --font-size-base-mobile: 16px;
-  --font-size-large: 52px;
-  --font-size-large-mobile: 48px;
+  --font-size-large: 64px;
+  --font-size-large-mobile: 52px;
   --font-size-small: 14px;
   --font-weight-normal: 360;
-  --font-weight-bold: 640;
+  --font-weight-bold: 720;
   --font-weight-strong: 640;
   --line-height-base: 1.6;
 
@@ -62,7 +62,10 @@ html {
 }
 
 ::selection {
-  background: var(--background_dark);
+  color: var(--base);
+  text-decoration-color: var(--base);
+  background-color: var(--constant_black);
+  background-size: 100% 100%;
 }
 
 body {
@@ -100,7 +103,7 @@ h6 {
 h1 {
   font-size: var(--font-size-large);
   font-weight: var(--font-weight-bold);
-  line-height: 56px;
+  line-height: 62px;
   letter-spacing: -0.8px;
 }
 
@@ -211,7 +214,7 @@ a.link:active {
 }
 
 a.disabled-link {
-  color: currentColor;
+  color: var(--caption_dark);
   cursor: not-allowed;
 }
 
@@ -411,7 +414,7 @@ nav.header {
 }
 
 .metadata {
-  color: var(--caption);
+  color: var(--caption_dark);
   margin-bottom: 24px;
   font-size: 16px;
   font-weight: 360;
@@ -419,7 +422,7 @@ nav.header {
 }
 
 .metadata a {
-  color: var(--caption);
+  color: var(--caption_dark);
 }
 
 .metadata img {
@@ -631,7 +634,7 @@ section p {
 }
 
 .secondary {
-  color: var(--caption);
+  color: var(--caption_dark);
 }
 
 .link-caption-wrapper {
@@ -656,7 +659,7 @@ section p {
 .link-caption-wrapper:hover .disabled-link,
 .link-caption-wrapper:active .disabled-link,
 .link-caption-wrapper:focus-within .disabled-link {
-  color: var(--caption);
+  color: var(--caption_dark);
   text-decoration-color: var(--caption_light);
   background-color: transparent;
   cursor: not-allowed;
@@ -669,6 +672,7 @@ section p {
 .caption {
   font-size: 16px;
   line-height: 24px;
+  color: var(--caption_dark);
 }
 
 @media (max-width: 600px) {

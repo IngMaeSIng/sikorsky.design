@@ -186,11 +186,13 @@ import Layout from "../layouts/Layout.astro";
       const link = wrapper.querySelector("a");
       const caption = wrapper.querySelector(".caption");
 
-      wrapper.addEventListener("click", (e) => {
+      wrapper.addEventListener("click", (e: MouseEvent) => {
         e.preventDefault();
 
         if (link && !link.classList.contains("disabled-link")) {
-          if (link.target === "_blank") {
+          if (e.metaKey || e.ctrlKey) {
+            window.open(link.href, "_blank");
+          } else if (link.target === "_blank") {
             window.open(link.href, "_blank");
           } else {
             window.location.href = link.href;
