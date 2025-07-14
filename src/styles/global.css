@@ -414,6 +414,9 @@ nav.header {
 }
 
 .metadata {
+  display: flex;
+  gap: 0.2em;
+  align-items: center;
   color: var(--caption_dark);
   margin-bottom: 24px;
   font-size: 16px;
@@ -423,11 +426,6 @@ nav.header {
 
 .metadata a {
   color: var(--caption_dark);
-}
-
-.metadata img {
-  vertical-align: middle;
-  margin-right: 0.2em;
 }
 
 .image {

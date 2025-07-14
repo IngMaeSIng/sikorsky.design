@@ -24,11 +24,13 @@ import Layout from "../layouts/Layout.astro";
   pageId="autoload"
 >
   <div class="metadata">
-    <img src={logoAvito.src} alt="Avito" width={32} height={32} />
-    <a href="https://avito.ru" target="_blank" class="link">Avito.ru</a>
-    ·
-    <time datetime="2023-12-01">Dec 2023 – Mar 2024</time>
-    · UGC, SaaS
+    <div><img src={logoAvito.src} alt="Avito" width={32} height={32} /></div>
+    <div>
+      <a href="https://avito.ru" target="_blank" class="link">Avito.ru</a>
+      ·
+      <time datetime="2023-12-01">Dec 2023 – Mar 2024</time>
+      · UGC, SaaS
+    </div>
   </div>
   <header>
     <h1 id="title">
@@ -197,7 +199,6 @@ import Layout from "../layouts/Layout.astro";
       <span class="caption secondary">First iteration mockups</span>
     </p>
     <p>
-      Intern designer integrated future functionality into the existing interface and user
       flows, but it became clear that the current interface couldn't support
       scaling.
     </p>
