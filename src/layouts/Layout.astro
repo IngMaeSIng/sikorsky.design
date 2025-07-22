@@ -62,7 +62,17 @@ const currentPath = Astro.url.pathname;
     </main>
     <footer>
       <p class="secondary">
-        © 1988 … and counting, Paul Sikorsky
+        <span>© Paul Sikorsky, b. 1988</span>
+        <span style="margin-left: 6px; letter-spacing: 5px">·㉨·</span>
+        <span>
+          <a href="mailto:p@sikorsky.design" class="link">p@sikorsky.design</a>
+          · <a href="https://t.me/initsrightplace" class="link" target="_blank">@initsrightplace</a>
+          · <a
+              href="https://www.linkedin.com/in/paulsikorsky/"
+              class="link"
+              target="_blank">LinkedIn</a>
+          · <a href="https://www.instagram.com/ingmaesing/" class="link" target="_blank">Instagram</a>
+        </span>
       </p>
     </footer>
   </body>
@@ -116,6 +126,22 @@ const currentPath = Astro.url.pathname;
 
   #copy-link {
     cursor: pointer;
+  }
+
+  footer .link {
+    color: var(--caption_dark);
+    text-underline-offset: 0.12em;
+    text-decoration-skip-ink: none;
+  }
+
+  footer .link:hover {
+    color: var(--base);
+  }
+
+  @media (max-width: 600px) {
+    footer p > span:last-of-type {
+      display: block
+    }
   }
 </style>
 

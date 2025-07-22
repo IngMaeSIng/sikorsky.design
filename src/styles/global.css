@@ -734,12 +734,13 @@ section p {
 footer {
   max-width: 893px;
   min-width: 413px;
-  margin: 64px auto 160px;
+  margin: 160px auto 48px;
   padding: 0 26px 0 27px;
 }
 
 @media (max-width: 600px) {
   footer {
+    margin: 128px auto 48px;
     max-width: var(--container-width);
     padding: 0 16px 0 16px;
   }
