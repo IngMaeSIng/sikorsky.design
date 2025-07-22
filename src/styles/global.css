@@ -575,6 +575,16 @@ section .quote {
 }
 
 /*--- Specific Styles for the Personal Webpage ---*/
+.title-wrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: var(--spacing-large);
+}
+
+.title-wrapper h1 {
+  margin-left: 16px;
+  margin-bottom: 0;
+}
 
 .content {
   max-width: 893px;
