@@ -1,12 +1,14 @@
-import { test, expect } from '@playwright/test';
+import { test, expect } from "@playwright/test";
+import { mockImages } from "./mockImages.ts";
 
-test.describe('Visual regression tests', () => {
+test.describe("Visual regression tests", () => {
   test('"ugc" matches screenshot', async ({ page }) => {
-    await page.goto('/ugc');
+    await mockImages(page);
+    await page.goto("/ugc");
 
-    await page.waitForLoadState('networkidle');
+    await page.waitForLoadState("networkidle");
 
-    await expect(page).toHaveScreenshot('ugc.png', {
+    await expect(page).toHaveScreenshot("ugc.png", {
       fullPage: true,
       timeout: 10000,
       maxDiffPixelRatio: 0.2

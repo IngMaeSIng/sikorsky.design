@@ -1,7 +1,9 @@
 import { test, expect } from "@playwright/test";
+import { mockImages } from "./mockImages.ts";
 
 test.describe("Visual regression tests", () => {
   test('"ld" page matches screenshot', async ({ page }) => {
+    await mockImages(page);
     await page.goto("/ld");
 
     await page.waitForLoadState("networkidle");
