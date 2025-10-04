@@ -505,7 +505,7 @@ video.image {
 }
 
 .image.full {
-  width: calc(100vw - var(--spacing-xlarge)); /* Full viewport width */
+  width: calc(100vw - var(--spacing-xlarge));
   margin: 0 auto;
   position: relative;
   left: 50%;
@@ -602,6 +602,11 @@ video.image {
   display: flex;
   align-items: center;
   margin-bottom: var(--spacing-large);
+}
+
+.avatar {
+  width: 80px; /* Original image size */
+  height: 80px;
 }
 
 .title-wrapper h1 {
