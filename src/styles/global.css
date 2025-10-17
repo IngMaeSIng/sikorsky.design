@@ -420,6 +420,11 @@ nav.header {
   min-height: 40px;
   background-color: var(--base);
   z-index: 10;
+  opacity: 1;
+  visibility: visible;
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease;
 }
 
 .nav-content {
@@ -624,9 +629,9 @@ video.image {
 }
 
 @media (max-width: 893px) {
-    .avatar {
-        margin-bottom: 44px;
-    }
+  .avatar {
+    margin-bottom: 44px;
+  }
 }
 
 .gradient {
@@ -639,10 +644,10 @@ video.image {
 }
 
 @media (max-width: 893px) {
-    .gradient {
-        top: 0.5%;
-        left: -8%;
-    }
+  .gradient {
+    top: 0.5%;
+    left: -8%;
+  }
 }
 
 .title-wrapper h1 {

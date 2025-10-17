@@ -9,6 +9,7 @@ import Layout from "../layouts/Layout.astro";
         src="https://firebasestorage.googleapis.com/v0/b/sikorsky-design.firebasestorage.app/o/images%2Ffav%20main.png?alt=media&token=d6f00778-ecd7-46c0-9349-0715ee3ad3aa"
         alt="Paul Sikorsky"
         class="avatar"
+        id="avatar"
       />
       <img
         src="https://firebasestorage.googleapis.com/v0/b/sikorsky-design.firebasestorage.app/o/images%2Fgradient.png?alt=media&token=92e5a4e5-e95d-4a72-8521-200b96ce85ab"
@@ -189,6 +190,29 @@ import Layout from "../layouts/Layout.astro";
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {
+    // header animation
+    const header = document.getElementById("header");
+    const isHome = window.location.pathname === "/";
+    if (isHome) {
+      header?.classList.add("hidden");
+    }
+
+    function handleScroll() {
+      if (isHome) {
+        const avatarElement = document.getElementById("avatar");
+        const rect = avatarElement?.getBoundingClientRect();
+
+        if (rect.bottom < 0) {
+          header?.classList.remove("hidden");
+        } else {
+          header?.classList.add("hidden");
+        }
+      }
+    }
+
+    window.addEventListener("scroll", handleScroll);
+
+    // disabled links
     const wrappers = document.querySelectorAll(".link-caption-wrapper");
 
     wrappers.forEach((wrapper) => {
