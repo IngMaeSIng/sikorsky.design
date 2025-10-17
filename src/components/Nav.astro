@@ -7,21 +7,57 @@ const pageTitle = Astro.props.title || "Current Page";
 const breadcrumbItems = generateBreadcrumbs(currentPath, pageTitle);
 ---
 
-<nav class="header">
+<nav class="header" id="header">
   <div class="nav-content">
     <a href="/" class="logo" id="logo">
-      <img src="/logo.svg" alt="Paul Sikorsky logo" />
+      <img src="/logo.png" alt="Paul Sikorsky logo" width="32" height="32" />
     </a>
     <Breadcrumbs items={breadcrumbItems} />
   </div>
 </nav>
 
+<style>
+  .header {
+    opacity: 1;
+    visibility: visible;
+    transition:
+      opacity 0.3s ease,
+      visibility 0.3s ease;
+  }
+  .header.hidden {
+    opacity: 0;
+    display: none;
+    visibility: hidden;
+    height: 0;
+  }
+</style>
+
 <script>
   document.addEventListener("DOMContentLoaded", function () {
+    const header = document.getElementById("header");
     const logo = document.getElementById("logo");
+    const isHome = window.location.pathname === "/";
+    if (isHome) {
+      header?.classList.add("hidden");
+    }
+
+    function handleScroll() {
+      if (isHome) {
+        const titleElement = document.getElementById("title");
+        const rect = titleElement?.getBoundingClientRect();
+
+        if (rect.top < 0) {
+          header?.classList.remove("hidden");
+        } else {
+          header?.classList.add("hidden");
+        }
+      }
+    }
+
+    window.addEventListener("scroll", handleScroll);
 
     logo?.addEventListener("click", function (e) {
-      if (window.location.pathname === "/") {
+      if (isHome) {
         e.preventDefault();
 
         window.scrollTo({
