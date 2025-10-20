@@ -634,22 +634,6 @@ video.image {
   }
 }
 
-.gradient {
-  position: absolute;
-  width: 320px;
-  height: 320px;
-  top: 0.5%;
-  left: -5.5%;
-  z-index: -1;
-}
-
-@media (max-width: 893px) {
-  .gradient {
-    top: 0.5%;
-    left: -8%;
-  }
-}
-
 .title-wrapper h1 {
   margin-left: var(--spacing-regular);
   margin-bottom: 0;
