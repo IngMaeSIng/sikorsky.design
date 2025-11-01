@@ -14,7 +14,7 @@ export function generateBreadcrumbs(currentPath: string, pageTitle: string) {
             });
         } else {
             breadcrumbs.push({
-                label: segment.charAt(0).toUpperCase() + segment.slice(1),
+                label: segment.charAt(0).toUpperCase() + segment.slice(1).replace(/-/g, ' '),
                 href: currentHref
             });
         }

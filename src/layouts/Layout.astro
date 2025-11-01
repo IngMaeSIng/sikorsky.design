@@ -146,7 +146,7 @@ const currentPath = Astro.url.pathname;
 </style>
 
 <script is:inline>
-  document.getElementById("copy-link").addEventListener("click", (e) => {
+  document.getElementById("copy-link")?.addEventListener("click", (e) => {
     if (e.target.closest(".link")) {
       e.preventDefault();
       navigator.clipboard.writeText(
