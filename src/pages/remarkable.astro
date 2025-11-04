@@ -1,9 +1,6 @@
 ---
 import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
-import ld1 from "../images/ld/ld-1.png";
-import ld2 from "../images/ld/ld-2.png";
-import ld3 from "../images/ld/ld-3.png";
 ---
 
 <Layout
@@ -12,72 +9,100 @@ import ld3 from "../images/ld/ld-3.png";
   pageId="remarkable"
 >
   <div class="metadata">
-    <div><time datetime="2025-11-04">November 4, 2025</time>
-    ·
-    <a
-        class="link"
-        href="https://t.me/initsrightplace/246"
-        target="_blank">Originally published in my channel</a
-    >
-    · <span class="tags">tools, workflow</span>
+    <div>
+      <time datetime="2025-11-04">November 4, 2025</time>
+      ·
+      <a class="link" href="https://t.me/initsrightplace/246" target="_blank"
+        >Originally published in my channel</a
+      >
+      · <span class="tags">tools, workflow</span>
     </div>
   </div>
   <header>
-    <h1 id="title">My Experience with the reMarkable Paper Pro, a Tool for Slow Productivity</h1>
+    <h1 id="title">
+      My Experience with the reMarkable Paper Pro, a Tool for Slow Productivity
+    </h1>
     <h2>
-        Two months ago, I bought <a href="https://remarkable.com/products/remarkable-paper/pro" class="link" target="_blank">a reMarkable Paper Pro</a>. After years inside Apple’s comfortable ecosystem, I wanted to try something different: a device built for a calmer, more focused way to read, write, and design. Before that, I used an iPad for those same tasks, but often got sidetracked by the occasional mindless Fallout Shelter session.
+      Two months ago, I bought <a
+        href="https://remarkable.com/products/remarkable-paper/pro"
+        class="link"
+        target="_blank">a reMarkable Paper Pro</a
+      >. After years inside Apple’s comfortable ecosystem, I wanted to try
+      something different: a device built for a calmer, more focused way to
+      read, write, and design. Before that, I used an iPad for those same tasks,
+      but often got sidetracked by the occasional mindless Fallout Shelter
+      session.
     </h2>
   </header>
   <section>
     <p>
-      <Image src={ld1} alt="year planning guide" class="image" />
+      <Image
+        src="https://firebasestorage.googleapis.com/v0/b/sikorsky-design.firebasestorage.app/o/images%2Fremarkable%2Fremarkable.JPG?alt=media&token=a3565d9d-6de7-4e90-813f-6e7e73b8cc8e"
+        alt="remarkable"
+        class="image"
+        width="50"
+        height="50"
+      />
     </p>
   </section>
   <section>
     <h2>User experience: 9/10</h2>
     <p>
-      This device is made for two things — reading and writing, and nothing else.  
-      No distractions, just the two jobs that actually matter to me. I love that. I take it everywhere now, instead of carrying a          separate book and notebook.
+      This device is made for two things — reading and writing, and nothing
+      else. No distractions, just the two jobs that actually matter to me. I
+      love that. I take it everywhere now, instead of carrying a separate book
+      and notebook.
     </p>
     <p>
-      It loads slowly, you can almost _feel_ it thinking under the hood. It’s annoying, but in a strange way, that delay grounds           you. It sets the pace for calm, focused work. You stop rushing, stop switching. You just do one thing, thoughtfully.
+      It loads slowly, you can almost _feel_ it thinking under the hood. It’s
+      annoying, but in a strange way, that delay grounds you. It sets the pace
+      for calm, focused work. You stop rushing, stop switching. You just do one
+      thing, thoughtfully.
     </p>
   </section>
-   <section>
+  <section>
     <h2>Screen: 8/10</h2>
     <p>
-      At first, it feels unusually dim, even at maximum brightness. Years of doomscrolling on OLEDs have probably burned my retina’s       expectations.
+      At first, it feels unusually dim, even at maximum brightness. Years of
+      doomscrolling on OLEDs have probably burned my retina’s expectations.
     </p>
     <p>
-      That said, it’s great for reading outside, even in bright sunlight, and surprisingly comfortable to read in bed at night.
+      That said, it’s great for reading outside, even in bright sunlight, and
+      surprisingly comfortable to read in bed at night.
     </p>
-    <p>
-      There are eight highlight colors besides black. All of them dull.
-    </p>
+    <p>There are eight highlight colors besides black. All of them dull.</p>
   </section>
   <section>
     <h2>Writing Experience: 9/10</h2>
     <div class="paragraph-with-list-block">
-    <p>
-      Writing feels great, noticeably better than on the iPad. Of course, it’s still not paper, but the advantages are clear:
-    </p>
-    <ul>
-      <li>
-        In paper notebooks I always write neat to save pages. Quick sketches end up on loose sheets anyway. They pile up, get lost,          and are a pain to store.
-      </li>
-      <li>
-        On the reMarkable, it feels good to make rough drafts and write messily. Everything stays saved, and there’s no fear of              losing anything.
-      </li>
-      <li>
-        There are several pen types, underlining options, an eraser on the back of the stylus, and handy gesture shortcuts.
-      </li>
-      <li>
-        You can select and move written parts around when you realize something doesn’t fit.
-      </li>
-      <li>
-        It recognizes handwritten English and some other languages, but not Russian (yet).
-      </li>
-    </ul>
+      <p>
+        Writing feels great, noticeably better than on the iPad. Of course, it’s
+        still not paper, but the advantages are clear:
+      </p>
+      <ul>
+        <li>
+          In paper notebooks I always write neat to save pages. Quick sketches
+          end up on loose sheets anyway. They pile up, get lost, and are a pain
+          to store.
+        </li>
+        <li>
+          On the reMarkable, it feels good to make rough drafts and write
+          messily. Everything stays saved, and there’s no fear of losing
+          anything.
+        </li>
+        <li>
+          There are several pen types, underlining options, an eraser on the
+          back of the stylus, and handy gesture shortcuts.
+        </li>
+        <li>
+          You can select and move written parts around when you realize
+          something doesn’t fit.
+        </li>
+        <li>
+          It recognizes handwritten English and some other languages, but not
+          Russian (yet).
+        </li>
+      </ul>
     </div>
   </section>
 </Layout>
