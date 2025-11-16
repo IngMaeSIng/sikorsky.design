@@ -206,7 +206,7 @@ import Layout from "../layouts/Layout.astro";
         const avatarElement = document.getElementById("avatar");
         const rect = avatarElement?.getBoundingClientRect();
 
-        if (rect.bottom < 0) {
+        if (rect.top < 0) {
           header?.classList.remove("hidden");
         } else {
           header?.classList.add("hidden");
