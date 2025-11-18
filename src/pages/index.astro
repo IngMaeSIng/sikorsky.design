@@ -200,7 +200,8 @@ import Layout from "../layouts/Layout.astro";
     const isHome = window.location.pathname === "/";
 
     if (isHome) {
-      const logoImg = document.querySelector('#logo img');
+      // Narrow the queried element to HTMLImageElement so TS knows `.style` exists
+      const logoImg = document.querySelector<HTMLImageElement>('#logo img');
 
       if (!avatar || !title || !logoImg) {
         console.warn('[home] Missing required elements:', {
