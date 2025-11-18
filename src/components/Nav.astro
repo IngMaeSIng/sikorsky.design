@@ -5,12 +5,21 @@ import { generateBreadcrumbs } from "../utils/generateBreadcrumbs";
 const currentPath = Astro.url.pathname;
 const pageTitle = Astro.props.title || "Current Page";
 const breadcrumbItems = generateBreadcrumbs(currentPath, pageTitle);
+const isHome = currentPath === "/";
 ---
 
 <nav class="header" id="header">
   <div class="nav-content">
     <a href="/" class="logo" id="logo">
-      <img src="/logo.png" alt="Paul Sikorsky logo" width="32" height="32" />
+      <img
+        src="/logo.png"
+        alt="Paul Sikorsky logo"
+        width="32"
+        height="32"
+        style={isHome ? "opacity:0;" : undefined}
+        loading="eager"
+        decoding="async"
+      />
     </a>
     <Breadcrumbs items={breadcrumbItems} />
   </div>
@@ -25,7 +34,6 @@ const breadcrumbItems = generateBreadcrumbs(currentPath, pageTitle);
 
 <script>
   document.addEventListener("DOMContentLoaded", function () {
-
     const logo = document.getElementById("logo");
     const isHome = window.location.pathname === "/";
 

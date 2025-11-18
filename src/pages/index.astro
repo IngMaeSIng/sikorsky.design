@@ -196,25 +196,274 @@ import Layout from "../layouts/Layout.astro";
   document.addEventListener("DOMContentLoaded", () => {
     // header animation
     const header = document.getElementById("header");
+    const avatar = document.getElementById("avatar");
+    const title = document.getElementById("title");
     const isHome = window.location.pathname === "/";
+
     if (isHome) {
-      header?.classList.add("hidden");
-    }
+      // Step 1 (unchanged parts) ...
+      const logoImg = document.querySelector('#logo img');
 
-    function handleScroll() {
-      if (isHome) {
-        const avatarElement = document.getElementById("avatar");
-        const rect = avatarElement?.getBoundingClientRect();
+      if (!avatar || !title || !logoImg) {
+        console.warn('[Step 2] Missing required elements:', {
+          avatar: !!avatar,
+          title: !!title,
+          logoImg: !!logoImg,
+        });
+      } else {
+        const clamp = (v, min, max) => Math.max(min, Math.min(max, v));
+        const lerp = (a, b, t) => a + (b - a) * t;
+        const getDocTop = (el) => el.getBoundingClientRect().top + window.scrollY;
 
-        if (rect.top < 0) {
-          header?.classList.remove("hidden");
-        } else {
-          header?.classList.add("hidden");
+        // Prepare avatar for stable transforms
+        avatar.style.transformOrigin = 'top left';
+        avatar.style.willChange = 'transform, top, left, width, height, opacity';
+
+        logoImg.style.transition = 'opacity 140ms linear';
+        avatar.style.transition = 'opacity 140ms linear';
+
+        // Debug panel + bar (unchanged from Step 1)
+        const panel = document.createElement('div');
+        panel.style.position = 'fixed';
+        panel.style.top = '8px';
+        panel.style.right = '8px';
+        panel.style.zIndex = '9999';
+        panel.style.font = '12px/1.3 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, sans-serif';
+        panel.style.background = 'rgba(0,0,0,0.7)';
+        panel.style.color = '#fff';
+        panel.style.padding = '8px 10px';
+        panel.style.borderRadius = '6px';
+        panel.style.pointerEvents = 'none';
+        panel.style.whiteSpace = 'pre';
+        panel.textContent = 'progress: —';
+        document.body.appendChild(panel);
+
+        const bar = document.createElement('div');
+        bar.style.position = 'fixed';
+        bar.style.left = '0';
+        bar.style.top = '0';
+        bar.style.height = '3px';
+        bar.style.width = '0%';
+        bar.style.background = '#00c853';
+        bar.style.zIndex = '9999';
+        bar.style.transition = 'width 60ms linear';
+        document.body.appendChild(bar);
+
+        // Placeholder to avoid layout shift when avatar becomes fixed
+        let placeholder = null;
+        function makePlaceholderFrom(el) {
+          const rect = el.getBoundingClientRect();
+          const p = document.createElement('div');
+          // Match element’s box size as rendered (without margins)
+          p.style.width = rect.width + 'px';
+          p.style.height = rect.height + 'px';
+          // Use block to reliably reserve vertical space for images
+          const cs = getComputedStyle(el);
+          p.style.display = 'block';
+          p.style.marginTop = cs.marginTop;
+          p.style.marginRight = cs.marginRight;
+          p.style.marginBottom = cs.marginBottom;
+          p.style.marginLeft = cs.marginLeft;
+          // Ensure it doesn’t draw anything visually
+          p.style.border = '0';
+          p.style.padding = '0';
+          p.style.background = 'transparent';
+          return p;
         }
+        function ensurePlaceholder() {
+          if (!placeholder) {
+            placeholder = makePlaceholderFrom(avatar);
+            avatar.parentElement?.insertBefore(placeholder, avatar);
+          }
+        }
+        function removePlaceholder() {
+          if (placeholder && placeholder.parentElement) {
+            placeholder.parentElement.removeChild(placeholder);
+          }
+          placeholder = null;
+        }
+
+        let rafId = 0;
+        // Handoff state to avoid flicker near completion
+        let isHandedOff = false;
+        let cleanupTimeoutId = 0;
+        const COMPLETE_IN = 0.999;   // enter handoff when p >= this
+        const COMPLETE_OUT = 0.995;  // leave handoff when p <= this
+
+        function computeProgress() {
+          // Start at document top
+          const startY = 0;
+          // End when title top reaches viewport top
+          const endY = getDocTop(title);
+          const total = Math.max(1, endY - startY);
+          const pRaw = (window.scrollY - startY) / total;
+          const p = clamp(pRaw, 0, 1);
+          // Diagnostics
+          const avatarTopInViewport = avatar.getBoundingClientRect().top;
+          const titleTopInViewport = title.getBoundingClientRect().top;
+          return { p, startY, endY, total, pRaw, avatarTopInViewport, titleTopInViewport };
+        }
+
+        function update() {
+          rafId = 0;
+          const { p, startY, endY, total, pRaw, avatarTopInViewport, titleTopInViewport } = computeProgress();
+
+          // Update debug UI
+          panel.textContent =
+            `p: ${p.toFixed(3)}  (raw: ${pRaw.toFixed(3)})\n` +
+            `scrollY: ${Math.round(window.scrollY)}\n` +
+            `startY(docTop): ${Math.round(startY)}\n` +
+            `endY(titleTop@doc):   ${Math.round(endY)}\n` +
+            `total: ${Math.round(total)}\n` +
+            `avatarTop@viewport: ${Math.round(avatarTopInViewport)}\n` +
+            `titleTop@viewport:  ${Math.round(titleTopInViewport)}`;
+
+          bar.style.width = `${p * 100}%`;
+          document.documentElement.style.setProperty('--scroll-progress', String(p));
+
+          // Compute target rect each frame from current layout
+          const targetRect = logoImg.getBoundingClientRect();
+
+          const cleanupFixedPositioning = () => {
+            // Prevent double cleanup
+            if (cleanupTimeoutId === -1) return;
+            avatar.style.position = '';
+            avatar.style.top = '';
+            avatar.style.left = '';
+            avatar.style.width = '';
+            avatar.style.height = '';
+            avatar.style.transform = '';
+            avatar.style.zIndex = '';
+            removePlaceholder();
+            cleanupTimeoutId = -1;
+          };
+
+          const scheduleCleanupAfterFade = () => {
+            if (cleanupTimeoutId > 0 || cleanupTimeoutId === -1) return; // already scheduled or cleaned
+            const onEnd = (e) => {
+              if (e && e.propertyName && e.propertyName !== 'opacity') return;
+              avatar.removeEventListener('transitionend', onEnd);
+              cleanupFixedPositioning();
+            };
+            avatar.addEventListener('transitionend', onEnd);
+            cleanupTimeoutId = window.setTimeout(() => {
+              avatar.removeEventListener('transitionend', onEnd);
+              cleanupFixedPositioning();
+            }, 220);
+          };
+
+          if (p <= 0) {
+            // Not animating: restore normal flow and visibility
+            avatar.style.position = '';
+            avatar.style.top = '';
+            avatar.style.left = '';
+            avatar.style.width = '';
+            avatar.style.height = '';
+            avatar.style.transform = '';
+            avatar.style.zIndex = '';
+            avatar.style.pointerEvents = '';
+
+            // Avatar visible at top; nav logo hidden while on home
+            avatar.style.opacity = '1';
+            logoImg.style.opacity = '0';
+
+            removePlaceholder();
+            // Reset handoff state and pending cleanups
+            isHandedOff = false;
+            if (cleanupTimeoutId > 0) {
+              clearTimeout(cleanupTimeoutId);
+            }
+            cleanupTimeoutId = 0;
+            return;
+          }
+
+// 0 < p < COMPLETE_OUT or exiting handoff: actively animate toward the nav logo
+          if (!isHandedOff || p <= COMPLETE_OUT) {
+            // If we were in handedOff and p dropped below threshold, revert
+            if (isHandedOff && p <= COMPLETE_OUT) {
+              isHandedOff = false;
+              // Cancel any scheduled cleanup if still pending
+              if (cleanupTimeoutId > 0) {
+                clearTimeout(cleanupTimeoutId);
+                cleanupTimeoutId = 0;
+              }
+            }
+            ensurePlaceholder();
+
+            // Compute source rect AFTER placeholder is inserted to avoid drift
+            const sourceRect = placeholder
+              ? placeholder.getBoundingClientRect()
+              : avatar.getBoundingClientRect();
+
+            // Pin avatar at its source rect in viewport coords
+            avatar.style.position = 'fixed';
+            avatar.style.top = sourceRect.top + 'px';
+            avatar.style.left = sourceRect.left + 'px';
+            avatar.style.width = sourceRect.width + 'px';
+            avatar.style.height = sourceRect.height + 'px';
+
+            // Delta from source → target
+            const fullScale = targetRect.width / Math.max(1, sourceRect.width);
+            const dx = targetRect.left - sourceRect.left;
+            const dy = targetRect.top - sourceRect.top;
+
+            // Interpolate by p
+            const scaleNow = lerp(1, fullScale, p);
+            const dxNow = lerp(0, dx, p);
+            const dyNow = lerp(0, dy, p);
+
+            avatar.style.transform = `translate(${dxNow}px, ${dyNow}px) scale(${scaleNow})`;
+
+            // Stacking and visibility during animation
+            avatar.style.zIndex = '2147483647';
+            avatar.style.opacity = '1';
+            logoImg.style.opacity = '0';
+            avatar.style.pointerEvents = 'auto';
+            return;
+          }
+
+// p >= COMPLETE_IN and not animating: handoff to navbar logo with hysteresis
+          if (!isHandedOff && p >= COMPLETE_IN) {
+            // Ensure the avatar is exactly aligned with target just before fade
+            ensurePlaceholder();
+            const sourceRect = placeholder
+              ? placeholder.getBoundingClientRect()
+              : avatar.getBoundingClientRect();
+            avatar.style.position = 'fixed';
+            avatar.style.top = sourceRect.top + 'px';
+            avatar.style.left = sourceRect.left + 'px';
+            avatar.style.width = sourceRect.width + 'px';
+            avatar.style.height = sourceRect.height + 'px';
+            const fullScale = targetRect.width / Math.max(1, sourceRect.width);
+            const dx = targetRect.left - sourceRect.left;
+            const dy = targetRect.top - sourceRect.top;
+            avatar.style.transform = `translate(${dx}px, ${dy}px) scale(${fullScale})`;
+            avatar.style.zIndex = '2147483647';
+            // Crossfade
+            logoImg.style.opacity = '1';
+            avatar.style.opacity = '0';
+            avatar.style.pointerEvents = 'none';
+            // Mark handed off and schedule cleanup after fade completes
+            isHandedOff = true;
+            scheduleCleanupAfterFade();
+            return;
+          }
+
+          // If already handed off, maintain visibility states (cleanup may already have run)
+          logoImg.style.opacity = '1';
+          avatar.style.opacity = '0';
+          avatar.style.pointerEvents = 'none';
+          // No further action
+        }
+
+        function onScroll() { if (!rafId) rafId = requestAnimationFrame(update); }
+        function onResize() { update(); }
+
+        update();
+        window.addEventListener('scroll', onScroll, { passive: true });
+        window.addEventListener('resize', onResize);
       }
     }
-
-    window.addEventListener("scroll", handleScroll);
 
     // disabled links
     const wrappers = document.querySelectorAll(".link-caption-wrapper");
