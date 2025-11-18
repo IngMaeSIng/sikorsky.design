@@ -194,25 +194,22 @@ import Layout from "../layouts/Layout.astro";
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {
-    // header animation
-    const header = document.getElementById("header");
+    // Home header avatar→logo scroll animation
     const avatar = document.getElementById("avatar");
     const title = document.getElementById("title");
     const isHome = window.location.pathname === "/";
 
     if (isHome) {
-      // Step 1 (unchanged parts) ...
       const logoImg = document.querySelector('#logo img');
 
       if (!avatar || !title || !logoImg) {
-        console.warn('[Step 2] Missing required elements:', {
+        console.warn('[home] Missing required elements:', {
           avatar: !!avatar,
           title: !!title,
           logoImg: !!logoImg,
         });
       } else {
-        // Step 4 — polish flags
-        const DEBUG = false; // set to true to show on-screen debug panel and bar
+        // Flags
         const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
         const clamp = (v, min, max) => Math.max(min, Math.min(max, v));
@@ -228,37 +225,6 @@ import Layout from "../layouts/Layout.astro";
         // Defer enabling transitions to avoid first-paint flashes
         logoImg.style.transition = 'none';
         avatar.style.transition = 'none';
-
-        // Debug panel + bar (toggle by DEBUG flag)
-        const panel = DEBUG ? document.createElement('div') : null;
-        if (DEBUG && panel) {
-          panel.style.position = 'fixed';
-          panel.style.top = '8px';
-          panel.style.right = '8px';
-          panel.style.zIndex = '9999';
-          panel.style.font = '12px/1.3 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, sans-serif';
-          panel.style.background = 'rgba(0,0,0,0.7)';
-          panel.style.color = '#fff';
-          panel.style.padding = '8px 10px';
-          panel.style.borderRadius = '6px';
-          panel.style.pointerEvents = 'none';
-          panel.style.whiteSpace = 'pre';
-          panel.textContent = 'progress: —';
-          document.body.appendChild(panel);
-        }
-
-        const bar = DEBUG ? document.createElement('div') : null;
-        if (DEBUG && bar) {
-          bar.style.position = 'fixed';
-          bar.style.left = '0';
-          bar.style.top = '0';
-          bar.style.height = '3px';
-          bar.style.width = '0%';
-          bar.style.background = '#00c853';
-          bar.style.zIndex = '9999';
-          bar.style.transition = 'width 60ms linear';
-          document.body.appendChild(bar);
-        }
 
         // Placeholder to avoid layout shift when avatar becomes fixed
         let placeholder = null;
@@ -326,32 +292,12 @@ import Layout from "../layouts/Layout.astro";
           const total = Math.max(1, endY - startY);
           const pRaw = (window.scrollY - startY) / total;
           const p = clamp(pRaw, 0, 1);
-          // Diagnostics
-          const avatarTopInViewport = avatar.getBoundingClientRect().top;
-          const titleTopInViewport = title.getBoundingClientRect().top;
-          return { p, startY, endY, total, pRaw, avatarTopInViewport, titleTopInViewport };
+          return { p };
         }
 
         function update() {
           rafId = 0;
-          const { p, startY, endY, total, pRaw, avatarTopInViewport, titleTopInViewport } = computeProgress();
-
-          // Update debug UI
-          if (DEBUG && panel) {
-            panel.textContent =
-              `p: ${p.toFixed(3)}  (raw: ${pRaw.toFixed(3)})\n` +
-              `scrollY: ${Math.round(window.scrollY)}\n` +
-              `startY(docTop): ${Math.round(startY)}\n` +
-              `endY(titleTop@doc):   ${Math.round(endY)}\n` +
-              `total: ${Math.round(total)}\n` +
-              `avatarTop@viewport: ${Math.round(avatarTopInViewport)}\n` +
-              `titleTop@viewport:  ${Math.round(titleTopInViewport)}`;
-          }
-
-          if (DEBUG && bar) {
-            bar.style.width = `${p * 100}%`;
-          }
-          document.documentElement.style.setProperty('--scroll-progress', String(p));
+          const { p } = computeProgress();
 
           // Compute target rect each frame from current layout
           const targetRect = logoImg.getBoundingClientRect();
@@ -411,7 +357,7 @@ import Layout from "../layouts/Layout.astro";
             return;
           }
 
-// 0 < p < COMPLETE_OUT or exiting handoff: actively animate toward the nav logo
+          // 0 < p < COMPLETE_OUT or exiting handoff: actively animate toward the nav logo
           if (!isHandedOff || p <= COMPLETE_OUT) {
             // If we were in handedOff and p dropped below threshold, revert
             if (isHandedOff && p <= COMPLETE_OUT) {
