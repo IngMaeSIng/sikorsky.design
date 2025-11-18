@@ -211,46 +211,61 @@ import Layout from "../layouts/Layout.astro";
           logoImg: !!logoImg,
         });
       } else {
+        // Step 4 — polish flags
+        const DEBUG = false; // set to true to show on-screen debug panel and bar
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
         const clamp = (v, min, max) => Math.max(min, Math.min(max, v));
         const lerp = (a, b, t) => a + (b - a) * t;
+        // Slight ease for a smoother feel
+        const ease = (t) => t * (2 - t); // easeOutQuad
         const getDocTop = (el) => el.getBoundingClientRect().top + window.scrollY;
 
         // Prepare avatar for stable transforms
         avatar.style.transformOrigin = 'top left';
         avatar.style.willChange = 'transform, top, left, width, height, opacity';
 
-        logoImg.style.transition = 'opacity 140ms linear';
-        avatar.style.transition = 'opacity 140ms linear';
+        // Defer enabling transitions to avoid first-paint flashes
+        logoImg.style.transition = 'none';
+        avatar.style.transition = 'none';
 
-        // Debug panel + bar (unchanged from Step 1)
-        const panel = document.createElement('div');
-        panel.style.position = 'fixed';
-        panel.style.top = '8px';
-        panel.style.right = '8px';
-        panel.style.zIndex = '9999';
-        panel.style.font = '12px/1.3 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, sans-serif';
-        panel.style.background = 'rgba(0,0,0,0.7)';
-        panel.style.color = '#fff';
-        panel.style.padding = '8px 10px';
-        panel.style.borderRadius = '6px';
-        panel.style.pointerEvents = 'none';
-        panel.style.whiteSpace = 'pre';
-        panel.textContent = 'progress: —';
-        document.body.appendChild(panel);
+        // Debug panel + bar (toggle by DEBUG flag)
+        const panel = DEBUG ? document.createElement('div') : null;
+        if (DEBUG && panel) {
+          panel.style.position = 'fixed';
+          panel.style.top = '8px';
+          panel.style.right = '8px';
+          panel.style.zIndex = '9999';
+          panel.style.font = '12px/1.3 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, sans-serif';
+          panel.style.background = 'rgba(0,0,0,0.7)';
+          panel.style.color = '#fff';
+          panel.style.padding = '8px 10px';
+          panel.style.borderRadius = '6px';
+          panel.style.pointerEvents = 'none';
+          panel.style.whiteSpace = 'pre';
+          panel.textContent = 'progress: —';
+          document.body.appendChild(panel);
+        }
 
-        const bar = document.createElement('div');
-        bar.style.position = 'fixed';
-        bar.style.left = '0';
-        bar.style.top = '0';
-        bar.style.height = '3px';
-        bar.style.width = '0%';
-        bar.style.background = '#00c853';
-        bar.style.zIndex = '9999';
-        bar.style.transition = 'width 60ms linear';
-        document.body.appendChild(bar);
+        const bar = DEBUG ? document.createElement('div') : null;
+        if (DEBUG && bar) {
+          bar.style.position = 'fixed';
+          bar.style.left = '0';
+          bar.style.top = '0';
+          bar.style.height = '3px';
+          bar.style.width = '0%';
+          bar.style.background = '#00c853';
+          bar.style.zIndex = '9999';
+          bar.style.transition = 'width 60ms linear';
+          document.body.appendChild(bar);
+        }
 
         // Placeholder to avoid layout shift when avatar becomes fixed
         let placeholder = null;
+        // Base rect captured at the start of animation (p just above 0). Using a stable
+        // reference prevents the apparent “parabolic” path caused by mixing a moving
+        // placeholder rect with a changing transform.
+        let baseSourceRect = null;
         function makePlaceholderFrom(el) {
           const rect = el.getBoundingClientRect();
           const p = document.createElement('div');
@@ -282,6 +297,19 @@ import Layout from "../layouts/Layout.astro";
           }
           placeholder = null;
         }
+        function captureBaseSourceRect() {
+          const r = avatar.getBoundingClientRect();
+          if (r.width > 0 && r.height > 0) {
+            baseSourceRect = {
+              top: r.top,
+              left: r.left,
+              width: r.width,
+              height: r.height,
+              right: r.right,
+              bottom: r.bottom,
+            };
+          }
+        }
 
         let rafId = 0;
         // Handoff state to avoid flicker near completion
@@ -309,16 +337,20 @@ import Layout from "../layouts/Layout.astro";
           const { p, startY, endY, total, pRaw, avatarTopInViewport, titleTopInViewport } = computeProgress();
 
           // Update debug UI
-          panel.textContent =
-            `p: ${p.toFixed(3)}  (raw: ${pRaw.toFixed(3)})\n` +
-            `scrollY: ${Math.round(window.scrollY)}\n` +
-            `startY(docTop): ${Math.round(startY)}\n` +
-            `endY(titleTop@doc):   ${Math.round(endY)}\n` +
-            `total: ${Math.round(total)}\n` +
-            `avatarTop@viewport: ${Math.round(avatarTopInViewport)}\n` +
-            `titleTop@viewport:  ${Math.round(titleTopInViewport)}`;
+          if (DEBUG && panel) {
+            panel.textContent =
+              `p: ${p.toFixed(3)}  (raw: ${pRaw.toFixed(3)})\n` +
+              `scrollY: ${Math.round(window.scrollY)}\n` +
+              `startY(docTop): ${Math.round(startY)}\n` +
+              `endY(titleTop@doc):   ${Math.round(endY)}\n` +
+              `total: ${Math.round(total)}\n` +
+              `avatarTop@viewport: ${Math.round(avatarTopInViewport)}\n` +
+              `titleTop@viewport:  ${Math.round(titleTopInViewport)}`;
+          }
 
-          bar.style.width = `${p * 100}%`;
+          if (DEBUG && bar) {
+            bar.style.width = `${p * 100}%`;
+          }
           document.documentElement.style.setProperty('--scroll-progress', String(p));
 
           // Compute target rect each frame from current layout
@@ -374,6 +406,8 @@ import Layout from "../layouts/Layout.astro";
               clearTimeout(cleanupTimeoutId);
             }
             cleanupTimeoutId = 0;
+            // Update base rect at top so subsequent movement uses a fixed origin
+            captureBaseSourceRect();
             return;
           }
 
@@ -388,64 +422,116 @@ import Layout from "../layouts/Layout.astro";
                 cleanupTimeoutId = 0;
               }
             }
-            ensurePlaceholder();
+            if (prefersReducedMotion) {
+              // No transforms; keep avatar in normal flow and just manage visibility
+              avatar.style.position = '';
+              avatar.style.top = '';
+              avatar.style.left = '';
+              avatar.style.width = '';
+              avatar.style.height = '';
+              avatar.style.transform = '';
+              avatar.style.zIndex = '';
+              // During the range, avatar visible, logo hidden
+              avatar.style.opacity = '1';
+              logoImg.style.opacity = '0';
+              avatar.style.pointerEvents = 'auto';
+            } else {
+              // Guard: if avatar hasn't resolved its size yet (image not loaded), avoid fixing/transforms
+              const naturalRect = avatar.getBoundingClientRect();
+              if ((naturalRect.width < 1) || (naturalRect.height < 1)) {
+                avatar.style.position = '';
+                avatar.style.top = '';
+                avatar.style.left = '';
+                avatar.style.width = '';
+                avatar.style.height = '';
+                avatar.style.transform = '';
+                avatar.style.zIndex = '';
+                avatar.style.opacity = '1';
+                logoImg.style.opacity = '0';
+                avatar.style.pointerEvents = 'auto';
+                removePlaceholder();
+                return;
+              }
+              // Ensure we have a stable base rect (captured when at top). If missing
+              // (e.g., on hard reload mid-scroll), capture once from current rect.
+              if (!baseSourceRect) captureBaseSourceRect();
+              ensurePlaceholder();
 
-            // Compute source rect AFTER placeholder is inserted to avoid drift
-            const sourceRect = placeholder
-              ? placeholder.getBoundingClientRect()
-              : avatar.getBoundingClientRect();
+              // Use the stable base rect as the fixed origin to keep a linear path in viewport space
+              const sourceRect = baseSourceRect;
 
-            // Pin avatar at its source rect in viewport coords
-            avatar.style.position = 'fixed';
-            avatar.style.top = sourceRect.top + 'px';
-            avatar.style.left = sourceRect.left + 'px';
-            avatar.style.width = sourceRect.width + 'px';
-            avatar.style.height = sourceRect.height + 'px';
+              // Pin avatar at its source rect in viewport coords
+              avatar.style.position = 'fixed';
+              avatar.style.top = sourceRect.top + 'px';
+              avatar.style.left = sourceRect.left + 'px';
+              avatar.style.width = sourceRect.width + 'px';
+              avatar.style.height = sourceRect.height + 'px';
 
-            // Delta from source → target
-            const fullScale = targetRect.width / Math.max(1, sourceRect.width);
-            const dx = targetRect.left - sourceRect.left;
-            const dy = targetRect.top - sourceRect.top;
+              // Linear-in-space interpolation using centers to avoid parabolic path
+              const fullScale = targetRect.width / Math.max(1, sourceRect.width);
+              const pe = ease(p);
+              const scaleNow = lerp(1, fullScale, pe);
 
-            // Interpolate by p
-            const scaleNow = lerp(1, fullScale, p);
-            const dxNow = lerp(0, dx, p);
-            const dyNow = lerp(0, dy, p);
+              // Centers
+              const c0x = sourceRect.left + sourceRect.width / 2;
+              const c0y = sourceRect.top + sourceRect.height / 2;
+              const c1x = targetRect.left + targetRect.width / 2;
+              const c1y = targetRect.top + targetRect.height / 2;
+              const cx = lerp(c0x, c1x, pe);
+              const cy = lerp(c0y, c1y, pe);
 
-            avatar.style.transform = `translate(${dxNow}px, ${dyNow}px) scale(${scaleNow})`;
+              // Desired top-left at this scale so that center is exactly on the line
+              const topLeftNowX = cx - (scaleNow * sourceRect.width) / 2;
+              const topLeftNowY = cy - (scaleNow * sourceRect.height) / 2;
 
-            // Stacking and visibility during animation
-            avatar.style.zIndex = '2147483647';
-            avatar.style.opacity = '1';
-            logoImg.style.opacity = '0';
-            avatar.style.pointerEvents = 'auto';
+              // Translate from the fixed source top-left to the desired top-left
+              const tx = topLeftNowX - sourceRect.left;
+              const ty = topLeftNowY - sourceRect.top;
+
+              avatar.style.transform = `translate(${tx}px, ${ty}px) scale(${scaleNow})`;
+
+              // Stacking and visibility during animation
+              avatar.style.zIndex = '2147483647';
+              avatar.style.opacity = '1';
+              logoImg.style.opacity = '0';
+              avatar.style.pointerEvents = 'auto';
+            }
             return;
           }
 
 // p >= COMPLETE_IN and not animating: handoff to navbar logo with hysteresis
           if (!isHandedOff && p >= COMPLETE_IN) {
             // Ensure the avatar is exactly aligned with target just before fade
-            ensurePlaceholder();
-            const sourceRect = placeholder
-              ? placeholder.getBoundingClientRect()
-              : avatar.getBoundingClientRect();
-            avatar.style.position = 'fixed';
-            avatar.style.top = sourceRect.top + 'px';
-            avatar.style.left = sourceRect.left + 'px';
-            avatar.style.width = sourceRect.width + 'px';
-            avatar.style.height = sourceRect.height + 'px';
-            const fullScale = targetRect.width / Math.max(1, sourceRect.width);
-            const dx = targetRect.left - sourceRect.left;
-            const dy = targetRect.top - sourceRect.top;
-            avatar.style.transform = `translate(${dx}px, ${dy}px) scale(${fullScale})`;
-            avatar.style.zIndex = '2147483647';
+            if (!prefersReducedMotion) {
+              ensurePlaceholder();
+              // Use stable base rect for final snap
+              if (!baseSourceRect) captureBaseSourceRect();
+              const sourceRect = baseSourceRect;
+              avatar.style.position = 'fixed';
+              avatar.style.top = sourceRect.top + 'px';
+              avatar.style.left = sourceRect.left + 'px';
+              avatar.style.width = sourceRect.width + 'px';
+              avatar.style.height = sourceRect.height + 'px';
+              const fullScale = targetRect.width / Math.max(1, sourceRect.width);
+              const dx = targetRect.left - sourceRect.left;
+              const dy = targetRect.top - sourceRect.top;
+              avatar.style.transform = `translate(${dx}px, ${dy}px) scale(${fullScale})`;
+              avatar.style.zIndex = '2147483647';
+            } else {
+              // No transform path; keep flow
+              avatar.style.position = '';
+              avatar.style.transform = '';
+              avatar.style.zIndex = '';
+            }
             // Crossfade
             logoImg.style.opacity = '1';
             avatar.style.opacity = '0';
             avatar.style.pointerEvents = 'none';
             // Mark handed off and schedule cleanup after fade completes
             isHandedOff = true;
-            scheduleCleanupAfterFade();
+            if (!prefersReducedMotion) {
+              scheduleCleanupAfterFade();
+            }
             return;
           }
 
@@ -457,11 +543,25 @@ import Layout from "../layouts/Layout.astro";
         }
 
         function onScroll() { if (!rafId) rafId = requestAnimationFrame(update); }
-        function onResize() { update(); }
+        function onResize() { baseSourceRect = null; update(); }
+        function onVisibilityChange() { if (!document.hidden) update(); }
 
+        // Initial paint without transitions, then enable them
         update();
+        requestAnimationFrame(() => {
+          logoImg.style.transition = prefersReducedMotion ? 'none' : 'opacity 140ms linear';
+          avatar.style.transition = prefersReducedMotion ? 'none' : 'opacity 140ms linear';
+        });
         window.addEventListener('scroll', onScroll, { passive: true });
         window.addEventListener('resize', onResize);
+        document.addEventListener('visibilitychange', onVisibilityChange);
+
+        // Cleanup on page unload/navigation to prevent leaks
+        window.addEventListener('pagehide', () => {
+          window.removeEventListener('scroll', onScroll);
+          window.removeEventListener('resize', onResize);
+          document.removeEventListener('visibilitychange', onVisibilityChange);
+        }, { once: true });
       }
     }
 
