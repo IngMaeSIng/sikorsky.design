@@ -1,5 +1,8 @@
 {
   "trailingComma": "none",
+  "printWidth": 999,
+  "htmlWhitespaceSensitivity": "css",
+  "singleAttributePerLine": false,
   "overrides": [
     {
       "files": "*.svg",
@@ -10,7 +13,10 @@
     {
       "files": "*.astro",
       "options": {
-        "parser": "astro"
+        "parser": "astro",
+        "printWidth": 999,
+        "htmlWhitespaceSensitivity": "css",
+        "singleAttributePerLine": false
       }
     }
   ],
