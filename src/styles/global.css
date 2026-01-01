@@ -179,6 +179,7 @@ h3 {
 
 @media (max-width: 600px) {
   .heading-number {
+    left: -11.5px;
     font-size: 12px;
     line-height: 27px;
   }
