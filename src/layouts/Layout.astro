@@ -79,55 +79,6 @@ const currentPath = Astro.url.pathname;
 </html>
 
 <style>
-  .social {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-
-    margin-top: 56px;
-
-    gap: 8px;
-
-    position: relative;
-    left: -8px;
-
-    font-size: 20px;
-  }
-
-  @media (max-width: 600px) {
-    .social {
-      display: block;
-      left: -12px;
-
-      margin-top: 34px;
-    }
-  }
-
-  .dot-separator {
-    display: inline;
-    visibility: visible;
-  }
-
-  @media (max-width: 600px) {
-    .dot-separator {
-      display: none;
-      visibility: hidden;
-    }
-  }
-
-  @media (max-width: 600px) {
-    .like-container {
-      margin-bottom: 34px;
-    }
-    .share {
-      padding-left: 12px;
-    }
-  }
-
-  #copy-link {
-    cursor: pointer;
-  }
-
   footer .link {
     color: var(--caption_dark);
     text-underline-offset: 0.12em;
@@ -140,7 +91,7 @@ const currentPath = Astro.url.pathname;
 
   @media (max-width: 600px) {
     footer p > span:last-of-type {
-      display: block
+      display: block;
     }
   }
 </style>

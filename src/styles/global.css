@@ -189,6 +189,7 @@ h3 {
 
 strong {
   font-weight: var(--font-weight-strong);
+  font-variant-numeric: slashed-zero;
 }
 
 p {
@@ -539,6 +540,11 @@ nav.header {
 
 .metadata a {
   color: var(--caption_dark);
+}
+
+.metadata img {
+  vertical-align: middle;
+  margin-right: 0.2em;
 }
 
 .image {
