@@ -1,5 +1,6 @@
 ---
 import { Image } from "astro:assets";
+import Layout from "../../packages/astro-theme/src/components/Layout.astro";
 import autoload1 from "../images/autoload/autoload-1.png";
 import autoload10 from "../images/autoload/autoload-10.png";
 import autoload11 from "../images/autoload/autoload-11.png";
@@ -15,14 +16,9 @@ import autoload7 from "../images/autoload/autoload-7.png";
 import autoload8 from "../images/autoload/autoload-8.png";
 import autoload9 from "../images/autoload/autoload-9.png";
 import logoAvito from "../images/autoload/logo-avito.png";
-import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout
-  title="UGC Uploader Redesign for the World's First Classified Service"
-  description="How I managed a junior designer to create a comprehensive vision for a complex tech product, and increased Customer Effort Score (CES) by 20%"
-  pageId="autoload"
->
+<Layout title="UGC Uploader Redesign for the World's First Classified Service" description="How I managed a junior designer to create a comprehensive vision for a complex tech product, and increased Customer Effort Score (CES) by 20%" pageId="autoload">
   <div class="metadata">
     <div><img src={logoAvito.src} alt="Avito" width={32} height={32} /></div>
     <div>
@@ -33,12 +29,8 @@ import Layout from "../layouts/Layout.astro";
     </div>
   </div>
   <header>
-    <h1 id="title">
-      UGC Uploader Redesign for the World's First Classified Service
-    </h1>
-    <h2>
-      How I managed a junior designer to create a comprehensive vision for a complex tech product, and increased Customer Effort Score (CES) by 20%
-    </h2>
+    <h1 id="title">UGC Uploader Redesign for the World's First Classified Service</h1>
+    <h2>How I managed a junior designer to create a comprehensive vision for a complex tech product, and increased Customer Effort Score (CES) by 20%</h2>
   </header>
   <section>
     <ul class="list-with-secondary-items">
@@ -46,8 +38,7 @@ import Layout from "../layouts/Layout.astro";
         <span class="secondary">My role:</span> Lead Product Designer, Art Director
       </li>
       <li>
-        <span class="secondary">Deliverables:</span> Product Strategy, In-depth Research,
-        UI/UX/IxD, User Testing
+        <span class="secondary">Deliverables:</span> Product Strategy, In-depth Research, UI/UX/IxD, User Testing
       </li>
       <li><span class="secondary">Audience:</span> SME customers</li>
       <li><span class="secondary">Platforms:</span> Web, Mobile</li>
@@ -55,68 +46,32 @@ import Layout from "../layouts/Layout.astro";
   </section>
   <section>
     <p>
-      <Image
-        src={autoload1}
-        alt="Final solution. Desktop Dashboard"
-        class="image full"
-      />
+      <Image src={autoload1} alt="Final solution. Desktop Dashboard" class="image full" />
       <span class="caption secondary">Final solution. Desktop dashboard</span>
     </p>
   </section>
   <section>
     <h2>Context</h2>
     <p>
-      Avito is a classified service for ads related to goods, transportation,
-      real estate, jobs, and services from individuals and businesses. Since
-      2021, it has <a
-        class="link"
-        href="https://www.similarweb.com/ru/website/avito.ru/#overview"
-        target="_blank">ranked first globally among online classifieds</a
-      >, surpassing Craigslist in daily active users (DAU), with over <strong
-        >42M registered users</strong
-      > and <strong>150 million listings</strong>.
+      Avito is a classified service for ads related to goods, transportation, real estate, jobs, and services from individuals and businesses. Since 2021, it has <a class="link" href="https://www.similarweb.com/ru/website/avito.ru/#overview" target="_blank">ranked first globally among online classifieds</a>, surpassing Craigslist in daily active users (DAU), with over <strong>42M registered users</strong> and <strong>150 million listings</strong>.
     </p>
-    <p>
-      Initially launched as a C2C marketplace for private sellers, Avito quickly
-      attracted small and medium enterprises (SMEs) seeking high-quality buyer
-      traffic. These SME customers typically manage hundreds to thousands of
-      listings, with some requiring daily updates.
-    </p>
-    <p>
-      To streamline this process, I launched an MVP of an automated UGC
-      uploader in 2020, enabling customers to upload thousands of SKUs and
-      significantly reducing manual labor. Over its four-year lifespan, the
-      uploader experienced rapid growth, approaching 100M items.
-    </p>
+    <p>Initially launched as a C2C marketplace for private sellers, Avito quickly attracted small and medium enterprises (SMEs) seeking high-quality buyer traffic. These SME customers typically manage hundreds to thousands of listings, with some requiring daily updates.</p>
+    <p>To streamline this process, I launched an MVP of an automated UGC uploader in 2020, enabling customers to upload thousands of SKUs and significantly reducing manual labor. Over its four-year lifespan, the uploader experienced rapid growth, approaching 100M items.</p>
   </section>
   <section>
     <h2>Challenges</h2>
     <ul>
       <li>
-        The company's strategy aimed to expand beyond the classified model,
-        requiring a tripling of content over the next two years. Consequently,
-        the <strong
-          >key business challenge was to attract new SME customers</strong
-        > with millions of listings.
+        The company's strategy aimed to expand beyond the classified model, requiring a tripling of content over the next two years. Consequently, the <strong>key business challenge was to attract new SME customers</strong> with millions of listings.
       </li>
       <li>
-        To achieve this, our <strong
-          >primary product challenge was to rebuild the autoload feature from
-          the ground up</strong
-        >. Engineers focused on reshaping the product architecture for greater
-        stability, while designers enhanced the customer experience and user
-        interface to accommodate upcoming features.
+        To achieve this, our <strong>primary product challenge was to rebuild the autoload feature from the ground up</strong>. Engineers focused on reshaping the product architecture for greater stability, while designers enhanced the customer experience and user interface to accommodate upcoming features.
       </li>
     </ul>
   </section>
   <section>
     <h2>Timeline</h2>
-    <p>
-      This project involved strategic planning with the product owner and dev
-      team. I established a collaborative design process by hiring an intern to
-      work closely with the product manager, researcher, UX writer, and a few
-      engineers.
-    </p>
+    <p>This project involved strategic planning with the product owner and dev team. I established a collaborative design process by hiring an intern to work closely with the product manager, researcher, UX writer, and a few engineers.</p>
     <p>
       <Image src={autoload2} alt="Roadmap" class="image full" />
       <span class="caption secondary">Roadmap</span>
@@ -124,16 +79,9 @@ import Layout from "../layouts/Layout.astro";
   </section>
   <section>
     <h2>Issues with the product's initial design</h2>
+    <p>The automated UGC uploader MVP had been live for three years, contributing to the growth of the professional user base and listings, but falling short in user experience with a cluttered and complicated user interface.</p>
     <p>
-      The automated UGC uploader MVP had been live for three years, contributing
-      to the growth of the professional user base and listings, but falling
-      short in user experience with a cluttered and complicated user interface.
-    </p>
-    <p>
-      This was reflected in a <strong>55% Customer Effort Score (CES)</strong>,
-      6 points lower than the overall CES for Pro users. To justify a redesign,
-      we needed to dig deeper into these issues and communicate it impact to
-      stakeholders.
+      This was reflected in a <strong>55% Customer Effort Score (CES)</strong>, 6 points lower than the overall CES for Pro users. To justify a redesign, we needed to dig deeper into these issues and communicate it impact to stakeholders.
     </p>
     <p>
       <Image src={autoload3} alt="Product before redesign" class="image full" />
@@ -142,137 +90,73 @@ import Layout from "../layouts/Layout.astro";
   </section>
   <section>
     <h2>Product research findings</h2>
-    <p>
-      We conducted an analysis of major marketplaces to identify essential
-      features that our product was missing. This research also helped us
-      understand the user experience that SME customers have come to expect.
-    </p>
+    <p>We conducted an analysis of major marketplaces to identify essential features that our product was missing. This research also helped us understand the user experience that SME customers have come to expect.</p>
     <p>
       <Image src={autoload4} alt="Competitors analysis" class="image full" />
       <span class="caption secondary">Competitors analysis</span>
     </p>
     <p>
-      We gathered and analyzed customer feedback through <strong
-        >12 customer interviews</strong
-      >
-      and over <strong>300 support tickets</strong>, identifying pain points and
-      understanding user needs.
+      We gathered and analyzed customer feedback through <strong>12 customer interviews</strong>
+      and over <strong>300 support tickets</strong>, identifying pain points and understanding user needs.
     </p>
-    <p>
-      It became clear that our customers have varying technical backgrounds, but
-      all have limited time to navigate complex interfaces. They want a simple
-      setup for uploading and managing all their listings in one window, without
-      the need for additional tools. They expect everything to work seamlessly
-      without worrying about data formats.
-    </p>
+    <p>It became clear that our customers have varying technical backgrounds, but all have limited time to navigate complex interfaces. They want a simple setup for uploading and managing all their listings in one window, without the need for additional tools. They expect everything to work seamlessly without worrying about data formats.</p>
   </section>
   <section>
     <h2>Initial solution hypothesis</h2>
-    <blockquote class="quote">
-      By designing and integrating the missing features into the current
-      interface, we can enhance the user experience and support the engineering
-      team in optimizing the service architecture to handle increasing loads.
-    </blockquote>
+    <blockquote class="quote">By designing and integrating the missing features into the current interface, we can enhance the user experience and support the engineering team in optimizing the service architecture to handle increasing loads.</blockquote>
   </section>
   <section>
     <h2>First design iteration</h2>
     <ul>
       <li>
-        <strong>Brainstorming sessions.</strong> Two workshops with a team of designers
-        and UX researchers.
+        <strong>Brainstorming sessions.</strong> Two workshops with a team of designers and UX researchers.
       </li>
       <li>
-        <strong>Information architecture.</strong> Converting CJM into a user flow
-        to incorporate all future features.
+        <strong>Information architecture.</strong> Converting CJM into a user flow to incorporate all future features.
       </li>
       <li>
-        <strong>Wireframing & prototyping.</strong> Interaction design to define
-        key transitions in the product.
+        <strong>Wireframing & prototyping.</strong> Interaction design to define key transitions in the product.
       </li>
       <li>
-        <strong>Grooming with engineers.</strong> Discussion of technical limitations
-        and usability with engineers.
+        <strong>Grooming with engineers.</strong> Discussion of technical limitations and usability with engineers.
       </li>
     </ul>
     <p>
       <Image src={autoload5} alt="First iteration mockups" class="image full" />
       <span class="caption secondary">First iteration mockups</span>
     </p>
-    <p>
-      flows, but it became clear that the current interface couldn't support
-      scaling.
-    </p>
-    <p>
-      We presented the concept to the product owner, who agreed that the
-      interface couldn't handle scaling and suggested adopting a more ambitious
-      approach for presentation to top management. Our iterative approach
-      allowed us to gather feedback early and adjust our direction.
-    </p>
+    <p>flows, but it became clear that the current interface couldn't support scaling.</p>
+    <p>We presented the concept to the product owner, who agreed that the interface couldn't handle scaling and suggested adopting a more ambitious approach for presentation to top management. Our iterative approach allowed us to gather feedback early and adjust our direction.</p>
   </section>
   <section>
     <h2>Second design iteration</h2>
-    <blockquote class="quote">
-      If we move beyond current technical limitations and product legacy, we can
-      envision an ideal future where customers can upload their data in any
-      format and receive a streamlined process for monitoring and managing their
-      listings.
-    </blockquote>
+    <blockquote class="quote">If we move beyond current technical limitations and product legacy, we can envision an ideal future where customers can upload their data in any format and receive a streamlined process for monitoring and managing their listings.</blockquote>
     <p>
-      <Image
-        src={autoload6}
-        alt="Dashboard for listings and upload status"
-        class="image full"
-      />
-      <span class="caption secondary"
-        >Dashboard for listings and upload status</span
-      >
+      <Image src={autoload6} alt="Dashboard for listings and upload status" class="image full" />
+      <span class="caption secondary">Dashboard for listings and upload status</span>
     </p>
+    <p>Dashboard shows status of the current upload and historical data. Allows easy access to listings in all statuses.</p>
     <p>
-      Dashboard shows status of the current upload and historical data. Allows
-      easy access to listings in all statuses.
-    </p>
-    <p>
-      <Image
-        src={autoload7}
-        alt="Manual listings management"
-        class="image full"
-      />
+      <Image src={autoload7} alt="Manual listings management" class="image full" />
       <span class="caption secondary">Manual listings management</span>
     </p>
-    <p>
-      This section helps you manually manage and edit each listing. Analyze
-      statistics and promote listings as needed.
-    </p>
+    <p>This section helps you manually manage and edit each listing. Analyze statistics and promote listings as needed.</p>
     <p>
       <Image src={autoload8} alt="Listing methods" class="image full" />
       <span class="caption secondary">Listing methods</span>
     </p>
-    <p>
-      The manual listing process starts with an entry point to the autoload
-      feature. The page becomes a unified interface that can handle all data
-      types and present them in the required spreadsheet format.
-    </p>
+    <p>The manual listing process starts with an entry point to the autoload feature. The page becomes a unified interface that can handle all data types and present them in the required spreadsheet format.</p>
     <p>
       <Image src={autoload9} alt="UGC spreadsheet" class="image full" />
       <span class="caption secondary">UGC spreadsheet</span>
     </p>
-    <p>
-      This section serves as a container for all listings content. An
-      educational layer highlights errors directly in the spreadsheet, allowing
-      users to fix them instantly without switching context.
-    </p>
+    <p>This section serves as a container for all listings content. An educational layer highlights errors directly in the spreadsheet, allowing users to fix them instantly without switching context.</p>
   </section>
   <section>
     <h2>UX testing</h2>
     <p>
-      Working with the UX research team, we assembled an interactive prototype
-      encompassing all user flows, formulated hypotheses, and tested them with
-      <strong>12 respondents</strong> — half using our product and half using a competitor's.
-      Remarkably, <strong
-        >80% of respondents successfully navigated the basic scenarios</strong
-      >. We found that users still needed time to learn the interface. However,
-      consolidating all data processing options into one interface simplifies
-      the user experience: once set up, users can proceed seamlessly.
+      Working with the UX research team, we assembled an interactive prototype encompassing all user flows, formulated hypotheses, and tested them with
+      <strong>12 respondents</strong> — half using our product and half using a competitor's. Remarkably, <strong>80% of respondents successfully navigated the basic scenarios</strong>. We found that users still needed time to learn the interface. However, consolidating all data processing options into one interface simplifies the user experience: once set up, users can proceed seamlessly.
     </p>
     <p>
       <Image src={autoload10} alt="Quotes form UX tests" class="image full" />
@@ -281,12 +165,7 @@ import Layout from "../layouts/Layout.astro";
   </section>
   <section>
     <h2>Final solution</h2>
-    <h2>
-      We found that SME customers often work remotely, handling multiple tasks
-      across different locations. Despite this, they still need to monitor the
-      status of their listing uploads on the go and resolve any issues promptly.
-      To meet this need, we developed a mobile version.
-    </h2>
+    <h2>We found that SME customers often work remotely, handling multiple tasks across different locations. Despite this, they still need to monitor the status of their listing uploads on the go and resolve any issues promptly. To meet this need, we developed a mobile version.</h2>
     <p>
       <Image src={autoload11} alt="Onboarding" class="image full" />
       <span class="caption secondary">Onboarding</span>
@@ -296,32 +175,14 @@ import Layout from "../layouts/Layout.astro";
       <span class="caption secondary">Mobile dashboard</span>
     </p>
     <p>
-      <Image
-        src={autoload13}
-        alt="Manual listing creation"
-        class="image full"
-      />
+      <Image src={autoload13} alt="Manual listing creation" class="image full" />
       <span class="caption secondary">Manual listing creation</span>
     </p>
-    <p>
-      The redesigned UGC uploader features a clean, intuitive interface that
-      simplifies the creation of bulk listings. With a dashboard for data
-      visualization, a powerful content spreadsheet, and built-in upload
-      reports, SME customers can now manage their listings more efficiently than
-      ever. The new autoload functionality provides a comprehensive mobile
-      experience, ensuring that all recent uploads meet the needs of on-the-go
-      professionals.
-    </p>
+    <p>The redesigned UGC uploader features a clean, intuitive interface that simplifies the creation of bulk listings. With a dashboard for data visualization, a powerful content spreadsheet, and built-in upload reports, SME customers can now manage their listings more efficiently than ever. The new autoload functionality provides a comprehensive mobile experience, ensuring that all recent uploads meet the needs of on-the-go professionals.</p>
   </section>
   <section>
     <h2>Stakeholder presentation & next steps planning</h2>
-    <p>
-      We compiled the product concept, interactive prototype, and test results
-      into a comprehensive presentation. We then conducted individual sessions
-      with stakeholders, the lead designers team, and the engineering team,
-      gathering feedback and collaborating with the product owner to outline the
-      next implementation steps.
-    </p>
+    <p>We compiled the product concept, interactive prototype, and test results into a comprehensive presentation. We then conducted individual sessions with stakeholders, the lead designers team, and the engineering team, gathering feedback and collaborating with the product owner to outline the next implementation steps.</p>
     <p>
       <Image src={autoload14} alt="Concept next steps" class="image full" />
       <span class="caption secondary">Concept next steps</span>
@@ -329,42 +190,23 @@ import Layout from "../layouts/Layout.astro";
   </section>
   <section>
     <h2>Outcome & impact</h2>
-    <p>
-      This redesign showcases the impact of user-centered design and
-      collaboration on driving product growth. We identified customer pain
-      points, brainstormed solutions, and developed a design that delighted both
-      our team and SME customers. Positive UX testing feedback highlighted the
-      importance of continuous improvement in enhancing user experience.
-    </p>
+    <p>This redesign showcases the impact of user-centered design and collaboration on driving product growth. We identified customer pain points, brainstormed solutions, and developed a design that delighted both our team and SME customers. Positive UX testing feedback highlighted the importance of continuous improvement in enhancing user experience.</p>
   </section>
   <section>
     <h3>Team outcome</h3>
-    <p>
-      In our goal to create a visionary future for the autoload feature, we
-      simplified user flows and enhanced the customer experience. More
-      importantly, we united as a team with the product manager and engineers,
-      while collaborating on a strategic vision and enriching it with our design
-      concept.
-    </p>
+    <p>In our goal to create a visionary future for the autoload feature, we simplified user flows and enhanced the customer experience. More importantly, we united as a team with the product manager and engineers, while collaborating on a strategic vision and enriching it with our design concept.</p>
     <ul>
       <li>
-        Increased team morale with <strong>+8pp of eNPS</strong> as a result of Q1
-        wellbeing survey.
+        Increased team morale with <strong>+8pp of eNPS</strong> as a result of Q1 wellbeing survey.
       </li>
       <li>
-        Strengthened team resources with <strong>+1 FE, +1 BE devs</strong> in new
-        hiring cycle.
+        Strengthened team resources with <strong>+1 FE, +1 BE devs</strong> in new hiring cycle.
       </li>
     </ul>
   </section>
   <section>
     <h3>Customer outcome</h3>
-    <p>
-      This concept had a long way to go. However, we successfully addressed key
-      UX issues through a series of incremental launches. SME customers
-      experienced a significant reduction in time spent creating and managing
-      listings, allowing them to focus on business growth.
-    </p>
+    <p>This concept had a long way to go. However, we successfully addressed key UX issues through a series of incremental launches. SME customers experienced a significant reduction in time spent creating and managing listings, allowing them to focus on business growth.</p>
     <ul>
       <li>
         Increased SME customers satisfaction with <strong>CES +20%</strong>.
@@ -373,37 +215,16 @@ import Layout from "../layouts/Layout.astro";
   </section>
   <section>
     <h3>Impact</h3>
-    <p>
-      Our efforts highlighted the strategic importance of the product across the
-      company, aligning teams towards a common goal. We outlined a clear path to
-      achieve a threefold increase in content growth, setting a roadmap for
-      future success.
-    </p>
+    <p>Our efforts highlighted the strategic importance of the product across the company, aligning teams towards a common goal. We outlined a clear path to achieve a threefold increase in content growth, setting a roadmap for future success.</p>
   </section>
   <section>
     <h2>Reflections & learnings</h2>
-    <blockquote class="quote">
-      Show, don't tell. Product strategy truly shines when we apply the core
-      strengths of our design team. Engineers and product managers also
-      appreciate the value of visually appealing design.
-    </blockquote>
-    <blockquote class="quote">
-      When you work on a product for a long time, the knowledge and habits you
-      acquire can lead to caution in your decision-making. To overcome this, it
-      can be beneficial to set aside everything you know and approach the
-      redesign as if you were starting from scratch.
-    </blockquote>
+    <blockquote class="quote">Show, don't tell. Product strategy truly shines when we apply the core strengths of our design team. Engineers and product managers also appreciate the value of visually appealing design.</blockquote>
+    <blockquote class="quote">When you work on a product for a long time, the knowledge and habits you acquire can lead to caution in your decision-making. To overcome this, it can be beneficial to set aside everything you know and approach the redesign as if you were starting from scratch.</blockquote>
   </section>
   <section>
     <h2>Team credits</h2>
-    <p>
-      This project is the result of collaboration between the Fullbase Discovery
-      Team and the Autoload Delivery Team within Avito's Seller Experience
-      Cluster. Together, we delved deeply into users challenges, gained a
-      comprehensive understanding of the technical aspects of mass content
-      uploading, reimagined the visual approach to the product, and most
-      importantly had fun as a team.
-    </p>
+    <p>This project is the result of collaboration between the Fullbase Discovery Team and the Autoload Delivery Team within Avito's Seller Experience Cluster. Together, we delved deeply into users challenges, gained a comprehensive understanding of the technical aspects of mass content uploading, reimagined the visual approach to the product, and most importantly had fun as a team.</p>
     <ul class="list-with-secondary-items">
       <li>
         <span class="secondary">Lead Product Designer:</span> Paul Sikorsky
@@ -440,20 +261,11 @@ import Layout from "../layouts/Layout.astro";
   <section>
     <h2>I would love to hear from you</h2>
     <p>
-      If you'd like to explore more vibrant graphics, check out <a
-        href="https://www.behance.net/gallery/210732817/Autoload-Redesign-fortheWorlds-First-Classified"
-        target="_blank"
-        class="link">this case study on Behance</a
-      >. If you're interested in collaborating, feel free to reach out!
+      If you'd like to explore more vibrant graphics, check out <a href="https://www.behance.net/gallery/210732817/Autoload-Redesign-fortheWorlds-First-Classified" target="_blank" class="link">this case study on Behance</a>. If you're interested in collaborating, feel free to reach out!
     </p>
     <p>
-      <a href="https://t.me/IngMaeSing" class="link" target="_blank">Telegram</a
-      >,
-      <a
-        href="https://www.linkedin.com/in/pavelsikorsky/"
-        class="link"
-        target="_blank">LinkedIn</a
-      >,
+      <a href="https://t.me/IngMaeSing" class="link" target="_blank">Telegram</a>,
+      <a href="https://www.linkedin.com/in/pavelsikorsky/" class="link" target="_blank">LinkedIn</a>,
       <a href="mailto:p@sikorsky.design" class="link">p@sikorsky.design</a>.
     </p>
   </section>

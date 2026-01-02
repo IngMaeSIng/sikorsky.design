@@ -248,8 +248,8 @@ const { pageId } = Astro.props;
 </style>
 
 <script>
-  import { database } from "../lib/firebase";
-  import { ref, onValue, increment, set } from "firebase/database";
+  import { increment, onValue, ref, set } from "firebase/database";
+import { database } from "../lib/firebase.js";
 
   class LikeButton {
     private button: HTMLButtonElement;

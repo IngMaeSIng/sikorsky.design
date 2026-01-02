@@ -1,14 +1,10 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import logoAvito from "../images/autoload/logo-avito.png";
 import { Image } from "astro:assets";
+import Layout from "../../packages/astro-theme/src/components/Layout.astro";
+import logoAvito from "../images/autoload/logo-avito.png";
 ---
 
-<Layout
-  title="Avitologists Certification Program Launch"
-  description="How I created a certification program for Avito's top external marketing specialists working with SMEs, certifying 150+ experts and driving $2M in seller ARPPU growth"
-  pageId="avitologist"
->
+<Layout title="Avitologists Certification Program Launch" description="How I created a certification program for Avito's top external marketing specialists working with SMEs, certifying 150+ experts and driving $2M in seller ARPPU growth" pageId="avitologist">
   <div class="metadata">
     <div><img src={logoAvito.src} alt="Avito" width={32} height={32} /></div>
     <div>
@@ -20,11 +16,7 @@ import { Image } from "astro:assets";
   </div>
   <header>
     <h1 id="title">Avitologists Certification Program Launch</h1>
-    <h2>
-      How I created a certification program for Avito's top external marketing
-      specialists working with SMEs, certifying 150+ experts and driving $2M in
-      seller ARPPU growth
-    </h2>
+    <h2>How I created a certification program for Avito's top external marketing specialists working with SMEs, certifying 150+ experts and driving $2M in seller ARPPU growth</h2>
   </header>
 
   <section>
@@ -33,8 +25,7 @@ import { Image } from "astro:assets";
         <span class="secondary">My role:</span> Product Manager, Product Designer
       </li>
       <li>
-        <span class="secondary">Deliverables:</span> Product Strategy, UI/UX/IxD,
-        User Testing, Public Speaking
+        <span class="secondary">Deliverables:</span> Product Strategy, UI/UX/IxD, User Testing, Public Speaking
       </li>
       <li>
         <span class="secondary">Audience:</span> Avitologists, SME Sellers
@@ -45,60 +36,26 @@ import { Image } from "astro:assets";
 
   <section>
     <p>
-      <Image
-        src="https://firebasestorage.googleapis.com/v0/b/sikorsky-design.firebasestorage.app/o/images%2Favitologist%2Favitologist-1.png?alt=media&token=5ebfb798-9cce-4c52-b003-6ad6a82e1edd"
-        alt="Certified avitologists after the meetup"
-        class="image"
-        width="50"
-        height="50"
-      />
-      <span class="caption secondary"
-        >Certified avitologists after the meetup</span
-      >
+      <Image src="https://firebasestorage.googleapis.com/v0/b/sikorsky-design.firebasestorage.app/o/images%2Favitologist%2Favitologist-1.png?alt=media&token=5ebfb798-9cce-4c52-b003-6ad6a82e1edd" alt="Certified avitologists after the meetup" class="image" width="50" height="50" />
+      <span class="caption secondary">Certified avitologists after the meetup</span>
     </p>
   </section>
 
   <section>
     <h2>Context</h2>
     <p>
-      <Image
-        src="https://firebasestorage.googleapis.com/v0/b/sikorsky-design.firebasestorage.app/o/images%2Favitologist%2Favitologist-2.png?alt=media&token=2ee3ca1b-911f-49f2-b4b8-600210c97537"
-        alt="Seller segments and their monthly spending"
-        class="image"
-        width="50"
-        height="50"
-      />
-      <span class="caption secondary"
-        >Seller segments and their monthly spending</span
-      >
+      <Image src="https://firebasestorage.googleapis.com/v0/b/sikorsky-design.firebasestorage.app/o/images%2Favitologist%2Favitologist-2.png?alt=media&token=2ee3ca1b-911f-49f2-b4b8-600210c97537" alt="Seller segments and their monthly spending" class="image" width="50" height="50" />
+      <span class="caption secondary">Seller segments and their monthly spending</span>
     </p>
     <p>
-      Avito is a leading classified platform, connecting individuals and
-      businesses across categories like goods, transportation, real estate,
-      jobs, and services. Since 2021, it has <a
-        href="https://www.similarweb.com/ru/website/avito.ru/#overview"
-        target="_blank"
-        class="link">become the world's most visited classified</a
-      >, surpassing Craigslist in daily active users (DAU), with over <strong
-        >42M registered users</strong
-      > and <strong>150M listings</strong>.
+      Avito is a leading classified platform, connecting individuals and businesses across categories like goods, transportation, real estate, jobs, and services. Since 2021, it has <a href="https://www.similarweb.com/ru/website/avito.ru/#overview" target="_blank" class="link">become the world's most visited classified</a>, surpassing Craigslist in daily active users (DAU), with over <strong>42M registered users</strong> and <strong>150M listings</strong>.
     </p>
-    <p>
-      Originally, Avito started as a C2C marketplace for private sellers.
-      However, professional sellers quickly recognized the platform's
-      high-quality traffic and business potential. These days, our strategy is
-      centered on acquiring and growing SME (midmarket) customers. This segment
-      is large, business-driven, and willing to invest — making it a key focus
-      for our growth.
-    </p>
+    <p>Originally, Avito started as a C2C marketplace for private sellers. However, professional sellers quickly recognized the platform's high-quality traffic and business potential. These days, our strategy is centered on acquiring and growing SME (midmarket) customers. This segment is large, business-driven, and willing to invest — making it a key focus for our growth.</p>
   </section>
 
   <section>
     <h2>Problem</h2>
-    <p>
-      SME customers face specific challenges that our current product doesn’t
-      fully address:
-    </p>
+    <p>SME customers face specific challenges that our current product doesn’t fully address:</p>
     <ul>
       <li>Analyzing competitors,</li>
       <li>Developing a marketing strategy to stand out,</li>
@@ -107,296 +64,141 @@ import { Image } from "astro:assets";
       <li>Promoting them using our value-added services.</li>
     </ul>
     <p>
-      And they must do all this while running their business full-time. This
-      complexity leads to&nbsp;a&nbsp;<strong>60% churn rate</strong> by the second
-      month.
+      And they must do all this while running their business full-time. This complexity leads to&nbsp;a&nbsp;<strong>60% churn rate</strong> by the second month.
     </p>
   </section>
 
   <section>
     <h2>Research findings</h2>
     <p>
-      <Image
-        src="https://firebasestorage.googleapis.com/v0/b/sikorsky-design.firebasestorage.app/o/images%2Favitologist%2Favitologist-3.png?alt=media&token=358fd09d-742e-475a-a1bf-ddd81761ac01"
-        alt="Avitologists listings on the website"
-        class="image full"
-        width="50"
-        height="50"
-      />
-      <span class="caption secondary">Avitologists listings on the website</span
-      >
+      <Image src="https://firebasestorage.googleapis.com/v0/b/sikorsky-design.firebasestorage.app/o/images%2Favitologist%2Favitologist-3.png?alt=media&token=358fd09d-742e-475a-a1bf-ddd81761ac01" alt="Avitologists listings on the website" class="image full" width="50" height="50" />
+      <span class="caption secondary">Avitologists listings on the website</span>
     </p>
-    <p>
-      While testing a new feature with advanced statistics, I discovered a
-      strong demand for professional assistance. Six out of eight customers
-      found our product too complex and were willing to pay for help.
-    </p>
-    <p>
-      I soon realized that a community of specialists had already formed around
-      Avito, calling themselves avitologists and offering exactly this kind of
-      support. However, we had no visibility into their expertise or
-      qualifications, making it impossible to recommend their services to our
-      customers.
-    </p>
-    <p>
-      I interviewed several avitologists and contacted a colleague who had
-      previously launched a similar certification program at Yandex. That's when
-      the idea of creating our own certification program hit me.
-    </p>
+    <p>While testing a new feature with advanced statistics, I discovered a strong demand for professional assistance. Six out of eight customers found our product too complex and were willing to pay for help.</p>
+    <p>I soon realized that a community of specialists had already formed around Avito, calling themselves avitologists and offering exactly this kind of support. However, we had no visibility into their expertise or qualifications, making it impossible to recommend their services to our customers.</p>
+    <p>I interviewed several avitologists and contacted a colleague who had previously launched a similar certification program at Yandex. That's when the idea of creating our own certification program hit me.</p>
   </section>
 
   <section>
     <h2>Discovery process</h2>
     <p>
-      <Image
-        src="https://firebasestorage.googleapis.com/v0/b/sikorsky-design.firebasestorage.app/o/images%2Favitologist%2Favitologist-4.png?alt=media&token=d944a663-ccad-405a-9be3-43f7fe295d4c"
-        alt="Product discovery work"
-        class="image full"
-        width="50"
-        height="50"
-      />
-      <span class="caption secondary"
-        >Product discovery work</span
-      >
+      <Image src="https://firebasestorage.googleapis.com/v0/b/sikorsky-design.firebasestorage.app/o/images%2Favitologist%2Favitologist-4.png?alt=media&token=d944a663-ccad-405a-9be3-43f7fe295d4c" alt="Product discovery work" class="image full" width="50" height="50" />
+      <span class="caption secondary">Product discovery work</span>
     </p>
-    <p>
-      I assembled a product and marketing initiative team. As a product manager,
-      I led the entire product discovery cycle:
-    </p>
+    <p>I assembled a product and marketing initiative team. As a product manager, I led the entire product discovery cycle:</p>
     <ul>
       <li>Ran a series of workshops to shape the idea,</li>
-      <li>
-        Conducted dozens of customer interviews to identify key problems and
-        potential solutions,
-      </li>
+      <li>Conducted dozens of customer interviews to identify key problems and potential solutions,</li>
       <li>Analyzed competitors to establish market benchmarks,</li>
-      <li>
-        Defined a unique value proposition (UVP) for Avitologists to qualify for
-        certification,
-      </li>
+      <li>Defined a unique value proposition (UVP) for Avitologists to qualify for certification,</li>
       <li>Mapped out the customer journey (CJM) and target vision,</li>
-      <li>
-        Defined a minimum lovable product (MLP) to test the main hypothesis.
-      </li>
+      <li>Defined a minimum lovable product (MLP) to test the main hypothesis.</li>
     </ul>
     <p>
-      Together with a community manager, we launched <strong
-        >the certification program</strong
-      >. To move fast, we built the first version using Google Spreadsheets. It
-      focused on three key aspects to validate an Avitologist’s expertise:
+      Together with a community manager, we launched <strong>the certification program</strong>. To move fast, we built the first version using Google Spreadsheets. It focused on three key aspects to validate an Avitologist’s expertise:
     </p>
     <ol>
       <li>
-        <strong>Platform rules survey.</strong> Assessing knowledge of platform policies,
-        mechanisms, and tools for effectively working with SME clients.
+        <strong>Platform rules survey.</strong> Assessing knowledge of platform policies, mechanisms, and tools for effectively working with SME clients.
       </li>
       <li>
-        <strong>Case study.</strong> Evaluating real-world business experience with
-        SME clients.
+        <strong>Case study.</strong> Evaluating real-world business experience with SME clients.
       </li>
       <li>
-        <strong>Interview and test case</strong> with our in-house sales manager.
-        Verifying soft skills and practical expertise.
+        <strong>Interview and test case</strong> with our in-house sales manager. Verifying soft skills and practical expertise.
       </li>
     </ol>
   </section>
 
   <section>
     <h2>Solution hypothesis</h2>
-    <blockquote class="quote">
-      Certified Avitologists can help our customers develop and execute
-      effective marketing strategies. This will enable customers to gain more
-      value from the platform, which we can measure through increases in ARPPU
-      and average customer lifetime.
-    </blockquote>
+    <blockquote class="quote">Certified Avitologists can help our customers develop and execute effective marketing strategies. This will enable customers to gain more value from the platform, which we can measure through increases in ARPPU and average customer lifetime.</blockquote>
   </section>
 
   <section>
     <h2>Hypothesis validation</h2>
     <p>
-      To validate our hypothesis, we ran a series of tests with newly certified
-      Avitologists and closely monitored customer metrics and satisfaction
-      (measured through monthly surveys). After four months, we saw strong
-      traction: <strong>ARPPU</strong> increased by <strong>32%</strong>,
-      and second-month <strong>churn dropped</strong> by <strong>66%</strong>.
-      This meant customers were spending more and staying with us longer.
+      To validate our hypothesis, we ran a series of tests with newly certified Avitologists and closely monitored customer metrics and satisfaction (measured through monthly surveys). After four months, we saw strong traction: <strong>ARPPU</strong> increased by <strong>32%</strong>, and second-month <strong>churn dropped</strong> by <strong>66%</strong>. This meant customers were spending more and staying with us longer.
     </p>
+    <p>To secure development resources and build tools for avitologists, I presented this initiative at a product portfolio review with our CPO and CTO. We used Amazon’s PR/FAQ framework for this process.</p>
     <p>
-      To secure development resources and build tools for avitologists, I
-      presented this initiative at a product portfolio review with our CPO and
-      CTO. We used Amazon’s PR/FAQ framework for this process.
-    </p>
-    <p>
-      <Image
-        src="https://firebasestorage.googleapis.com/v0/b/sikorsky-design.firebasestorage.app/o/images%2Favitologist%2Favitologist-5.png?alt=media&token=bbe02188-25b3-49a2-a919-593bb3ef0ea3"
-        alt="First gate press release"
-        class="image full"
-        width="50"
-        height="50"
-      />
+      <Image src="https://firebasestorage.googleapis.com/v0/b/sikorsky-design.firebasestorage.app/o/images%2Favitologist%2Favitologist-5.png?alt=media&token=bbe02188-25b3-49a2-a919-593bb3ef0ea3" alt="First gate press release" class="image full" width="50" height="50" />
       <span class="caption secondary">First gate press release</span>
     </p>
     <p>
-      I successfully defended the concept and its potential in the <strong
-        >first review gate</strong
-      >, demonstrating that there is a clear market demand from customers, and
-      that qualified specialists are ready to meet it.
+      I successfully defended the concept and its potential in the <strong>first review gate</strong>, demonstrating that there is a clear market demand from customers, and that qualified specialists are ready to meet it.
     </p>
     <p>
-      <Image
-        src="https://firebasestorage.googleapis.com/v0/b/sikorsky-design.firebasestorage.app/o/images%2Favitologist%2Favitologist-6.png?alt=media&token=a3a31bc1-6f94-48c7-9ff4-9958768760c1"
-        alt="Second gate FAQ"
-        class="image full"
-        width="50"
-        height="50"
-      />
+      <Image src="https://firebasestorage.googleapis.com/v0/b/sikorsky-design.firebasestorage.app/o/images%2Favitologist%2Favitologist-6.png?alt=media&token=a3a31bc1-6f94-48c7-9ff4-9958768760c1" alt="Second gate FAQ" class="image full" width="50" height="50" />
       <span class="caption secondary">Second gate FAQ</span>
     </p>
     <p>
-      At the <strong>second review gate</strong>, I defended the financial
-      traction model, presenting revenue projections for the post-launch year
-      period.
+      At the <strong>second review gate</strong>, I defended the financial traction model, presenting revenue projections for the post-launch year period.
     </p>
-    <p>
-      After getting the green light, I took on the product management role for
-      several months:
-    </p>
+    <p>After getting the green light, I took on the product management role for several months:</p>
     <ul>
       <li>Planned delivery team capacity, aligning roadmaps with OKRs,</li>
-      <li>
-        Collaborated with stakeholders across business verticals to define
-        success metrics for the entire project,
-      </li>
-      <li>
-        Assisted the community manager in migrating the certification program to
-        the VCV platform.
-      </li>
+      <li>Collaborated with stakeholders across business verticals to define success metrics for the entire project,</li>
+      <li>Assisted the community manager in migrating the certification program to the VCV platform.</li>
     </ul>
   </section>
 
   <section>
     <h2>Public speaking</h2>
     <p>
-      <Image
-        src="https://firebasestorage.googleapis.com/v0/b/sikorsky-design.firebasestorage.app/o/images%2Favitologist%2Favitologist-7.png?alt=media&token=30630cbb-3203-4de9-b842-be50b06ffda8"
-        alt="Meetup with avitologists in Saint Petersburg’s office"
-        class="image full"
-        width="50"
-        height="50"
-      />
-      <span class="caption secondary"
-        >Meetup with avitologists in Saint Petersburg’s office</span
-      >
+      <Image src="https://firebasestorage.googleapis.com/v0/b/sikorsky-design.firebasestorage.app/o/images%2Favitologist%2Favitologist-7.png?alt=media&token=30630cbb-3203-4de9-b842-be50b06ffda8" alt="Meetup with avitologists in Saint Petersburg’s office" class="image full" width="50" height="50" />
+      <span class="caption secondary">Meetup with avitologists in Saint Petersburg’s office</span>
     </p>
-    <p>
-      As you can imagine, Avitologists are highly interested in company’s inner
-      workings. To build a strong relationship with this community, we launched
-      a series of meetups. I delivered two public talks about the new tools we
-      were developing for them, gathered feedback on our program, and even gave
-      them a tour of our office.
-    </p>
-    <p>
-      To further develop the Avitologist community, we launched a dedicated chat
-      and an educational event series. These sessions covered moderation
-      challenges, feedback on new tools, and best practices for working with
-      clients across different verticals.
-    </p>
+    <p>As you can imagine, Avitologists are highly interested in company’s inner workings. To build a strong relationship with this community, we launched a series of meetups. I delivered two public talks about the new tools we were developing for them, gathered feedback on our program, and even gave them a tour of our office.</p>
+    <p>To further develop the Avitologist community, we launched a dedicated chat and an educational event series. These sessions covered moderation challenges, feedback on new tools, and best practices for working with clients across different verticals.</p>
   </section>
 
   <section>
     <h2>Final solution</h2>
     <p>
-      <Image
-        src="https://firebasestorage.googleapis.com/v0/b/sikorsky-design.firebasestorage.app/o/images%2Favitologist%2Favitologist-8.png?alt=media&token=a7fff2be-389b-46eb-b434-408551895609"
-        alt="Avitologists showcase"
-        class="image full"
-        width="50"
-        height="50"
-      />
+      <Image src="https://firebasestorage.googleapis.com/v0/b/sikorsky-design.firebasestorage.app/o/images%2Favitologist%2Favitologist-8.png?alt=media&token=a7fff2be-389b-46eb-b434-408551895609" alt="Avitologists showcase" class="image full" width="50" height="50" />
       <span class="caption secondary">Avitologists showcase</span>
     </p>
-    <p>
-      Alongside my part-time product management role, I designed, tested, and
-      launched several key product improvements:
-    </p>
+    <p>Alongside my part-time product management role, I designed, tested, and launched several key product improvements:</p>
     <ul>
       <li>
-        A <strong>showcase</strong> of all certified Avitologists within our business
-        hub,
+        A <strong>showcase</strong> of all certified Avitologists within our business hub,
       </li>
       <li>
-        An <strong>Avitologist profile</strong> and <strong
-          >certification badge</strong
-        > to distinguish certified specialists from non-certified ones,
+        An <strong>Avitologist profile</strong> and <strong>certification badge</strong> to distinguish certified specialists from non-certified ones,
       </li>
       <li>
-        A <strong>guide</strong> to help Avitologists properly fill out their profiles
-        and promote their services,
+        A <strong>guide</strong> to help Avitologists properly fill out their profiles and promote their services,
       </li>
       <li>
         A <strong>client connection system</strong> to track customer success metrics,
       </li>
-      <li>
-        A dedicated section in Avitologists’ profiles to manage their clients.
-      </li>
+      <li>A dedicated section in Avitologists’ profiles to manage their clients.</li>
     </ul>
-    <p>
-      As a result, I simplified and secured the process of choosing an
-      Avitologist. Clients could browse the showcase, check a specialist’s
-      experience in their profile, connect via a built-in messenger system, sign
-      a contract, and start working together.
-    </p>
-    <p>
-      We successfully highlighted qualified Avitologists, brought them new
-      clients, and provided a seamless tool for client management within their
-      profiles.
-    </p>
+    <p>As a result, I simplified and secured the process of choosing an Avitologist. Clients could browse the showcase, check a specialist’s experience in their profile, connect via a built-in messenger system, sign a contract, and start working together.</p>
+    <p>We successfully highlighted qualified Avitologists, brought them new clients, and provided a seamless tool for client management within their profiles.</p>
   </section>
 
   <section>
     <h2>Outcome & impact</h2>
     <p>
-      After a year of running this program, we built a community of around <strong
-        >150 certified Avitologists</strong
-      >. They help our customers effectively grow their businesses on the
-      platform. As a result, we also generated an additional <strong
-        >$2M in revenue</strong
-      >, driven by increases in ARPPU and customer lifetime value.
+      After a year of running this program, we built a community of around <strong>150 certified Avitologists</strong>. They help our customers effectively grow their businesses on the platform. As a result, we also generated an additional <strong>$2M in revenue</strong>, driven by increases in ARPPU and customer lifetime value.
     </p>
-    <p>
-      We established a mutually beneficial collaboration with external
-      specialists to support our customers' growth. This gave us the ability to
-      rapidly test new hypotheses with a highly engaged audience and provided a
-      valuable new source of high-quality market insights.
-    </p>
+    <p>We established a mutually beneficial collaboration with external specialists to support our customers' growth. This gave us the ability to rapidly test new hypotheses with a highly engaged audience and provided a valuable new source of high-quality market insights.</p>
   </section>
 
   <section>
     <h2>Reflections & learnings</h2>
-    <blockquote class="quote">
-      I'm incredibly grateful for the opportunity to step into a product
-      management role and strengthen my entrepreneurial skills. I learned how to
-      test hypotheses with minimal resources and, more importantly, how to sell
-      a project to stakeholders to secure those resources.
-    </blockquote>
-    <blockquote class="quote">
-      If your product is growing at a rapid pace, brand ambassadors will
-      naturally emerge. Partnering with them is a win-win. They spread the word
-      about your brand, while you provide them with insights and tools to boost
-      their income.
-    </blockquote>
+    <blockquote class="quote">I'm incredibly grateful for the opportunity to step into a product management role and strengthen my entrepreneurial skills. I learned how to test hypotheses with minimal resources and, more importantly, how to sell a project to stakeholders to secure those resources.</blockquote>
+    <blockquote class="quote">If your product is growing at a rapid pace, brand ambassadors will naturally emerge. Partnering with them is a win-win. They spread the word about your brand, while you provide them with insights and tools to boost their income.</blockquote>
   </section>
 
   <section>
     <h2>Team credits</h2>
-    <p>
-      None of these significant results would have been possible without an
-      incredible team:
-    </p>
+    <p>None of these significant results would have been possible without an incredible team:</p>
     <ul class="list-with-secondary-items">
       <li>
-        <span class="secondary">Senior Product Designer & Product Manager:</span
-        > Paul Sikorsky
+        <span class="secondary">Senior Product Designer & Product Manager:</span> Paul Sikorsky
       </li>
       <li>
         <span class="secondary">Product Unit Lead:</span> Margo Alumyan
@@ -421,18 +223,10 @@ import { Image } from "astro:assets";
 
   <section>
     <h2>I'd love to launch new projects</h2>
+    <p>I really enjoyed working on a product from zero to one. Feel free to reach out if you’d like to do a project together!</p>
     <p>
-      I really enjoyed working on a product from zero to one. Feel free to reach
-      out if you’d like to do a project together!
-    </p>
-    <p>
-      <a href="https://t.me/IngMaeSing" class="link" target="_blank">Telegram</a
-      >,
-      <a
-        href="https://www.linkedin.com/in/pavelsikorsky/"
-        class="link"
-        target="_blank">LinkedIn</a
-      >,
+      <a href="https://t.me/IngMaeSing" class="link" target="_blank">Telegram</a>,
+      <a href="https://www.linkedin.com/in/pavelsikorsky/" class="link" target="_blank">LinkedIn</a>,
       <a href="mailto:p@sikorsky.design" class="link">p@sikorsky.design</a>.
     </p>
   </section>

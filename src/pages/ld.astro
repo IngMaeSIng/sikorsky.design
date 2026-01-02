@@ -1,29 +1,19 @@
 ---
 import { Image } from "astro:assets";
-import Layout from "../layouts/Layout.astro";
+import Layout from "../../packages/astro-theme/src/components/Layout.astro";
 import ld1 from "../images/ld/ld-1.png";
 import ld2 from "../images/ld/ld-2.png";
 import ld3 from "../images/ld/ld-3.png";
 ---
 
-<Layout
-  title="A Holistic Blueprint for Life Design"
-  description="Creating a personalized framework for lasting change"
-  pageId="ld"
->
+<Layout title="A Holistic Blueprint for Life Design" description="Creating a personalized framework for lasting change" pageId="ld">
   <div class="metadata">
     <time datetime="2025-01-07">January 7, 2025</time>
     · <span class="tags">goal-setting, journaling</span>
   </div>
   <header>
     <h1 id="title">A Holistic Blueprint for Life Design</h1>
-    <h2>
-      I believe that personal design is the foundation for a meaningful life.
-      After ten years of experimentation, I developed a framework of artifacts
-      and practices that guide my daily life. The key is to start with a
-      holistic vision of your ideal future and then break it down into
-      actionable goals and daily habits that will help you embody that vision.
-    </h2>
+    <h2>I believe that personal design is the foundation for a meaningful life. After ten years of experimentation, I developed a framework of artifacts and practices that guide my daily life. The key is to start with a holistic vision of your ideal future and then break it down into actionable goals and daily habits that will help you embody that vision.</h2>
   </header>
   <section>
     <p>
@@ -32,94 +22,56 @@ import ld3 from "../images/ld/ld-3.png";
   </section>
   <section>
     <h2>Disclaimer</h2>
+    <p>This article is a lengthy read and includes several practices that require time and attention. I encourage you to scan the content briefly first, then set aside dedicated time to read and engage with each practice individually. This process may take days or even weeks, and that's perfectly fine. Please don't rush yourself through it.</p>
     <p>
-      This article is a lengthy read and includes several practices that require
-      time and attention. I encourage you to scan the content briefly first,
-      then set aside dedicated time to read and engage with each practice
-      individually. This process may take days or even weeks, and that's
-      perfectly fine. Please don't rush yourself through it.
-    </p>
-    <p>
-      If you prefer Russian, check out <a
-        href="https://t.me/initsrightplace/211"
-        class="link"
-        target="_blank">the post on Telegram</a
-      >.
+      If you prefer Russian, check out <a href="https://t.me/initsrightplace/211" class="link" target="_blank">the post on Telegram</a>.
     </p>
   </section>
   <section>
     <h2>Life vision</h2>
     <p>
-      This practice was originally developed by designer <a
-        href="https://www.miltonglaser.com"
-        class="link"
-        target="_blank">Milton Glaser</a
-      > and popularized by <a
-        href="https://debbiemillman.com"
-        target="_blank"
-        class="link">Debbie Millman</a
-      >. It empowers you to dream big, envision the life you desire, and guide
-      your goal-setting process.
+      This practice was originally developed by designer <a href="https://www.miltonglaser.com" class="link" target="_blank">Milton Glaser</a> and popularized by <a href="https://debbiemillman.com" target="_blank" class="link">Debbie Millman</a>. It empowers you to dream big, envision the life you desire, and guide your goal-setting process.
     </p>
-    <p>
-      Take a notebook, find a cozy quiet space, and set aside a couple of hours.
-      Write an essay envisioning your ideal life in ten years. Outline your
-      vision in three main areas.
-    </p>
+    <p>Take a notebook, find a cozy quiet space, and set aside a couple of hours. Write an essay envisioning your ideal life in ten years. Outline your vision in three main areas.</p>
   </section>
   <section>
     <h3>Yourself</h3>
     <ul>
       <li>
-        <strong>Health.</strong> How is your overall health? How do you feel each
-        day? What progress have you made regarding any current illnesses or injuries?
+        <strong>Health.</strong> How is your overall health? How do you feel each day? What progress have you made regarding any current illnesses or injuries?
       </li>
       <li>
-        <strong>Nutrition.</strong> What does your typical diet look like? Are you
-        following any specific dietary plans or restrictions?
+        <strong>Nutrition.</strong> What does your typical diet look like? Are you following any specific dietary plans or restrictions?
       </li>
       <li>
-        <strong>Fitness.</strong> How often do you train, and where do you typically
-        work out? What types of exercises do you include in your routine?
+        <strong>Fitness.</strong> How often do you train, and where do you typically work out? What types of exercises do you include in your routine?
       </li>
       <li>
-        <strong>Substance use.</strong> What is your relationship with alcohol, caffeine,
-        and other addictive substances? How do they impact your daily life and well-being?
+        <strong>Substance use.</strong> What is your relationship with alcohol, caffeine, and other addictive substances? How do they impact your daily life and well-being?
       </li>
       <li>
-        <strong>Sleep.</strong> What is your typical sleep schedule? How many hours
-        do you sleep each night? What are the other conditions of your sleep look
-        like?
+        <strong>Sleep.</strong> What is your typical sleep schedule? How many hours do you sleep each night? What are the other conditions of your sleep look like?
       </li>
       <li>
-        <strong>Mindfulness.</strong> Do you practice meditation or other mindfulness
-        techniques? What methods do you find most effective?
+        <strong>Mindfulness.</strong> Do you practice meditation or other mindfulness techniques? What methods do you find most effective?
       </li>
       <li>
-        <strong>Living situation.</strong> Where do you live? Describe your home’s
-        appearance and decor, including the layout and the direction your windows
-        face.
+        <strong>Living situation.</strong> Where do you live? Describe your home’s appearance and decor, including the layout and the direction your windows face.
       </li>
       <li>
-        <strong>Transportation.</strong> Do you have a car or other vehicle? What
-        brand and model is it? Where do you typically drive, and how do you take
-        care of it?
+        <strong>Transportation.</strong> Do you have a car or other vehicle? What brand and model is it? Where do you typically drive, and how do you take care of it?
       </li>
       <li>
-        <strong>Finances.</strong> What is your financial situation? How much have
-        you saved and invested?
+        <strong>Finances.</strong> What is your financial situation? How much have you saved and invested?
       </li>
       <li>
-        <strong>Personal growth.</strong> How do you approach your studies? What
-        skills have you developed? How many books do you usually read?
+        <strong>Personal growth.</strong> How do you approach your studies? What skills have you developed? How many books do you usually read?
       </li>
       <li>
-        <strong>Recreation and recovery.</strong> How do you prefer to relax? What
-        activities do you enjoy?
+        <strong>Recreation and recovery.</strong> How do you prefer to relax? What activities do you enjoy?
       </li>
       <li>
-        <strong>Dreams.</strong> What is your biggest dream? What do you truly want
-        from life?
+        <strong>Dreams.</strong> What is your biggest dream? What do you truly want from life?
       </li>
     </ul>
   </section>
@@ -127,21 +79,16 @@ import ld3 from "../images/ld/ld-3.png";
     <h3>Work</h3>
     <ul>
       <li>
-        <strong>Career.</strong> Where do you work—are you employed or self-employed?
-        Describe your company and your position. How long have you been there, and
-        where do you aspire to go?
+        <strong>Career.</strong> Where do you work—are you employed or self-employed? Describe your company and your position. How long have you been there, and where do you aspire to go?
       </li>
       <li>
-        <strong>Personal projects.</strong> Are you working on any personal projects?
-        What are they, and how do they enrich your life?
+        <strong>Personal projects.</strong> Are you working on any personal projects? What are they, and how do they enrich your life?
       </li>
       <li>
-        <strong>Entrepreneurship.</strong> Are you pursuing the path of developing
-        your own business? What type of company are you building?
+        <strong>Entrepreneurship.</strong> Are you pursuing the path of developing your own business? What type of company are you building?
       </li>
       <li>
-        <strong>Volunteering.</strong> Do you help any individuals, communities,
-        or non-profit organizations?
+        <strong>Volunteering.</strong> Do you help any individuals, communities, or non-profit organizations?
       </li>
     </ul>
   </section>
@@ -149,238 +96,121 @@ import ld3 from "../images/ld/ld-3.png";
     <h3>Relationships</h3>
     <ul>
       <li>
-        <strong>Professional.</strong> What type of relations you build with colleagues?
-        Do you mentor juniors?
+        <strong>Professional.</strong> What type of relations you build with colleagues? Do you mentor juniors?
       </li>
       <li>
-        <strong>Personal.</strong> What is your relationship like with family and
-        friends? Where do you live, and with whom? How do you spend time with your
-        loved ones?
+        <strong>Personal.</strong> What is your relationship like with family and friends? Where do you live, and with whom? How do you spend time with your loved ones?
       </li>
       <li>
-        <strong>Parenthood.</strong> Do you have children? If so, how many? What
-        are their names, and what values or lessons do you aim to teach them?
+        <strong>Parenthood.</strong> Do you have children? If so, how many? What are their names, and what values or lessons do you aim to teach them?
       </li>
       <li>
-        <strong>Contribution.</strong> Have you found ways to share the knowledge
-        you’ve acquired? How do you share your abundance with the world?
+        <strong>Contribution.</strong> Have you found ways to share the knowledge you’ve acquired? How do you share your abundance with the world?
       </li>
     </ul>
   </section>
   <section>
     <p>
-      <strong>Daily Life.</strong> Finally, describe a typical day in your life.
-      Where do you wake up, what do you have for breakfast, what activities fill
-      your day?
+      <strong>Daily Life.</strong> Finally, describe a typical day in your life. Where do you wake up, what do you have for breakfast, what activities fill your day?
     </p>
   </section>
   <section>
+    <p>Feel free to adjust the time frame, focus areas, and questions to create a detailed and inspiring picture of your desired life. I recommend writing by hand for a more immersive experience before transferring your thoughts to a digital format for storage and revisiting.</p>
+    <p>A clear written vision of the future helps maintain direction and aids decision-making during challenging times, often working without your active involvement. This illustrates the power of visualization. Once articulated, these visions tend to manifest.</p>
+    <p>You can also take a more active approach, which will be discussed later. We often overestimate what we can achieve in a year while underestimating what’s possible in five to ten years. With focused effort over a decade, you can achieve the ideal vision you've created for yourself.</p>
+    <p>Finally, when the future arrives, it will be enlightening to assess whether you’ve reached your envisioned destination. This reflection will be challenging if you haven’t set a clear direction from the start.</p>
     <p>
-      Feel free to adjust the time frame, focus areas, and questions to create a
-      detailed and inspiring picture of your desired life. I recommend writing
-      by hand for a more immersive experience before transferring your thoughts
-      to a digital format for storage and revisiting.
-    </p>
-    <p>
-      A clear written vision of the future helps maintain direction and aids
-      decision-making during challenging times, often working without your
-      active involvement. This illustrates the power of visualization. Once
-      articulated, these visions tend to manifest.
-    </p>
-    <p>
-      You can also take a more active approach, which will be discussed later.
-      We often overestimate what we can achieve in a year while underestimating
-      what’s possible in five to ten years. With focused effort over a decade,
-      you can achieve the ideal vision you've created for yourself.
-    </p>
-    <p>
-      Finally, when the future arrives, it will be enlightening to assess
-      whether you’ve reached your envisioned destination. This reflection will
-      be challenging if you haven’t set a clear direction from the start.
-    </p>
-    <p>
-      Here are some additional materials to dig deeper: <a
-        href="https://podcasts.apple.com/ru/podcast/214-how-to-design-a-life-debbie-millman/id863897795?i=1000379907820"
-        class="link"
-        target="_blank">"How to Design a Life"</a
-      >
-      Debbie Millman on the Tim Ferriss Show, <a
-        href="https://mindfulambition.net/vision-setting-debbie-millman-remarkable-life-exercise/"
-        class="link"
-        target="_blank">Vision Setting: The Power of a 10-Year Life Plan</a
-      > (Debbie Millman's “Remarkable Life” Exercise).
+      Here are some additional materials to dig deeper: <a href="https://podcasts.apple.com/ru/podcast/214-how-to-design-a-life-debbie-millman/id863897795?i=1000379907820" class="link" target="_blank">"How to Design a Life"</a>
+      Debbie Millman on the Tim Ferriss Show, <a href="https://mindfulambition.net/vision-setting-debbie-millman-remarkable-life-exercise/" class="link" target="_blank">Vision Setting: The Power of a 10-Year Life Plan</a> (Debbie Millman's “Remarkable Life” Exercise).
     </p>
   </section>
   <section>
     <h2>Past year review</h2>
     <p>
-      <a
-        href="https://tim.blog/2021/12/27/past-year-review/"
-        class="link"
-        target="_blank">Tim Ferriss's exercise</a
-      > encourages you to reflect on the past year, identify what brought the most
-      benefit, and plan to incorporate more of those elements in the future.
+      <a href="https://tim.blog/2021/12/27/past-year-review/" class="link" target="_blank">Tim Ferriss's exercise</a> encourages you to reflect on the past year, identify what brought the most benefit, and plan to incorporate more of those elements in the future.
     </p>
     <div class="paragraph-with-list-block">
       <p>Once again, take your notebook and go to your place of power:</p>
       <ol>
         <li>
-          Divide a page into two columns: <strong>positive</strong> and <strong
-            >negative</strong
-          >.
+          Divide a page into two columns: <strong>positive</strong> and <strong>negative</strong>.
         </li>
-        <li>
-          Go through your calendar, task tracker, and list of achieved goals,
-          week by week.
-        </li>
-        <li>
-          Write down any people, activities, or commitments that triggered the
-          strongest positive or negative emotions for that week in the
-          designated columns.
-        </li>
-        <li>
-          Once you’ve finished, review the two lists and ask yourself which 20%
-          of each column produced the most significant peaks.
-        </li>
-        <li>
-          Schedule more of your top positive influences for the upcoming year.
-          Add these activities and connections to your goals list.
-        </li>
-        <li>
-          Reframe your top negative influences as anti-goals — things you will
-          try to avoid or eliminate from your life. Add these to your goals list
-          as well.
-        </li>
+        <li>Go through your calendar, task tracker, and list of achieved goals, week by week.</li>
+        <li>Write down any people, activities, or commitments that triggered the strongest positive or negative emotions for that week in the designated columns.</li>
+        <li>Once you’ve finished, review the two lists and ask yourself which 20% of each column produced the most significant peaks.</li>
+        <li>Schedule more of your top positive influences for the upcoming year. Add these activities and connections to your goals list.</li>
+        <li>Reframe your top negative influences as anti-goals — things you will try to avoid or eliminate from your life. Add these to your goals list as well.</li>
       </ol>
     </div>
-    <p>
-      This practice serves as a great way to thank yourself for the positive
-      experiences and reinforce what works, gradually improving your life.
-    </p>
-    <p>
-      If you set goals last year, take time to review them as well. Analyze
-      which goals you achieved and which you didn't, and transfer any that
-      remain relevant to your new list. I also summarize key quantitative
-      metrics, such as my walking distance and income. I enjoy comparing these
-      numbers year after year and seeing how I am improving.
-    </p>
+    <p>This practice serves as a great way to thank yourself for the positive experiences and reinforce what works, gradually improving your life.</p>
+    <p>If you set goals last year, take time to review them as well. Analyze which goals you achieved and which you didn't, and transfer any that remain relevant to your new list. I also summarize key quantitative metrics, such as my walking distance and income. I enjoy comparing these numbers year after year and seeing how I am improving.</p>
   </section>
   <section>
     <h2>Fear setting</h2>
     <p>
-      Reflecting on past goals may reveal that some, or even most important,
-      were unsuccessful. This is a valuable opportunity for deeper
-      introspection. To gain a clearer understanding of your fears and
-      motivations, consider incorporating Tim Ferriss’s <a
-        href="https://tim.blog/2017/05/15/fear-setting/"
-        target="_blank"
-        class="link">‘Fear Setting’ exercise</a
-      >.
+      Reflecting on past goals may reveal that some, or even most important, were unsuccessful. This is a valuable opportunity for deeper introspection. To gain a clearer understanding of your fears and motivations, consider incorporating Tim Ferriss’s <a href="https://tim.blog/2017/05/15/fear-setting/" target="_blank" class="link">‘Fear Setting’ exercise</a>.
     </p>
     <div class="paragraph-with-list-block">
-      <p>
-        Grab your notebook and spend a few minutes contemplating each of these
-        questions:
-      </p>
+      <p>Grab your notebook and spend a few minutes contemplating each of these questions:</p>
       <ol>
         <li>
-          <strong>Define your nightmare.</strong> What is the absolute worst-case
-          scenario if you pursue your current goal?
+          <strong>Define your nightmare.</strong> What is the absolute worst-case scenario if you pursue your current goal?
         </li>
         <li>
-          <strong>Develop a recovery plan.</strong> What steps could you take to
-          mitigate the damage or recover from the worst-case scenario, even temporarily?
+          <strong>Develop a recovery plan.</strong> What steps could you take to mitigate the damage or recover from the worst-case scenario, even temporarily?
         </li>
         <li>
-          <strong>Consider probable outcomes.</strong> What are the likely positive
-          outcomes, both short-term and long-term, if you pursue your goal?
+          <strong>Consider probable outcomes.</strong> What are the likely positive outcomes, both short-term and long-term, if you pursue your goal?
         </li>
         <li>
-          <strong>Assess your financial preparedness.</strong> If you were to lose
-          your job today, what immediate steps would you take to stabilize your finances?
+          <strong>Assess your financial preparedness.</strong> If you were to lose your job today, what immediate steps would you take to stabilize your finances?
         </li>
         <li>
-          <strong>Identify your fears.</strong> What are you currently avoiding out
-          of fear? Often, our greatest fears are directly linked to our most needed
-          actions.
+          <strong>Identify your fears.</strong> What are you currently avoiding out of fear? Often, our greatest fears are directly linked to our most needed actions.
         </li>
         <li>
-          <strong>Quantify the cost of inaction.</strong> What are the financial,
-          emotional, and physical consequences of delaying action on your goals?
+          <strong>Quantify the cost of inaction.</strong> What are the financial, emotional, and physical consequences of delaying action on your goals?
         </li>
         <li>
-          <strong>Confront your fear of action.</strong> What are you waiting for?
-          If your answer relies on the elusive concept of “good timing,” you’re likely
-          primarily driven by fear.
+          <strong>Confront your fear of action.</strong> What are you waiting for? If your answer relies on the elusive concept of “good timing,” you’re likely primarily driven by fear.
         </li>
       </ol>
     </div>
   </section>
   <section>
     <h2>Annual Goals</h2>
-    <p>
-      Congrats, you're doing great! We finally arrived at the goal-setting
-      stage. If you completed all the practices above, you now have everything
-      you need to set meaningful and effective goals.
-    </p>
+    <p>Congrats, you're doing great! We finally arrived at the goal-setting stage. If you completed all the practices above, you now have everything you need to set meaningful and effective goals.</p>
     <div class="paragraph-with-list-block">
       <p>
-        Let's start by discussing what makes a good goal. While many
-        methodologies exist, I find the simple and effective <strong
-          >SMART</strong
-        > framework works best:
+        Let's start by discussing what makes a good goal. While many methodologies exist, I find the simple and effective <strong>SMART</strong> framework works best:
       </p>
       <ul>
         <li>
-          <strong>Specific.</strong> How is your overall health? How do you feel
-          each day? What progress have you made regarding any current illnesses or
-          injuries?
+          <strong>Specific.</strong> How is your overall health? How do you feel each day? What progress have you made regarding any current illnesses or injuries?
         </li>
         <li>
-          <strong>Measurable.</strong> Metrics and key results are in place to help
-          you track your progress.
+          <strong>Measurable.</strong> Metrics and key results are in place to help you track your progress.
         </li>
         <li>
-          <strong>Achievable.</strong> You believe you can accomplish it, yet the
-          goal is somewhat ambitious and inspires action and change.
+          <strong>Achievable.</strong> You believe you can accomplish it, yet the goal is somewhat ambitious and inspires action and change.
         </li>
         <li>
-          <strong>Relevant.</strong> The goal aligns with the life vision we discussed
-          earlier and contributes to building your desired future.
+          <strong>Relevant.</strong> The goal aligns with the life vision we discussed earlier and contributes to building your desired future.
         </li>
         <li>
-          <strong>Time-bound.</strong> While we set annual goals, it's important
-          to establish stricter deadlines for your priority goals.
+          <strong>Time-bound.</strong> While we set annual goals, it's important to establish stricter deadlines for your priority goals.
         </li>
       </ul>
     </div>
-    <p>
-      This framework is effective for large-scale goals, but I also recommend
-      listing all the smaller things you want to accomplish throughout the year.
-      Writing them down helps you remember, and tracking your progress will
-      motivate you to do more. The general idea is straightforward: the more
-      goals you set, the more you can achieve.
-    </p>
+    <p>This framework is effective for large-scale goals, but I also recommend listing all the smaller things you want to accomplish throughout the year. Writing them down helps you remember, and tracking your progress will motivate you to do more. The general idea is straightforward: the more goals you set, the more you can achieve.</p>
     <h3>Life Domains</h3>
-    <p>
-      We outlined a vision for three main areas: yourself, work, and
-      relationships. For goal setting, I like to break these larger areas down
-      into more specific domains. This approach ensures that I don't overlook
-      anything important and helps me maintain balance in my life. My domains
-      for this year are: career, projects, publicity, education, productivity,
-      habits, health, sports, relationships, travel, finance, and comfort.
-    </p>
+    <p>We outlined a vision for three main areas: yourself, work, and relationships. For goal setting, I like to break these larger areas down into more specific domains. This approach ensures that I don't overlook anything important and helps me maintain balance in my life. My domains for this year are: career, projects, publicity, education, productivity, habits, health, sports, relationships, travel, finance, and comfort.</p>
     <p>
       <Image src={ld2} alt="year gole template" class="image" />
     </p>
     <h3>Template</h3>
     <p>
-      I've prepared <a
-        href="https://hexagonal-emery-1c0.notion.site/Year-Goals-Template-16c670bfe54e80ecafd2c0f973879a38"
-        class="link"
-        target="_blank">a template in Notion</a
-      > that you can copy for yourself. If you prefer not to use Notion, feel free
-      to create a document in a format that works best for you.
+      I've prepared <a href="https://hexagonal-emery-1c0.notion.site/Year-Goals-Template-16c670bfe54e80ecafd2c0f973879a38" class="link" target="_blank">a template in Notion</a> that you can copy for yourself. If you prefer not to use Notion, feel free to create a document in a format that works best for you.
     </p>
     <div class="paragraph-with-list-block">
       <p>What the document consists of:</p>
@@ -389,40 +219,28 @@ import ld3 from "../images/ld/ld-3.png";
           <strong>Year number</strong> so you can save it to the archive later.
         </li>
         <li>
-          <strong>Your priority focus.</strong> From all of your major goals, choose
-          the most important one and duplicate it at the top of the list.
+          <strong>Your priority focus.</strong> From all of your major goals, choose the most important one and duplicate it at the top of the list.
         </li>
         <li>
-          <strong>Progress tracker.</strong> Gamification motivates for achievement.
-          You will need to update each goal manually, then you can track your overall
-          progress from the "All" tab.
+          <strong>Progress tracker.</strong> Gamification motivates for achievement. You will need to update each goal manually, then you can track your overall progress from the "All" tab.
         </li>
         <li>
-          <strong>Goals display.</strong> Four tabs to switch between for different
-          groupings.
+          <strong>Goals display.</strong> Four tabs to switch between for different groupings.
         </li>
         <li>
-          <strong>The goal.</strong> State each goal using a strong verb and a clear
-          end vision in mind.
+          <strong>The goal.</strong> State each goal using a strong verb and a clear end vision in mind.
         </li>
         <li>
-          <strong>Key results.</strong> Quantifiable details to measure your progress.
-          There are two main types: output (what exactly you do) and outcome (what
-          result you achieve).
+          <strong>Key results.</strong> Quantifiable details to measure your progress. There are two main types: output (what exactly you do) and outcome (what result you achieve).
         </li>
         <li>
-          <strong>Accountable.</strong> Ideally, this should be someone you can consult
-          for advice on achieving a specific goal and with whom you can discuss progress.
-          This could also be a role model. For example, I add Derek Sivers for writing
-          related goals as I admire his style.
+          <strong>Accountable.</strong> Ideally, this should be someone you can consult for advice on achieving a specific goal and with whom you can discuss progress. This could also be a role model. For example, I add Derek Sivers for writing related goals as I admire his style.
         </li>
         <li>
-          <strong>Specific deadline.</strong> Add where it is applicable and helps
-          to set a rhythm.
+          <strong>Specific deadline.</strong> Add where it is applicable and helps to set a rhythm.
         </li>
         <li>
-          <strong>Impressions and reflections.</strong> Fill this out at the end
-          of the year in a free form.
+          <strong>Impressions and reflections.</strong> Fill this out at the end of the year in a free form.
         </li>
       </ul>
     </div>
@@ -430,94 +248,58 @@ import ld3 from "../images/ld/ld-3.png";
       <p>Now, let's fill in the template with your goals:</p>
       <ol>
         <li>
-          <strong>Edit life domains.</strong> Determine which areas are important
-          to you specifically and arrange the list by their subjective importance.
+          <strong>Edit life domains.</strong> Determine which areas are important to you specifically and arrange the list by their subjective importance.
         </li>
         <li>
-          <strong>Add strategic aspirational goals.</strong> Include goals that will
-          bring you closer to your life vision.
+          <strong>Add strategic aspirational goals.</strong> Include goals that will bring you closer to your life vision.
         </li>
         <li>
-          <strong>Plan positive actions.</strong> Include good things from PYR that
-          you want to carry forward.
+          <strong>Plan positive actions.</strong> Include good things from PYR that you want to carry forward.
         </li>
         <li>
-          <strong>Set anti-goals.</strong> Reframe negative events from PYR into
-          goals to reduce or eliminate them from your life. For example, I set a
-          goal of not drinking for 325 days a year, which allows me to easily measure
-          my progress.
+          <strong>Set anti-goals.</strong> Reframe negative events from PYR into goals to reduce or eliminate them from your life. For example, I set a goal of not drinking for 325 days a year, which allows me to easily measure my progress.
         </li>
         <li>
           <strong>Incorporate new habits</strong> you want to develop.
         </li>
         <li>
-          <strong>Supplement with annual tasks.</strong> Include useful activities
-          that are worth doing each year, such as regular doctor visits.
+          <strong>Supplement with annual tasks.</strong> Include useful activities that are worth doing each year, such as regular doctor visits.
         </li>
         <li>
-          <strong>Prioritize goals.</strong> Arrange goals from most important to
-          least important in each block.
+          <strong>Prioritize goals.</strong> Arrange goals from most important to least important in each block.
         </li>
       </ol>
     </div>
 
     <p>Wonderful! Now you’re all set and ready to go!</p>
-    <p>
-      Let's wrap it up: define the goal, quantify the outcome, and engage in the
-      action. The next step is to build a system for achieving your goals. The
-      best approach is to take action every day, even if just for five minutes.
-    </p>
+    <p>Let's wrap it up: define the goal, quantify the outcome, and engage in the action. The next step is to build a system for achieving your goals. The best approach is to take action every day, even if just for five minutes.</p>
   </section>
   <section>
     <h2>Weekly sprints & tasks</h2>
     <p>
-      A week is a convenient unit for planning. Unlike months, it remains
-      consistent and matches our social rhythm. The most effective framework for
-      weekly planning is <a
-        href="https://gettingthingsdone.com/"
-        target="_blank"
-        class="link">GTD (Getting Things Done)</a
-      >.
+      A week is a convenient unit for planning. Unlike months, it remains consistent and matches our social rhythm. The most effective framework for weekly planning is <a href="https://gettingthingsdone.com/" target="_blank" class="link">GTD (Getting Things Done)</a>.
     </p>
-    <p>
-      Ideally, you should use the same tool for both your goals and tasks.
-      However, Notion is too heavy for that and doesn't have a today date stamp.
-      There are multiple specialized apps you can choose from, I suggest
-      minimalistic and beautiful Things.
-    </p>
+    <p>Ideally, you should use the same tool for both your goals and tasks. However, Notion is too heavy for that and doesn't have a today date stamp. There are multiple specialized apps you can choose from, I suggest minimalistic and beautiful Things.</p>
     <div class="paragraph-with-list-block">
       <p>What you need for effective task tracking:</p>
       <ul>
         <li>
-          <strong>Sprint Planning.</strong> Set a recurring task to plan the following
-          week at the end of each week. Update your list of annual goals and pick
-          tasks that will bring you closer to achieving them.
+          <strong>Sprint Planning.</strong> Set a recurring task to plan the following week at the end of each week. Update your list of annual goals and pick tasks that will bring you closer to achieving them.
         </li>
         <li>
-          <strong>Inbox.</strong> Write down any ideas that come to mind so you don't
-          forget or get distracted. Figure out what to do with them on a weekly planning
-          — schedule a task, save for later, or delete.
+          <strong>Inbox.</strong> Write down any ideas that come to mind so you don't forget or get distracted. Figure out what to do with them on a weekly planning — schedule a task, save for later, or delete.
         </li>
         <li>
-          <strong>Today tasks.</strong> All your tasks for the day. I recommend doing
-          a quick review of this list before bed, arranging items in order of importance.
-          This way, you can start your morning with the highest priority task without
-          wasting extra energy on decision-making.
+          <strong>Today tasks.</strong> All your tasks for the day. I recommend doing a quick review of this list before bed, arranging items in order of importance. This way, you can start your morning with the highest priority task without wasting extra energy on decision-making.
         </li>
         <li>
-          <strong>Upcoming.</strong> Tasks scheduled for specific dates starting
-          tomorrow. It's convenient to review this list during sprint planning.
+          <strong>Upcoming.</strong> Tasks scheduled for specific dates starting tomorrow. It's convenient to review this list during sprint planning.
         </li>
         <li>
-          <strong>Backlogs for key life domains.</strong> Create sections to store
-          tasks in non-specific areas such as shopping, doctor's appointments, travel,
-          and education. You can put ideas from your inbox there if you can't do
-          them right away, but don't want to forget either.
+          <strong>Backlogs for key life domains.</strong> Create sections to store tasks in non-specific areas such as shopping, doctor's appointments, travel, and education. You can put ideas from your inbox there if you can't do them right away, but don't want to forget either.
         </li>
         <li>
-          <strong>Project folders.</strong> Create folders for the most important
-          goals on your list and fill them with relevant tasks. The key results you
-          set for your goals are great for translating into actionable tasks.
+          <strong>Project folders.</strong> Create folders for the most important goals on your list and fill them with relevant tasks. The key results you set for your goals are great for translating into actionable tasks.
         </li>
       </ul>
     </div>
@@ -525,84 +307,44 @@ import ld3 from "../images/ld/ld-3.png";
   <section>
     <h2>Calendar</h2>
     <p>
-      Time is obviously limited. <a
-        href="https://waitbutwhy.com/2014/05/life-weeks.html"
-        target="_blank"
-        class="link">Tim Urban's post</a
-      > uses weeks to vividly illustrate this notion. Working with a calendar helps
-      visualize this transience and increases the value of each week.
+      Time is obviously limited. <a href="https://waitbutwhy.com/2014/05/life-weeks.html" target="_blank" class="link">Tim Urban's post</a> uses weeks to vividly illustrate this notion. Working with a calendar helps visualize this transience and increases the value of each week.
     </p>
     <div class="paragraph-with-list-block">
-      <p>
-        We've planned numerous goals and tasks. The next step is to create space
-        to work on them:
-      </p>
+      <p>We've planned numerous goals and tasks. The next step is to create space to work on them:</p>
       <ul>
         <li>
-          <strong>Create recurring slots.</strong> Allocate time for sleep, meals,
-          exercise, work, and commuting. This will instantly leave you with limited
-          free time.
+          <strong>Create recurring slots.</strong> Allocate time for sleep, meals, exercise, work, and commuting. This will instantly leave you with limited free time.
         </li>
         <li>
-          <strong>Schedule goal work.</strong> Set aside dedicated slots for working
-          on your goals, ideally in the morning before other chores. Aim for daily
-          sessions, even if it's just half an hour. The power of habit lies in regularity.
+          <strong>Schedule goal work.</strong> Set aside dedicated slots for working on your goals, ideally in the morning before other chores. Aim for daily sessions, even if it's just half an hour. The power of habit lies in regularity.
         </li>
         <li>
-          <strong>Mark time for sprint planning.</strong> Designate a time at the
-          end of the week, preferably Sunday night.
+          <strong>Mark time for sprint planning.</strong> Designate a time at the end of the week, preferably Sunday night.
         </li>
         <li>
-          <strong>Schedule meetings.</strong> Make sure all meetings are noted in
-          your calendar. That way, you won't miss them, and it will be easier to
-          do the PYR later.
+          <strong>Schedule meetings.</strong> Make sure all meetings are noted in your calendar. That way, you won't miss them, and it will be easier to do the PYR later.
         </li>
       </ul>
     </div>
-    <p>
-      With all the groundwork work done, the next steps are mechanically simple.
-      During each goal-focused work slot, sit down, select the highest priority
-      task from your tracker, and start working on it.
-    </p>
+    <p>With all the groundwork work done, the next steps are mechanically simple. During each goal-focused work slot, sit down, select the highest priority task from your tracker, and start working on it.</p>
   </section>
   <section>
     <h2>Daily habits</h2>
-    <p>
-      There are two main types of goals: project-based and behavior-based. The
-      latter include activities such as exercise, healthy eating, writing, cold
-      showers, meditation, and more. These are most easily achieved with daily
-      practice, even if it's just for five minutes at a time. This is a large
-      topic in itself, with many books written on it.
-    </p>
+    <p>There are two main types of goals: project-based and behavior-based. The latter include activities such as exercise, healthy eating, writing, cold showers, meditation, and more. These are most easily achieved with daily practice, even if it's just for five minutes at a time. This is a large topic in itself, with many books written on it.</p>
     <div class="paragraph-with-list-block">
       <p>However the basic rules for developing habits are as follows:</p>
       <ul>
         <li>
-          <strong>Get a habit tracker.</strong> The specific tool doesn’t matter
-          — whether it’s <a
-            href="https://apps.apple.com/ru/app/habit-tracker/id1438388363"
-            target="_blank"
-            class="link">a separate app</a
-          > or a spreadsheet in your service of choice. What's important is that
-          you can mark your progress each time you complete the habit and receive
-          tactile feedback.
+          <strong>Get a habit tracker.</strong> The specific tool doesn’t matter — whether it’s <a href="https://apps.apple.com/ru/app/habit-tracker/id1438388363" target="_blank" class="link">a separate app</a> or a spreadsheet in your service of choice. What's important is that you can mark your progress each time you complete the habit and receive tactile feedback.
         </li>
         <li>
-          <strong>Focus on one new habit at a time.</strong> It's tempting to start
-          multiple new habits at once, especially at the New Year. However, this
-          can lead to burnout and eventually abandoning all your efforts.
+          <strong>Focus on one new habit at a time.</strong> It's tempting to start multiple new habits at once, especially at the New Year. However, this can lead to burnout and eventually abandoning all your efforts.
         </li>
         <li>
-          <strong>Attach new habits to existing ones.</strong> The easiest way to
-          establish a new habit is to link it to something you already do regularly.
-          For example, drink a glass of water before you start making coffee in the
-          morning.
+          <strong>Attach new habits to existing ones.</strong> The easiest way to establish a new habit is to link it to something you already do regularly. For example, drink a glass of water before you start making coffee in the morning.
         </li>
         <li>
-          <strong>Try not to skip two days in a row.</strong> Life happens, and you
-          may occasionally miss your habits — that's normal. The key is to avoid
-          skipping two days in a row. Otherwise, skipping can start to become a habit
-          itself.
+          <strong>Try not to skip two days in a row.</strong> Life happens, and you may occasionally miss your habits — that's normal. The key is to avoid skipping two days in a row. Otherwise, skipping can start to become a habit itself.
         </li>
       </ul>
     </div>
@@ -612,83 +354,27 @@ import ld3 from "../images/ld/ld-3.png";
       <Image src={ld3} alt="key metrics" class="image" />
     </p>
     <h2>Key metrics</h2>
+    <p>This one may be a bit tricky and take some time to establish. The main idea is to identify a couple of the most important metrics, the improvement of which will gradually enhance the rest of your life. These could include VO2max for physical health, weight or body fat for weight loss, hours of work in a flow state, or quality time spent with loved ones. It's very personal, and I encourage you to make some assumptions, experiment, and find what works for you.</p>
     <p>
-      This one may be a bit tricky and take some time to establish. The main
-      idea is to identify a couple of the most important metrics, the
-      improvement of which will gradually enhance the rest of your life. These
-      could include VO2max for physical health, weight or body fat for weight
-      loss, hours of work in a flow state, or quality time spent with loved
-      ones. It's very personal, and I encourage you to make some assumptions,
-      experiment, and find what works for you.
-    </p>
-    <p>
-      I borrowed my two metrics from <a
-        href="https://tim.blog/2020/11/30/jim-collins-returns/"
-        target="_blank"
-        class="link">Jim Collins</a
-      >: hours of productive work per day and an overall daily rating (holistic
-      wellbeing) from -2 to 2. One is objective, while the other is subjective.
-      I tried tracking four metrics last year, but it felt overwhelming and
-      excessive. I track them in a Google spreadsheet and observe how improving
-      them helps with my other goals.
+      I borrowed my two metrics from <a href="https://tim.blog/2020/11/30/jim-collins-returns/" target="_blank" class="link">Jim Collins</a>: hours of productive work per day and an overall daily rating (holistic wellbeing) from -2 to 2. One is objective, while the other is subjective. I tried tracking four metrics last year, but it felt overwhelming and excessive. I track them in a Google spreadsheet and observe how improving them helps with my other goals.
     </p>
   </section>
   <section>
     <h2>Daily journaling practice</h2>
+    <p>We are wrapping up with the most important mindfulness practice. Start by writing down your thoughts, experiences, events, desires, and fears in a free form. As you do this regularly, you'll notice how it gradually affects your mood and understanding of yourself. Journaling over an extended period of time will make it much easier to write your life vision and goals, influencing all of your self-design practices.</p>
     <p>
-      We are wrapping up with the most important mindfulness practice. Start by
-      writing down your thoughts, experiences, events, desires, and fears in a
-      free form. As you do this regularly, you'll notice how it gradually
-      affects your mood and understanding of yourself. Journaling over an
-      extended period of time will make it much easier to write your life vision
-      and goals, influencing all of your self-design practices.
+      I have been journaling every day since 2015, and I find this practice to be incredibly rewarding. When I am in doubt or experiencing difficult emotions, writing them down helps relieve the pressure. Journaling is also a great way to recall what I was doing on any particular day in the past. I currently use <a href="https://griddiaryapp.com/" target="_blank" class="link">Grid Diary</a> to store memories and <a href="https://mykin.ai/" class="link" target="_blank">Kin</a> for therapeutic purposes.
     </p>
-    <p>
-      I have been journaling every day since 2015, and I find this practice to
-      be incredibly rewarding. When I am in doubt or experiencing difficult
-      emotions, writing them down helps relieve the pressure. Journaling is also
-      a great way to recall what I was doing on any particular day in the past.
-      I currently use <a
-        href="https://griddiaryapp.com/"
-        target="_blank"
-        class="link">Grid Diary</a
-      > to store memories and <a
-        href="https://mykin.ai/"
-        class="link"
-        target="_blank">Kin</a
-      > for therapeutic purposes.
-    </p>
-    <p>
-      "Writing is the superpower of humankind. It is our truest form of magic."
-    </p>
+    <p>"Writing is the superpower of humankind. It is our truest form of magic."</p>
   </section>
   <section>
     <h2>Closing</h2>
-    <p>
-      I truly congratulate you for reading through all this. I find joy in
-      publishing this content, knowing it can be useful for someone besides me.
-    </p>
-    <p>
-      I've been developing and refining this framework since 2014, when I first
-      set annual goals. This post is by far the most comprehensive edition.
-    </p>
-    <p>
-      As you read, I use different tools for each practice: Notion for life
-      vision and goals, Things for sprints and tasks, a Habit tracker for
-      habits, Google Docs for metrics, and Grid Diary along with Kin for
-      journaling. My dream and purpose is to integrate them into one system and
-      ultimately one tool. I believe that with a touch of AI, this could provide
-      significant leverage for living a conscious and healthy life.
-    </p>
+    <p>I truly congratulate you for reading through all this. I find joy in publishing this content, knowing it can be useful for someone besides me.</p>
+    <p>I've been developing and refining this framework since 2014, when I first set annual goals. This post is by far the most comprehensive edition.</p>
+    <p>As you read, I use different tools for each practice: Notion for life vision and goals, Things for sprints and tasks, a Habit tracker for habits, Google Docs for metrics, and Grid Diary along with Kin for journaling. My dream and purpose is to integrate them into one system and ultimately one tool. I believe that with a touch of AI, this could provide significant leverage for living a conscious and healthy life.</p>
     <p>
       If anything here resonates with you, feel free to drop me a note on
-      <a href="https://t.me/IngMaeSing" class="link" target="_blank">Telegram</a
-      >, <a
-        href="https://www.linkedin.com/in/paulsikorsky/"
-        class="link"
-        target="_blank">LinkedIn</a
-      >, or via <a href="mailto:p@sikorsky.design" class="link">email</a>. I'm
-      also available for personal mentorship using this framework.
+      <a href="https://t.me/IngMaeSing" class="link" target="_blank">Telegram</a>, <a href="https://www.linkedin.com/in/paulsikorsky/" class="link" target="_blank">LinkedIn</a>, or via <a href="mailto:p@sikorsky.design" class="link">email</a>. I'm also available for personal mentorship using this framework.
     </p>
   </section>
 </Layout>

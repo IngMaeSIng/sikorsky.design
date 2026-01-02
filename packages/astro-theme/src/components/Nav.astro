@@ -1,10 +1,12 @@
 ---
-import Breadcrumbs from "../components/Breadcrumbs.astro";
-import { generateBreadcrumbs } from "../utils/generateBreadcrumbs";
+import Breadcrumbs from "./Breadcrumbs.astro";
+import { generateBreadcrumbs } from "../utils/generateBreadcrumbs.js";
+import config from "virtual:theme-config";
 
 const currentPath = Astro.url.pathname;
 const pageTitle = Astro.props.title || "Current Page";
-const breadcrumbItems = generateBreadcrumbs(currentPath, pageTitle);
+// Pass siteName from config to generateBreadcrumbs
+const breadcrumbItems = generateBreadcrumbs(currentPath, pageTitle, config.site.name);
 const isHome = currentPath === "/";
 ---
 
@@ -12,8 +14,8 @@ const isHome = currentPath === "/";
   <div class="nav-content">
     <a href="/" class="logo" id="logo">
       <img
-        src="/logo.png"
-        alt="Paul Sikorsky logo"
+        src={config.logo}
+        alt={config.logoAlt}
         width="32"
         height="32"
         style={isHome ? "opacity:0;" : undefined}

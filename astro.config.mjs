@@ -1,10 +1,13 @@
-import { defineConfig } from 'astro/config';
+import { defineConfig } from "astro/config";
+import { themeIntegration } from "./packages/astro-theme/src/index";
+import themeConfig from "./theme.config";
 
 // https://astro.build/config
 export default defineConfig({
-	vite: {
-		ssr: {
-			noExternal: ['firebase']
-		}
-	}
+  integrations: [themeIntegration({ config: themeConfig })],
+  vite: {
+    ssr: {
+      noExternal: ["firebase"]
+    }
+  }
 });

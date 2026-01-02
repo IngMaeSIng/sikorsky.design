@@ -1,7 +1,8 @@
 ---
 import "../styles/global.css";
-import Nav from "../components/Nav.astro";
-import LikeButton from "../components/LikeButton.astro";
+import Nav from "./Nav.astro";
+import LikeButton from "./LikeButton.astro";
+import config from "virtual:theme-config";
 
 interface Props {
   title: string;
@@ -11,6 +12,7 @@ interface Props {
 
 const { title, description, pageId } = Astro.props;
 const currentPath = Astro.url.pathname;
+const { footer, site } = config;
 ---
 
 <!doctype html>
@@ -52,7 +54,7 @@ const currentPath = Astro.url.pathname;
               </div>
               <div>
                 <strong class="share">
-                  <span class="link-address">{` sikorsky.design${currentPath.replace(/\/$/, "")}`}</span>
+                  <span class="link-address">{` ${site.domain}${currentPath.replace(/\/$/, "")}`}</span>
                 </strong>
               </div>
             </div>
@@ -62,16 +64,22 @@ const currentPath = Astro.url.pathname;
     </main>
     <footer>
       <p class="secondary">
-        <span>© Paul Sikorsky, b. 1988</span>
-        <span style="margin-left: 6px; letter-spacing: 5px">·㉨·</span>
+        <span>{footer.copyright}</span>
+        {footer.decoration && <span style="margin-left: 6px; letter-spacing: 5px" set:html={footer.decoration} />}
         <span>
-          <a href="mailto:p@sikorsky.design" class="link">p@sikorsky.design</a>
-          · <a href="https://t.me/initsrightplace" class="link" target="_blank">@initsrightplace</a>
-          · <a
-              href="https://www.linkedin.com/in/paulsikorsky/"
-              class="link"
-              target="_blank">LinkedIn</a>
-          · <a href="https://www.instagram.com/ingmaesing/" class="link" target="_blank">Instagram</a>
+          <a href={`mailto:${footer.email}`} class="link">{footer.email}</a>
+          {footer.socials.map((social) => (
+            <>
+              {" · "}
+              <a
+                href={social.url}
+                class="link"
+                target={social.sameTab ? undefined : "_blank"}
+              >
+                {social.label}
+              </a>
+            </>
+          ))}
         </span>
       </p>
     </footer>
@@ -96,12 +104,12 @@ const currentPath = Astro.url.pathname;
   }
 </style>
 
-<script is:inline>
+<script define:vars={{ domain: site.domain }}>
   document.getElementById("copy-link")?.addEventListener("click", (e) => {
     if (e.target.closest(".link")) {
       e.preventDefault();
       navigator.clipboard.writeText(
-        `sikorsky.design${window.location.pathname}`
+        `${domain}${window.location.pathname}`
       );
     }
   });
