@@ -1,4 +1,4 @@
-import { defineConfig } from "./packages/astro-theme/src/index";
+import { defineConfig } from "@sikorsky/site";
 
 export default defineConfig({
   site: {

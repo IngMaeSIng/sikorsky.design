@@ -1,5 +1,5 @@
 import { defineConfig } from "astro/config";
-import { themeIntegration } from "./packages/astro-theme/src/index";
+import { themeIntegration } from "@sikorsky/site";
 import themeConfig from "./theme.config";
 
 // https://astro.build/config
