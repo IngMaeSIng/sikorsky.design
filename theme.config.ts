@@ -16,5 +16,15 @@ export default defineConfig({
       { label: "LinkedIn", url: "https://www.linkedin.com/in/paulsikorsky/" },
       { label: "Instagram", url: "https://www.instagram.com/ingmaesing/" }
     ]
-  }
+  },
+  head: [
+    {
+      tag: "script",
+      attrs: {
+        defer: true,
+        src: "https://stats.andreitarasov.dev/stats.js",
+        "data-website-id": "0790d682-eacb-4a94-9501-f74afdf185c9"
+      }
+    }
+  ]
 });
