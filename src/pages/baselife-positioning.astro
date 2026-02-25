@@ -1,0 +1,67 @@
+---
+import Layout from "@sikorsky/site/components/Layout.astro";
+import { Image } from "astro:assets";
+---
+
+<Layout title="How I Chose the Name for My Product" description="A story about years of journaling and refining an idea finally pushed forward by a quick reality check." pageId="baselife-naming">
+  <div class="metadata">
+    <div>
+      <time datetime="2026-01-31">January 31, 2026</time>
+      ·
+      <a class="link" href="https://t.me/initsrightplace/263" target="_blank">Originally published in my channel</a>
+      · <span class="tags">baselife, journaling, branding</span>
+    </div>
+  </div>
+  <header>
+    <h1 id="title">How I Chose the Name for My Product</h1>
+  </header>
+  <section>
+    <p>
+      <video class="image autoplay-video" src="https://firebasestorage.googleapis.com/v0/b/sikorsky-design.firebasestorage.app/o/videos%2Fbaselife-positioning%2Fbaselife-positioning-1.mp4?alt=media&token=e4c15340-8eff-4ea7-954d-3811332cdf64" muted playsinline preload="auto"></video>
+    </p>
+  </section>
+  <section>
+    <p>I’ve been journaling every day for the past 11 years.</p>
+    <p>I started in Evernote, then moved to Griddiary. Along the way, I tried dozens of productivity tools to enhance my practice: Trello, Things 3, Notes, Notion, Obsidian, Kin, Timestripe, Habit, Momentum, How We Feel, Joi Planner, Purpose, Atoms, Lid, Amie, custom Google Sheets plus plenty of paper journals with different frameworks.</p>
+    <p>Each was good at solving a specific problem. But none of them gave me a clear visual structure that showed how using them actually shaped my life.</p>
+    <p>That’s when the idea of building my own product began to form in my designer’s mind. Something that would bring different practices together around a life calendar.</p>
+    <p>I came up with the name Baseline after watching the latest Blade Runner. You might remember <a href="https://www.youtube.com/watch?v=NInOxvgBuMQ" class="link" target="_blank">the scene where Gosling’s character recalibrates his emotional state in a white room.</a> That image stuck with me. It felt like a perfect metaphor for journaling: a tool to level your emotions in the present moment.</p>
+    <p>For a couple of years, I lived with that idea, <a href="/ld" class="link">refining the framework</a> and testing practices that could form a more complete journaling experience.</p>
+    <p>Then, in early January, I finally decided to register a domain name.</p>
+    <p>As expected, all the good ones were taken. I also discovered two similar products already using the same name. That was my first real collision with reality, and it broke the idea.</p>
+    <p>I spent two days frustrated. Then I managed to look at the situation differently.</p>
+    <p>Baseline sounds like a technical term. It lacks emotion and doesn’t fully express the depth of the idea. It would be hard to build a memorable brand on top of it.</p>
+    <p>So I started exploring alternatives. My shortlist included Holos, Holist, LifeCore, Wholen, and Lifelog.</p>
+    <p>In the end, I changed just one letter and landed on <a href="/baselife" class="link">Baselife.</a></p>
+    <p>The word doesn’t exist, but its two parts capture the idea completely. A base for life resonates perfectly with me.</p>
+    <p>At some point, it clicked: a good brand isn’t about a perfect name. It’s a story you’re willing to tell consistently over time, until people get used to it and stop finding it strange.</p>
+    <p>Now I say the name out loud regularly and enjoy how it sounds, clear and alive.</p>
+  </section>
+</Layout>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const videos = document.querySelectorAll(".autoplay-video") as NodeListOf<HTMLVideoElement>;
+
+    videos.forEach((video) => {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              if (!video.ended) {
+                video.play();
+              }
+            } else {
+              video.pause();
+            }
+          });
+        },
+        {
+          threshold: 0.2
+        }
+      );
+
+      observer.observe(video);
+    });
+  });
+</script>
